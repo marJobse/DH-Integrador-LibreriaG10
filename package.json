@@ -1,0 +1,23 @@
+{
+  "name": "grupo_10_proyecto_integrador",
+  "version": "1.0.0",
+  "description": "Temática del sitio web:\r     Eshop de libros, para un público de 25 a 65 años.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msfonrouge/grupo_10_proyecto_integrador.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msfonrouge/grupo_10_proyecto_integrador/issues"
+  },
+  "homepage": "https://github.com/msfonrouge/grupo_10_proyecto_integrador#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
