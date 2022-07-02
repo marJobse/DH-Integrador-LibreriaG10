@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/00d696814b.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link href="/css/forms.css" rel="stylesheet" />
+    <link href="/css/footer.css" rel="stylesheet" />
+    <link href="/css/header.css" rel="stylesheet" />
+
+    <title>Librería G10</title>
+</head>
+
+<body>
+    <header class="header">
+        <div id="top-search">
+            <form action="/unknown" method="post">
+                <input class="busqueda" type="text" id="search" value="search" placeholder="Busqueda por autor, título o editorial">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-user-large"></i>
+            </form>
+        </div>
+        <div id="main-nav">
+            <ul id="main-nav-menu">
+                <li>NOSOTROS</li>
+                <li>PRODUCTOS</li>
+                <li><img id="logo" src="/images/logo.png" alt="libronline"></li>
+                <li>CONTACTO</li>
+                <li>ENVIOS</li>
+
+            </ul>
+        </div>
+
+        </div>
+    </header>
+    <main>
+        <div id="user-form">
+        <h3>Iniciá sesión</h3>
+        <form action="/unknown" method="post">
+            <input type="email" id="email" name="email" placeholder="Correo electrónico">
+            <input type="password" name="password" id="password1" placeholder="Contraseña">
+            <a href="/register">¿Olvidaste tu contraseña?</a>
+            <button type="button" class="submit">Enviar</button>
+            <a id="crear-cuenta" href="/register">Creá tu cuenta</a>
+        </form>
+        </div>
+    </main>
+    <footer>
+        <article class="small-footer">
+            <ul>
+                <a href="#"><li>PRODUCTOS</li></a>
+                <a href="#"><li>CONTACTO</li></a>
+                <a href="#"><li>BLOG</li></a>
+            </ul>
+        </article>
+        <article class="small-footer">
+            <ul>
+                <a href="#"><li>OFERTAS</li></a>
+                <a href="#"><li>ENVIOS</li></a>
+                <a href="#"><li>TÉRMINOS</li></a>
+            </ul>
+        </article>
+        <article class="small-footer-spacer">
+
+        </article>
+        <article class="big-footer">
+            <!-- <div class="social-subscribe"> -->
+                <h4>Mantenete al tanto</h4>
+                <section class="footer-social">
+                    <a href="//"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="//"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="//"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="//"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="//"><i class="fa-brands fa-youtube"></i></a>
+                </section>
+                <div id="suscribite">
+                    <input type="email" id="email" name="foto-usuario" placeholder="Correo electrónico">
+                    <input type="button" id="subscribir" name="subscribir" value="Unite">
+                </div>
+            <!-- </div> -->
+        </article>
+        <article class="copyright">
+            <p id="copyright">© 2022 Librería G10</p>
+        </article>
+    </footer>
+</body>
+
+</html>
