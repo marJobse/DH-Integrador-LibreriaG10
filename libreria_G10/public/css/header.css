@@ -107,7 +107,7 @@ span.menu-item:hover {
     color: #91dfb9;
 }
 
-span.menu-item:hover:after {
+/* span.menu-item:hover:after {
     background-color: #91dfb9;
     bottom: 10;
     content: '';
@@ -117,4 +117,4 @@ span.menu-item:hover:after {
     position: absolute;
     transform: translate(-50%, 0);
     width: 50px;
-}
+} */
