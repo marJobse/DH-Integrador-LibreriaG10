@@ -1,6 +1,10 @@
 .contenedor-libro-seleccionado {
     display: flex;
     padding: 20px;
+    flex-direction: column;
+    margin: auto;
+
+
 }
 
 .contenedor-detalles-libro-seleccionado {
@@ -10,16 +14,23 @@
 
 .contenedor-imagen-libro-seleccionado {
     width: 50%;
-
 }
 
 .imagen-libro {
     width: 50vh;
+
+}
+
+.contenedor-cant-button {
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 .contenedor-cantidad {
     width: 50%;
     float: left;
+    text-align: left;
 }
 
 .contenedor-cantidad label {
@@ -33,7 +44,6 @@
 .contador {
     width: auto;
     float: left;
-
 
 }
 
@@ -60,14 +70,13 @@
 }
 
 .btn-cart {
-    width: 25%;
+    width: 100%;
     padding: 5px;
     font-weight: bold;
     border-radius: 8px;
+    text-align: right;
 
 }
-
-
 
 
 .resenia {
@@ -114,4 +123,12 @@
 
 h3.titulares {
     padding: 10px;
+}
+
+@media (min-width: 769px) {
+
+
+    .contenedor-libro-seleccionado {
+        flex-direction: row;
+    }
 }
