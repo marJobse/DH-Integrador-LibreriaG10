@@ -10,27 +10,36 @@
 .contenedor-detalles-libro-seleccionado {
     width: 50%;
 
+
 }
 
 .contenedor-imagen-libro-seleccionado {
-    width: 50%;
+    width: 100%;
+    max-width: 400px;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
 
 .imagen-libro {
-    width: 50vh;
-
+    width: 100%
 }
 
 .contenedor-cant-button {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%
+}
 
+.contenedor-cant-button span {
+    font-weight: bold;
 }
 
 .contenedor-cantidad {
     width: 50%;
     float: left;
     text-align: left;
+    color: #ff0035;
 }
 
 .contenedor-cantidad label {
@@ -38,8 +47,13 @@
     line-height: 28px;
     margin: 0 10px 0 0;
     font-weight: bold;
+}
+
+.contador input {
+    color: #ff0035;
 
 }
+
 
 .contador {
     width: auto;
@@ -71,13 +85,17 @@
 
 .btn-cart {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     font-weight: bold;
     border-radius: 8px;
     text-align: right;
 
 }
 
+.agregar-carrito {
+    display: flex;
+    align-items: flex-end;
+}
 
 .resenia {
     white-space: nowrap;
@@ -86,9 +104,14 @@
 
 
 .overflow-ellipsis {
-    white-space: nowrap;
+
+    display: -webkit-box;
+    max-height: 150px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-style: italic;
 }
 
 .contentedor-otros-libros {
@@ -99,13 +122,14 @@
 
 .contentedor-otros-libros-vistos {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
 
 }
 
 .contenedor-libros {
-    width: 20%;
+    width: 40%;
 
 }
 
@@ -116,13 +140,43 @@
 }
 
 .precios {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    justify-content: center;
+    color: #005099;
 }
 
-h3.titulares {
+.autor-libro-seleccionado {
+    font-weight: bold;
+
+}
+
+.autor {
+    font-size: 14px;
+    color: #59546c;
+    font-weight: bold;
+}
+
+.titulo {
+    font-size: 14px;
+    color: #59546c;
+}
+
+
+.nombre-libro {
+    font-size: 18px;
+    color: #005099;
+
+}
+
+.precio-libro-seleccionado {
+    font-size: 22px;
+    font-weight: bold;
+    color: #005099;
+}
+
+h4.titulares {
     padding: 10px;
+    color: #59546c;
 }
 
 @media (min-width: 769px) {
@@ -130,5 +184,24 @@ h3.titulares {
 
     .contenedor-libro-seleccionado {
         flex-direction: row;
+
+    }
+
+    .imagen-libro {
+        width: 50vh;
+
+    }
+
+    .contenedor-libros {
+        width: 20%;
+
+    }
+
+    .contentedor-otros-libros-vistos {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding: 10px;
+
     }
 }

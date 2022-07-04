@@ -1,8 +1,20 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif; 
+/* Estilos generales */
+
+* {
+    box-sizing: border-box;
 }
 
-h1, h2 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2 {
     font-weight: 900;
     font-size: 3rem
 }
@@ -18,4 +30,29 @@ h3 {
 
 body {
     margin: 0px;
+}
+
+input {
+    outline: none;
+}
+
+/* Home */
+
+.oferta img {
+    width: 100%;
+}
+
+main h2 {
+    margin-left: 80px;
+}
+
+.mas-vendidos {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.mas-vendidos button {
+    display: flex;
+    margin: auto;
 }
