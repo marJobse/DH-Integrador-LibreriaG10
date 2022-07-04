@@ -126,7 +126,7 @@ h4 {
     
 }
 .footer-social a {
-    color: #ffffff;
+    color: #0e131f;
     transition: color, .5s;
 }
 
@@ -138,14 +138,14 @@ h4 {
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
-    background-color: #91dfb9;
+    background-color: white;
     margin-right: .5rem;
     transition: background-color, .5s;
   }
 
   /* Add a hover effect if you want */
   .fa-brands:hover {
-    background-color: white;
-    color: #91dfb9;
+    background-color: #91dfb9;
+    color: white;
   }
   /* Set a specific color for each brand */

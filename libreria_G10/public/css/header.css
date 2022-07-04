@@ -26,11 +26,15 @@
     margin: .5rem;
     color: white;
     z-index: 10;
+    transition: color, .5s;
 }
 
-#buscar:hover + #busqueda{
-    opacity: 100%;
+#top-search i:hover {
+    color: #91dfb9;
+}
 
+form:hover #busqueda{
+    opacity: 100%;
 }
 
 #busqueda {
@@ -62,12 +66,25 @@
 }
 .menu-item {
     width: 20%;
-    color: white;
-    font-weight: 900;
     margin: auto;
     text-align: center;
     position: relative;
+
+}
+
+.menu-item a{
+    color: white;
+    font-weight: 900;
     top: .4rem;
+    text-decoration: none;
+}
+
+.menu-item a:hover{
+    color: #91dfb9;
+    font-weight: 900;
+    top: .4rem;
+    /* text-decoration: underline 2px white; */
+    border-bottom: solid 2px white;
 }
 
 .menu-item-logo {
