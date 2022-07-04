@@ -10,10 +10,13 @@
 .contenedor-detalles-libro-seleccionado {
     width: 50%;
 
+
 }
 
 .contenedor-imagen-libro-seleccionado {
     width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .imagen-libro {
