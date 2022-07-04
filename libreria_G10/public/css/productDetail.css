@@ -1,0 +1,117 @@
+.contenedor-libro-seleccionado {
+    display: flex;
+    padding: 20px;
+}
+
+.contenedor-detalles-libro-seleccionado {
+    width: 50%;
+
+}
+
+.contenedor-imagen-libro-seleccionado {
+    width: 50%;
+
+}
+
+.imagen-libro {
+    width: 50vh;
+}
+
+.contenedor-cantidad {
+    width: 50%;
+    float: left;
+}
+
+.contenedor-cantidad label {
+    float: left;
+    line-height: 28px;
+    margin: 0 10px 0 0;
+    font-weight: bold;
+
+}
+
+.contador {
+    width: auto;
+    float: left;
+
+
+}
+
+.contador #modificador {
+    float: left;
+    width: 13px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #cccccc;
+}
+
+.contador #qty {
+    border: 1px solid #cccccc;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0;
+    margin: 0 2px;
+    width: 28px !important;
+    box-shadow: 0 0 3px #dddddd inset;
+
+}
+
+.btn-cart {
+    width: 25%;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 8px;
+
+}
+
+
+
+
+.resenia {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contentedor-otros-libros {
+
+    padding: 20px;
+
+}
+
+.contentedor-otros-libros-vistos {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+
+}
+
+.contenedor-libros {
+    width: 20%;
+
+}
+
+.imagen-otros-libros {
+    height: 100%;
+    max-width: 79px;
+    max-height: 115px;
+}
+
+.precios {
+    font-size: 18px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+h3.titulares {
+    padding: 10px;
+}
