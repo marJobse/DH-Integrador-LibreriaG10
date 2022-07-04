@@ -7,7 +7,6 @@ footer {
     background-color: #0e131f;
     color: white;
     width: 100%;
-    padding: 5px;
     height: 250px;
     display: flex;
     flex-direction: row;
@@ -109,10 +108,11 @@ h4 {
     text-align: left;
     font-size: 12px;
     margin-bottom: .5rem;
+    position: relative;
 }
 
 #copyright {
-    /* position: absolute; */
+    position: absolute;
     /* bottom: 1rem; */
     left: 1rem;
 }
