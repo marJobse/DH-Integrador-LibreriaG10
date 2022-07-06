@@ -4,14 +4,14 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #top-search {
-    width: 50%;
+    width: 70%;
     margin: 0px;
-    justify-self: flex-end;
-    align-self: flex-end;
+    left: 30%;
+    align-self: center;
     position: absolute;
     z-index: 10;
 }
@@ -33,20 +33,13 @@
     color: #91dfb9;
 }
 
-form:hover #busqueda{
-    opacity: 100%;
-}
+
 
 #busqueda {
     width: 60%;
-    opacity: 0%;
     background-color: white;
     border: solid 1px #0e131f;
     transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
-}
-
-#busqueda:hover{
-    opacity: 100%;
 }
 
 
@@ -69,6 +62,7 @@ form:hover #busqueda{
     margin: auto;
     text-align: center;
     position: relative;
+    display: none;
 
 }
 
@@ -118,3 +112,30 @@ span.menu-item:hover {
     transform: translate(-50%, 0);
     width: 50px;
 } */
+
+@media (min-width:600px) {
+    .menu-item {
+        display: block;
+    }
+    
+    #top-search {
+        width: 50%;
+        margin: 0px;
+        padding: .5rem;
+        left: 50%;
+        align-self: flex-start;
+        position: absolute;
+        z-index: 10;
+    }
+    #busqueda {
+        opacity: 0%;
+        transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
+    }
+
+    form:hover #busqueda{
+        opacity: 100%;
+    }
+    #busqueda:hover{
+        opacity: 100%;
+    }
+}
