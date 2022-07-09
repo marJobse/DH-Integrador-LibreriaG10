@@ -3,14 +3,10 @@
     padding: 20px;
     flex-direction: column;
     margin: auto;
-
-
 }
 
 .contenedor-detalles-libro-seleccionado {
     width: 50%;
-
-
 }
 
 .contenedor-imagen-libro-seleccionado {
@@ -39,7 +35,7 @@
     width: 50%;
     float: left;
     text-align: left;
-    color: #ff0035;
+    color: #FF0035;
 }
 
 .contenedor-cantidad label {
@@ -50,15 +46,12 @@
 }
 
 .contador input {
-    color: #ff0035;
-
+    color: #FF0035;
 }
-
 
 .contador {
     width: auto;
     float: left;
-
 }
 
 .contador #modificador {
@@ -67,11 +60,11 @@
     height: 28px;
     line-height: 28px;
     text-align: center;
-    border: 1px solid #cccccc;
+    border: 1px solid #CCCCCC;
 }
 
 .contador #qty {
-    border: 1px solid #cccccc;
+    border: 1px solid #CCCCCC;
     float: left;
     height: 28px;
     line-height: 28px;
@@ -79,8 +72,7 @@
     padding: 0;
     margin: 0 2px;
     width: 28px !important;
-    box-shadow: 0 0 3px #dddddd inset;
-
+    box-shadow: 0 0 3px #DDDDDD inset;
 }
 
 .btn-cart {
@@ -89,7 +81,6 @@
     font-weight: bold;
     border-radius: 8px;
     text-align: right;
-
 }
 
 .agregar-carrito {
@@ -102,9 +93,7 @@
     overflow: hidden;
 }
 
-
 .overflow-ellipsis {
-
     display: -webkit-box;
     max-height: 150px;
     -webkit-line-clamp: 5;
@@ -115,9 +104,7 @@
 }
 
 .contentedor-otros-libros {
-
     padding: 20px;
-
 }
 
 .contentedor-otros-libros-vistos {
@@ -125,12 +112,10 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 15px;
-
 }
 
 .contenedor-libros {
     width: 40%;
-
 }
 
 .imagen-otros-libros {
@@ -147,25 +132,22 @@
 
 .autor-libro-seleccionado {
     font-weight: bold;
-
 }
 
 .autor {
     font-size: 14px;
-    color: #59546c;
+    color: #59546C;
     font-weight: bold;
 }
 
 .titulo {
     font-size: 14px;
-    color: #59546c;
+    color: #59546C;
 }
-
 
 .nombre-libro {
     font-size: 18px;
     color: #005099;
-
 }
 
 .precio-libro-seleccionado {
@@ -176,25 +158,20 @@
 
 h4.titulares {
     padding: 10px;
-    color: #59546c;
+    color: #59546C;
 }
 
 @media (min-width: 769px) {
-
-
     .contenedor-libro-seleccionado {
         flex-direction: row;
-
     }
 
     .imagen-libro {
         width: 50vh;
-
     }
 
     .contenedor-libros {
         width: 20%;
-
     }
 
     .contentedor-otros-libros-vistos {
@@ -202,6 +179,5 @@ h4.titulares {
         flex-wrap: nowrap;
         justify-content: space-around;
         padding: 10px;
-
     }
 }
