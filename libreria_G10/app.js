@@ -8,7 +8,7 @@ const publicPath = path.join(__dirname, './public');
 app.use(express.static(publicPath));
 
 
-app.listen(3030, () => console.log('Servidor corriendo en el puerto 3030'));
+app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './views/index.html'));
