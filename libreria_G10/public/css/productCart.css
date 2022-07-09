@@ -1,0 +1,249 @@
+/* Estilos de carrito */
+
+/* Organizacion del div principal */
+.main-carrito {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+}
+
+.tabla-carrito {
+    width: 100%;
+}
+
+.total-carrito {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    justify-self: flex-end;
+}
+
+.tabla {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .5rem;
+    border: solid 1px #eee;
+    margin: .5rem;
+}
+.tabla .producto {
+    align-self: center;
+}
+
+.foto {
+    width: 30%;
+}
+
+.titulo {
+    width: 70%;
+}
+.foto img {
+    width: 4rem;
+}
+
+.precio {
+    display: none;
+}
+
+.cantidad.producto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 30%;
+}
+
+.carrito-add , .carrito-cantidad, .carrito-remove {
+    border: solid 1px #91dfb9;
+    padding: .3rem;
+    margin: 0.1rem;
+    width: 30%;
+    font-weight: 600;
+}
+
+/* .carrito-cantidad {
+    padding: .3rem;
+    margin: 0.1rem;
+    width: 30%;
+    font-weight: 600;
+    background-color: #91dfb9;
+    color: white;
+} */
+
+.carrito-add:hover, .carrito-remove:hover {
+    background-color: #91dfb9;
+    color: white;
+}
+
+.producto.subtotal {
+    width: 55%;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: right;
+
+}
+
+/* #delete i {
+    color: #91dfb9;
+} */
+
+#delete {
+    border: none;
+    background-color: white;
+    color: #91dfb9;
+    transition: background-color, .5s, color, .5s;
+}
+#delete:hover {
+    background-color: #91dfb9;
+    color: white;
+}
+
+#delete:focus {
+    background-color: white;
+    color: #91dfb9;
+}
+
+
+.encabezado, .producto {
+    font-size: .9rem;
+    padding: .5rem;
+    text-align: center;
+}
+
+
+.tabla.encabezado {
+    display: none;
+}
+
+
+/* Estilos del Resumen de compra */
+#cupon-descuento {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 80%;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+#cupon {
+    width: 75%;
+    background: none;
+    padding: .5rem;
+    border: solid 1px #005099;
+}
+
+#cupon-aplicar {
+    width: 25%;
+}
+
+.total-etiqueta {
+    width: 50%;
+}
+
+.total-monto {
+    width: 40%;
+}
+
+.total-carrito div {
+    height: 2rem;
+}
+
+.total-etiqueta, .total-monto {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.producto+.titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+#comprar {
+    padding: .5rem;
+    width: 50%;
+    margin: 1rem 0px;
+}
+
+/* Reglas para desktop */
+
+@media (min-width: 950px) {
+    .tabla-carrito {
+        width: 70%;
+        padding: 1rem;
+
+    }
+
+    .tabla.encabezado {
+        display: flex;
+        background-color: #91dfb9;
+        color: white
+    }
+    
+    .encabezado .encabezado {
+        font-size: 1rem;
+        font-weight: 600;
+        align-self: center;
+    }
+
+    .tabla {
+        flex-wrap: nowrap;
+    }
+
+  
+    .foto img {
+        width: 5rem;
+    }
+
+    .precio {
+        display: block;
+        width: 15%;
+    }
+    .encabezado.foto {
+        width: 20%;
+    }
+    .encabezado.titulo {
+        width: 35%;
+    }
+
+    .encabezado.borrar {
+        width: 5%;
+    }
+    .producto.titulo {
+        width: 100%;
+    }
+    .producto.precio, .producto.subtotal, .producto.cantidad {
+        width: 20%;
+    }
+
+    /* Resumen */
+
+    .total-carrito {
+        width: 30%;
+    }
+
+    .total-subtitulo {
+        width: 100%;
+    }
+    #cupon-descuento {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 0px;
+        margin: 1rem 0;
+    }
+
+
+}

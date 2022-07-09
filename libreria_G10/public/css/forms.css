@@ -70,14 +70,14 @@ form {
 
 }
 
-button[type="button"], button[type="reset"]:hover{
+button[type="button"], button[type="reset"]:hover, #comprar,  #cupon-aplicar{
     background-color: #005099;
     border: solid 1px #005099;
     color: white;
     transition: all .5s;
 }
 
-button[type="reset"], button[type="button"]:hover {
+button[type="reset"], button[type="button"]:hover, #comprar:hover,  #cupon-aplicar:hover {
     background-color: white;
     border: solid 1px #005099;
     color: #005099;
