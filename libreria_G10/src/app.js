@@ -7,15 +7,17 @@ const productsRouter = require('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 
+app.set('view engine', 'ejs');
+
 app.use(express.static(publicPath));
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));
 
 
-app.use("/",mainRouter)
-app.use("/productDetail",productsRouter)
-app.use("/users",usersRouter)
-app.use("/productCart",cartRouter)
+app.use("/", mainRouter)
+app.use("/productDetail", productsRouter)
+app.use("/users", usersRouter)
+app.use("/productCart", cartRouter)
 
 
 
