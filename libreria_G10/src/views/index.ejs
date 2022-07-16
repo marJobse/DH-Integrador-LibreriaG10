@@ -17,79 +17,71 @@
     <link href="/css/header.css" rel="stylesheet" />
 
     <title>Librería G10</title>
+
 </head>
 
 <body>
-    <header class="header">
-        <div id="top-search">
-            <form action="/unknown" method="post">
-                <input id="busqueda" type="text" id="search" value="search" placeholder="Busqueda por autor, título o editorial" name="busqueda">
-                <i id="buscar" class="fa-solid fa-magnifying-glass"></i>
-                <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="/users/login"><i class="fa-solid fa-user-large"></i></a>
-            </form>
+    <%- include('partials/header.ejs') %>
 
-        </div>
-        <div id="main-nav">
-            <div id="main-nav-menu">
-                <span class="menu-item"><a href="">NOSOTROS</a></span>
-                <span class="menu-item"><a href="/productDetail">PRODUCTOS</a></span>
-                <span class="menu-item-logo"><a href="/"><img id="logo" src="/images/logo.png" alt="spanbronspanne"></a></span>
-                <span class="menu-item"><a href="">CONTACTO</a></span>
-                <span class="menu-item"><a href="">ENVIOS</a></span>
-            </div>
-        </div>
+        <main>
+            <section class="oferta">
+                <a href="/productDetail"><img src="images/oferta.jpg" alt="oferta">
+            </section></a>
+            <h2>Más Vendidos</h2>
+            <section class="mas-vendidos">
+                <div>
+                    <img src="http://www.fillmurray.com/300/300" alt="">
+                    <h4>Libro 1</h4>
+                    <p>$precio</p>
+                    <button>Comprar</button>
+                </div>
+                <div>
+                    <img src="http://www.fillmurray.com/300/300" alt="">
+                    <h4>Libro 2</h4>
+                    <p>$precio</p>
+                    <button>Comprar</button>
+                </div>
+                <div>
+                    <img src="http://www.fillmurray.com/300/300" alt="">
+                    <h4>Libro 3</h4>
+                    <p>$precio</p>
+                    <button>Comprar</button>
+                </div>
+            </section>
+        </main>
 
-        </div>
-    </header>
+        <footer>
+            <article class="small-footer">
+                <ul>
+                    <a href="#">
+                        <li>PRODUCTOS</li>
+                    </a>
+                    <a href="#">
+                        <li>CONTACTO</li>
+                    </a>
+                    <a href="#">
+                        <li>BLOG</li>
+                    </a>
+                </ul>
+            </article>
+            <article class="small-footer">
+                <ul>
+                    <a href="#">
+                        <li>OFERTAS</li>
+                    </a>
+                    <a href="#">
+                        <li>ENVIOS</li>
+                    </a>
+                    <a href="#">
+                        <li>TÉRMINOS</li>
+                    </a>
+                </ul>
+            </article>
+            <article class="small-footer-spacer">
 
-
-    <main>
-        <section class="oferta">
-        <a href="/productDetail"><img src="images/oferta.jpg" alt="oferta"></section></a>
-        <h2>Más Vendidos</h2>
-        <section class="mas-vendidos">
-            <div>
-                <img src="http://www.fillmurray.com/300/300" alt="">
-                <h4>Libro 1</h4>
-                <p>$precio</p>
-                <button>Comprar</button>
-            </div>
-            <div>
-                <img src="http://www.fillmurray.com/300/300" alt="">
-                <h4>Libro 2</h4>
-                <p>$precio</p>
-                <button>Comprar</button>
-            </div>
-            <div>
-                <img src="http://www.fillmurray.com/300/300" alt="">
-                <h4>Libro 3</h4>
-                <p>$precio</p>
-                <button>Comprar</button>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <article class="small-footer">
-            <ul>
-                <a href="#"><li>PRODUCTOS</li></a>
-                <a href="#"><li>CONTACTO</li></a>
-                <a href="#"><li>BLOG</li></a>
-            </ul>
-        </article>
-        <article class="small-footer">
-            <ul>
-                <a href="#"><li>OFERTAS</li></a>
-                <a href="#"><li>ENVIOS</li></a>
-                <a href="#"><li>TÉRMINOS</li></a>
-            </ul>
-        </article>
-        <article class="small-footer-spacer">
-
-        </article>
-        <article class="big-footer">
-            <!-- <div class="social-subscribe"> -->
+            </article>
+            <article class="big-footer">
+                <!-- <div class="social-subscribe"> -->
                 <h4>Mantenete al tanto</h4>
                 <section class="footer-social">
                     <a href="//"><i class="fa-brands fa-facebook-f"></i></a>
@@ -102,10 +94,10 @@
                     <input type="email" id="email" name="foto-usuario" placeholder="Correo electrónico">
                     <input type="button" id="subscribir" name="subscribir" value="Unite">
                 </div>
-            <!-- </div> -->
-        </article>
-        <article class="copyright">
-            <p id="copyright">© 2022 Librería G10</p>
-        </article>
-    </footer>
+                <!-- </div> -->
+            </article>
+            <article class="copyright">
+                <p id="copyright">© 2022 Librería G10</p>
+            </article>
+        </footer>
 </body>

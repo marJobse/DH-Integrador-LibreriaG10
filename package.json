@@ -2,7 +2,7 @@
   "name": "grupo_10_proyecto_integrador",
   "version": "1.0.0",
   "description": "Temática del sitio web:\r     Eshop de libros, para un público de 25 a 65 años.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
