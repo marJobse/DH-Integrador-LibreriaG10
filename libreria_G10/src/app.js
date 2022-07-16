@@ -7,6 +7,8 @@ const productsRouter = require('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 
+app.set('view engine', 'ejs');
+
 app.use(express.static(publicPath));
 
 app.use("/",mainRouter)
