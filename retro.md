@@ -1,4 +1,4 @@
-||<!-- Retro sprint 1 -->
+||Retro sprint 1 
 
 || Piensen qué hicieron bien en el sprint anterior 
 
@@ -13,7 +13,7 @@
 || qué deberían dejar de hacer. 
 |||> debemos dejar de hacer la nuestra y empezar a trabajar en grupo. 
 
-||<!-- Retro sprint 2 -->
+||Retro sprint 2 
 
 || Piensen qué hicieron bien en el sprint anterior 
 
