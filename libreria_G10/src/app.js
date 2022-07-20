@@ -8,11 +8,13 @@ const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './views'))
 
 app.use(express.static(publicPath));
 
 app.use("/",mainRouter)
 app.use("/productDetail",productsRouter)
+app.use("/product",productsRouter)
 app.use("/users",usersRouter)
 app.use("/carrito",cartRouter)
 
