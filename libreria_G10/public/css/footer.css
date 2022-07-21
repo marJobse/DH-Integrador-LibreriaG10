@@ -66,7 +66,7 @@ footer {
 
 #suscribite {
     width: 80%;
-    position: relative;
+    display: flex;
 }
 
 #suscribite input {
@@ -86,9 +86,6 @@ footer {
 }
 
 #suscribite input[type="button"]{
-    position: absolute;
-    top: 0px;
-    right: -8px;
     width: 30%;
     background-color: #91dfb9;
     color: white;
@@ -126,9 +123,10 @@ h4 {
 
 /* #copyright {
     position: absolute;
-    /* bottom: 1rem; */
+    bottom: 1rem;
     left: 1rem;
-} */
+}
+*/
 
 .footer-social {
     display: flex;
