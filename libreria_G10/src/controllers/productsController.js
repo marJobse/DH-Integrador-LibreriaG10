@@ -6,6 +6,8 @@ const productsController = {
     },
     list: (req, res) => {
         res.render('productList')
+    edit: (req, res) => {
+        res.render('productEdit')
     },
 }
 

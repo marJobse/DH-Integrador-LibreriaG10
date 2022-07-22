@@ -43,12 +43,16 @@ input {
 }
 
 main h2 {
-    margin-left: 80px;
+    margin-left: 5%;
 }
 
 .mas-vendidos {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.mas-vendidos div {
     margin-bottom: 50px;
 }
 

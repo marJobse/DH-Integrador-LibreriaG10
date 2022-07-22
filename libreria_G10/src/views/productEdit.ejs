@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head.ejs') %>
+    <link href="/css/productEdit.css" rel="stylesheet" />
+
+    <body>
+        <%- include('partials/header.ejs') %>
+            <main>
+                <div class="contenedor-editar-producto">
+                <h3 >Editar producto</h3>
+                <h4 class="titulo-editar-producto" contenteditable="true">NombreDelProducto</h4>
+                <div class="imagen-detalles-editar-producto">
+                    <div class="imagen-editar-producto">
+                        <img src="http://www.fillmurray.com/500/500" alt="">
+                    </div>
+                    <div class="informacion-editar-producto">
+                        <h3 class="titulo-autor-producto" contenteditable="true">Autor</h3>
+                        <div class="caracteristicas-editar-producto">
+                            <div><p contenteditable="true">Categoría</p></div>
+                            <div><p contenteditable="true">Año</p></div>
+                            <div><p contenteditable="true">$precio</p></div>
+                            <div><p contenteditable="true">Cantidad</p></div>
+                        </div>
+                        <div class="resenia-editar-producto">
+                            <p contenteditable="true">ReseñaDelLibro:&nbsp;</p>
+                        </div>
+                        <div class="detalles-editar-producto">
+                            <h4>Detalles del libro</h4>
+                            <p contenteditable="true">Editorial:&nbsp;</p>
+                            <p contenteditable="true">I.S.B.N:&nbsp;</p>
+                            <p contenteditable="true">Nro de Páginas:&nbsp;</p>
+                            <p contenteditable="true">Idioma:&nbsp;</p>
+                            <p contenteditable="true">Clasificación:&nbsp;</p>
+                            <p contenteditable="true">Fecha de Publicación:&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </main>
+            <%- include('partials/footer.ejs') %>
+    </body>
+
+</html>
