@@ -12,11 +12,10 @@ app.set('views', path.join(__dirname, './views'))
 
 app.use(express.static(publicPath));
 
-app.use("/",mainRouter)
-app.use("/productDetail",productsRouter)
-app.use("/product",productsRouter)
-app.use("/users",usersRouter)
-app.use("/carrito",cartRouter)
+app.use("/", mainRouter)
+app.use("/product", productsRouter)
+app.use("/users", usersRouter)
+app.use("/carrito", cartRouter)
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));
 
