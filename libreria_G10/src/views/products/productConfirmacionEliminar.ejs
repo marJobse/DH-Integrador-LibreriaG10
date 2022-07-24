@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
     <body>
         </head>
 
         <body>
-            <%- include('partials/header.ejs') %>
+            <%- include('../partials/header.ejs') %>
                 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-                <link href="css/productDetail.css" rel="stylesheet" />
+                <link href="../../css/productDetail.css" rel="stylesheet" />
                 <main>
+                    <div>
+                        <h2>Confirma que quiere eliminar el siguiente libro:</h2>
+
+                    </div>
                     <div class="contenedor-libro-seleccionado">
                         <div class="contenedor-imagen-libro-seleccionado">
                             <img class="imagen-libro" src="/images/img-sacheri_los_dias_de_la_revolucion.jpg"
@@ -129,7 +133,7 @@
                         </section>
                     </div>
                 </main>
-                <%- include('partials/footer.ejs') %>
+                <%- include('../partials/footer.ejs') %>
         </body>
 
 </html>
