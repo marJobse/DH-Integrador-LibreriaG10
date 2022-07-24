@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div id="user-form">
+                    <h3>Iniciá sesión</h3>
+                    <form id="login-form" action="/unknown" method="post">
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                        <input type="password" name="password" id="password1" placeholder="Contraseña">
+                        <a href="/register">¿Olvidaste tu contraseña?</a>
+                        <button type="button" class="submit">Enviar</button>
+                        <a id="crear-cuenta" href="/users/register">Creá tu cuenta</a>
+                    </form>
+                </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

@@ -3,7 +3,7 @@ const path = require('path');
 
 const cartController = {
     detail: (req, res) => {
-        res.render('productCart')
+        res.render('../views/products/productCart.ejs')
     },
 }
 
