@@ -7,5 +7,7 @@ router.get("/list", productsController.list);
 router.get("/edit", productsController.edit);
 router.get("/delete", productsController.delete);
 router.get("/productDetail", productsController.detail);
+router.get("/all", productsController.verBase);
+
 
 module.exports = router;
