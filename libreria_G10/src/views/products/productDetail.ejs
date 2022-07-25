@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        </head>
+
+        <body>
+            <%- include('../partials/header.ejs') %>
+                <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+                <link href="../../css/productDetail.css" rel="stylesheet" />
+                <main>
+                    <div class="contenedor-libro-seleccionado">
+                        <div class="contenedor-imagen-libro-seleccionado">
+                            <img class="imagen-libro" src="/images/img-sacheri_los_dias_de_la_revolucion.jpg"
+                                alt=" imágen de libro Los días de la revolución, de Sacheri">
+                        </div>
+                        <div class="contenedor-detalles-libro-seleccionado">
+                            <div class="contenedor-detalle-libro">
+                                <h3 class="nombre-libro">LOS DÍAS DE LA REVOLUCIÓN</h3>
+                                <div class="autor-libro-seleccionado">EDUARDO SACHERI </div>
+                                <div class="editorial-libro">Alfaguara</div>
+                                <div class="anio-edicion"><strong>2022</strong> </div>
+                                <p class="precio-libro-seleccionado">$2.499 </p>
+                                <div class="contenedor-cant-button">
+                                    <div class="contenedor-cantidad">
+                                        <label for="cant">Cant:</label>
+                                        <div class="contador">
+                                            <div id="modificador">
+                                                <span>-</span>
+                                            </div>
+                                            <input type="text" name="qty" id="qty" maxlength="12" value="1"
+                                                title="Cant." class="input-text qty">
+                                            <div id="modificador">
+                                                <span>+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agregar-carrito">
+                                        <button type="button-comprar" title="Comprar"
+                                            class="button btn-cart"><span>Comprar</span></button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <h4>Reseña</h4>
+                                </div>
+                                <p class="overflow-ellipsis">"Una historia de Argentina... cuando no era Argentina.
+                                    En Los días de la
+                                    Revolución,
+                                    mi primer libro de Historia, vas a encontrarte con una posible explicación del
+                                    proceso
+                                    revolucionario que sacude y derrumba el Virreinato del Río de la Plata entre 1806 y
+                                    1820. La
+                                    Argentina no "nace" automáticamente de ese proceso. Al contrario: es producto de una
+                                    larga,
+                                    accidentada y compleja evolución. Pero es cierto que algunas de las claves de esa
+                                    construcción
+                                    hunden sus raíces en esos tiempos revolucionarios, en esas personas, en esas
+                                    circunstancias
+                                    y en
+                                    esas peripecias. Y aquellos años de principios del siglo XIX, cuando el Imperio
+                                    Español
+                                    estalla
+                                    en pedazos, habitan también en nosotros, en lo que somos en el siglo XXI. Este libro
+                                    es
+                                    una
+                                    invitación a explorar juntos esos vestigios cargados de significado". Eduardo
+                                    Sacheri.</p>
+                                <div>
+                                    <h4>Detalle del libro</h4>
+                                </div>
+                                <div class="detalle editorial">Editorial: <strong>Alfaguara</strong></div>
+                                <div class="detalle isbn">ISBN: <strong>9789877389258</strong></div>
+                                <div class="detalle num-pag">Número de páginas:<strong>288</strong></div>
+                                <div class="detalle idioma">Idioma: <strong>ES</strong></div>
+                                <div class="detalle clasificacion">Clasificación: <strong>Historia argentina</strong>
+                                </div>
+                                <div class="detalle fecha-publicacion">Fecha de publicación: <strong>01-06-2022</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedor-otros-libros">
+                        <h4 class=" titulares">Otros usuarios también miraron</h4>
+                        <section class="contentedor-otros-libros-vistos">
+                            <section class="contenedor-libros">
+                                <img class="imagen-otros-libros"
+                                    src="/images/img-covey_los_7_habitos_de_la_gente_altamente_efectiva.jpg"
+                                    alt=" imágen de libro Los 7 habitos de la gente altamente efectiva, de Covey">
+                                <div class="contenedor-descripciones">
+                                    <p class="precios">$4.622</p>
+                                    <p class="autor">Stephen R. Covey</p>
+                                    <h4 class="titulo">Los 7 hábitos de la gente altamente efectiva</h4>
+                                </div>
+                            </section>
+                            <section class="contenedor-libros">
+                                <img class="imagen-otros-libros"
+                                    src="/images/img-goleman_liderazgo_el_poder_de_la_inteligencia_emocional.jpg"
+                                    alt=" imágen de libro Liderazgo, el poder de la inteligencia emocional, de Goleman">
+                                <div class="contenedor-descripciones">
+                                    <p class="precios">$1.499</p>
+                                    <p class="autor">Daniel Goleman</p>
+                                    <h4 class="titulo">Liderazgo, el poder de la inteligencia emocional</h4>
+                                </div>
+                            </section>
+                            <section class="contenedor-libros">
+                                <img class="imagen-otros-libros"
+                                    src="/images/img-sutherland_scrum_el_arte_de_hacer_el_doble.jpg"
+                                    alt=" imágen de libro Scrum, el arte de hacer el doble, de Sutherland">
+                                <div class="contenedor-descripciones">
+                                    <p class="precios">$1.899</p>
+                                    <p class="autor">Jeff Sutherland</p>
+                                    <h4 class="titulo">Scrum, el arte de hacer el doble de trabajo en la mitad de tiempo
+                                    </h4>
+                                </div>
+                            </section>
+                            <section class="contenedor-libros">
+                                <img class="imagen-otros-libros" src="/images/img-sutherland_scrum_manual_de_campo.jpg"
+                                    alt=" imágen de libro Scrum, manual de campo, de Sutherland ">
+                                <div class="contenedor-descripciones">
+                                    <p class="precios">$2.430</p>
+                                    <p class="autor">Jeff Sutherland</p>
+                                    <h4 class="titulo">Scrum, manual de campo</h4>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </main>
+                <%- include('../partials/footer.ejs') %>
+        </body>
+
+</html>

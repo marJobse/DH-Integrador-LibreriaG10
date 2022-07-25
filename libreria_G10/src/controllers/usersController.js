@@ -3,10 +3,10 @@ const path = require('path');
 
 const usersController = {
     register: (req, res) => {
-        res.render('register')
+        res.render('../views/users/register.ejs')
     },
     login: (req, res) => {
-        res.render('login')
+        res.render('../views/users/login.ejs')
     },
 }
 
