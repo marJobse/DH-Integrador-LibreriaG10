@@ -13,16 +13,16 @@
     background-color: #005099;
     color: white;
     text-align: center;
-    font-weight: 700;
-    line-height: 3rem;
+    font-weight: 600;
+    line-height: 2rem;
 
 }
 
 .content {
     border: solid 1px #59546c;
-    font-weight: 500;
-    line-height: 3rem;
-    padding: 1rem;
+    font-weight: 400;
+    line-height: 1rem;
+    font-size: .8rem;
 }
 
 th.portada {
@@ -32,7 +32,7 @@ img.portada {
     width: 100%;
 }
 
-th.editar, .stock, .precio {
+.stock, .precio {
     width: 10%;
     text-align: center;
 }
@@ -45,8 +45,12 @@ th.editar, .stock, .precio {
     background-color: #3aaed822;
 }
 
+th.editar {
+    display: none;
+}
+
 td.editar {
-    text-align: center;    
+    display: none; 
 }
 
 .editar i {
@@ -81,4 +85,106 @@ td.editar {
     justify-self: flex-start;
     right: 1rem;
     color: #005099;
+}
+
+.tabla-editar-productos.encabezado{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 90%;
+    margin: 1rem auto;
+    justify-content: space-between;
+    font-weight: 700;
+
+
+}
+
+.tabla-editar-productos.fila{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 1rem 0;
+    border: solid 1px #3AAED8;
+    padding: .5rem;
+}
+
+.fila .col-1 img {
+    width: 50px;
+    align-self: center;
+    margin: auto 0;
+}
+
+.fila .col-1 .portada {
+    display: flex;    
+    margin: auto 0;
+    height: 100%;
+    align-items: center;
+}
+
+.fila .col-3 {
+    width: 50px;
+
+}
+
+.fila .col-3 .editar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    margin: auto;
+    flex-direction: column;
+
+}
+
+.fila .col-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: .5rem;
+}
+
+.col-2 .titulo {
+    width: 100%;
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.col-2 .autor {
+    width: 100%;
+    font-weight: 400;
+    font-size: .8rem;
+}
+
+.col-2 .info {
+    width: 100%;
+    font-weight: 400;
+    font-size: .7rem;
+}
+
+
+@media (min-width: 950px) {
+    #product-list-table th {
+        font-weight: 700;
+        line-height: 3rem;
+    
+    }
+    .content {
+        font-weight: 500;
+        line-height: 3rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    th.editar {
+        display: table-cell;
+        width: 10%;
+        text-align: center;
+    }
+    
+    td.editar {
+        display: block; 
+        text-align: center;
+        
+    } 
 }

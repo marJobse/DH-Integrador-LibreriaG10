@@ -9,7 +9,7 @@ const productsController = {
         res.render('../views/products/productDetail.ejs')
     },
     list: (req, res) => {
-        res.render('../views/products/productList.ejs')
+        res.render('../views/products/productList.ejs', { products })
     },
     edit: (req, res) => {
         res.render('../views/products/productEdit.ejs')
