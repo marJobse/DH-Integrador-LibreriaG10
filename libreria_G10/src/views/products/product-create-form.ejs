@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        </head>
+
+        <body>
+            <%- include('../partials/header.ejs') %>
+                <div class="container products-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="products-title">Formulario de creación de productos</h2>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <form action="/product/" method="POST" enctype="multipart/form-data">
+                            <div class="row product-detail">
+
+                                <div class="col-12 col-md-6">
+                                    <label for="nombre" class="form-label">Nombre del producto:</label>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Ej: El amante japonés"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="precio" class="form-label">Precio del producto:</label>
+                                    <input type="text" id="precio" name="precio" placeholder="3000" class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="editorial" class="form-label">Editorial:</label>
+                                    <input type="text" id="editorial" name="editorial" placeholder="Ej: Oceano"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="autor" class="form-label">Autor:</label>
+                                    <input type="text" id="autor" name="autor" placeholder="Isabel Allende"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="resenia" class="form-label">Resenia:</label>
+                                    <input type="text" id="resenia " name="resenia" placeholder="Este es un libro..."
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="clasificacion" class="form-label"> Clasificacion:</label>
+                                    <input type="text" id="clasificacion" name="clasificacion" placeholder="Romance"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="clasificacion" class="form-label"> Año de Edición:</label>
+                                    <input type="text" id="anioEdicion" name="anioEdicion" placeholder="2012"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="fechaPublicacion " class="form-label"> Fecha de Publicación:</label>
+                                    <input type="text" id="fechaPublicacion" name="fechaPublicacion"
+                                        placeholder="12-20-2012" class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="stock" class="form-label"> Stock:</label>
+                                    <input type="text" id="stock" name="stock" placeholder="100" class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="nroPaginas" class="form-label"> Número de Páginas:</label>
+                                    <input type="text" id="nroPaginas" name="nroPaginas" placeholder="500"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="idioma" class="form-label"> Idioma:</label>
+                                    <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input">
+                                </div>
+                                <div class="col-12">
+                                    <label for="isbn" class="form-label">ISBN:</label>
+                                    <input type="isbn" id="isbn" name="isbn" placeholder="121212121212"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12">
+                                    <label for="imagen" class="form-label">Imágen:</label>
+                                    <input type="file" id="imagen" name="imagen">
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="buy-now-button">Guardar producto</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <%- include('../partials/footer.ejs') %>
+        </body>
+
+</html>
