@@ -12,7 +12,35 @@ const productsController = {
         res.render('../views/products/productList.ejs', { products })
     },
     edit: (req, res) => {
-        res.render('../views/products/productEdit.ejs')
+        let prodId = req.params.id;
+        const prodToEdit = products.find( product => {
+            return product.id == prodId
+        })
+        res.render('../views/products/productEdit.ejs', {prodToEdit : prodToEdit})
+    },
+    update: (req, res) => {
+        // prepping the info 
+        let productUpdates = req.body;
+        let productId = req.params.id;
+		const prodToEdit = products.find( product => product.id == productId);
+        // updating product properties 
+        prodToEdit.id = productId ;
+        prodToEdit.nombre = productUpdates.nombre ;
+        prodToEdit.resenia = productUpdates.resenia ;
+        prodToEdit.precio = productUpdates.precio ;
+        // prodToEdit.imagen =  req.file.filename ;
+        prodToEdit.clasificacion = productUpdates.clasificacion ;
+        prodToEdit.anioEdicion = productUpdates.anioEdicion ;
+        prodToEdit.fechaPublicacion = productUpdates.fechaPublicacion ;
+        prodToEdit.stock = productUpdates.stock ;
+        prodToEdit.autor = productUpdates.autor ;
+        prodToEdit.editorial = productUpdates.editorial ;
+        prodToEdit.nroPaginas = productUpdates.nroPaginas ;
+        prodToEdit.idioma = productUpdates.idioma ;
+        prodToEdit.isbn = productUpdates.isbn ;
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+        res.redirect('/')
+
     },
     delete: (req, res) => {
         res.render('../views/products/productConfirmacionEliminar.ejs')

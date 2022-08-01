@@ -1,49 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <%- include('../partials/head.ejs') %>
-    <link href="/css/productEdit.css" rel="stylesheet" />
 
     <body>
         <%- include('../partials/header.ejs') %>
             <main>
-                <div class="contenedor-editar-producto">
-                    <h3>Editar producto</h3>
-                    <h4 class="titulo-editar-producto" contenteditable="true">NombreDelProducto</h4>
-                    <div class="imagen-detalles-editar-producto">
-                        <div class="imagen-editar-producto">
-                            <img src="http://www.fillmurray.com/500/500" alt="">
-                        </div>
-                        <div class="informacion-editar-producto">
-                            <h3 class="titulo-autor-producto" contenteditable="true">Autor</h3>
-                            <div class="caracteristicas-editar-producto">
-                                <div>
-                                    <p contenteditable="true">Categoría</p>
-                                </div>
-                                <div>
-                                    <p contenteditable="true">Año</p>
-                                </div>
-                                <div>
-                                    <p contenteditable="true">$precio</p>
-                                </div>
-                                <div>
-                                    <p contenteditable="true">Cantidad</p>
-                                </div>
+                <div id="user-form">
+                    <h3>Editando <%= prodToEdit.nombre %></h3>
+                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>?_method=PUT" method="post">
+                        <!-- <div class="edit-form-container"> -->
+                            <div class="edit-form-top">
+                                <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>">
                             </div>
-                            <div class="resenia-editar-producto">
-                                <p contenteditable="true">ReseñaDelLibro:&nbsp;</p>
+                            <div class="edit-form-lower-left">
+                                <img src="/images/<%= prodToEdit.imagen %>">
+                                <input type="file" id="imagen" name="imagen">
                             </div>
-                            <div class="detalles-editar-producto">
-                                <h4>Detalles del libro</h4>
-                                <p contenteditable="true">Editorial:&nbsp;</p>
-                                <p contenteditable="true">I.S.B.N:&nbsp;</p>
-                                <p contenteditable="true">Nro de Páginas:&nbsp;</p>
-                                <p contenteditable="true">Idioma:&nbsp;</p>
-                                <p contenteditable="true">Clasificación:&nbsp;</p>
-                                <p contenteditable="true">Fecha de Publicación:&nbsp;</p>
+                            <div class="edit-form-lower-right">
+                                <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autor %>" placeholder="Autor">
+                                <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.categoria %>" placeholder="Categoría">
+                                <input class="edit-area half" type="text" id="anioEdicion" name="anioEdicion" value="<%= prodToEdit.anioEdicion %>" placeholder="Año">
+                                <input class="edit-area half" type="text" id="precio" name="precio" value="<%= prodToEdit.precio %>" placeholder="Precio">
+                                <input class="edit-area half" type="text" id="stock" name="stock" value="<%= prodToEdit.stock %>" placeholder="Stock">
+                                <textarea name="resenia" id="resenia" cols="30" rows="3"><%= prodToEdit.resenia %></textarea>
+                                <div class="detalles-libro">
+                                    <input type="text" name="editorial" id="editorial" value="<%= prodToEdit.editorial %>" placeholder="Editorial">
+                                    <input type="text" id="isbn" name="isbn" value="<%= prodToEdit.isbn %>">
+                                    <input type="text" id="nroPaginas" name="nroPaginas" value="<%= prodToEdit.nroPaginas %>">
+                                    <input type="text" id="idioma" name="idioma" value="<%= prodToEdit.idioma %>">
+                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.clasificacion %>" placeholder="Clasificación">
+                                    <input type="text" id="fechaPublicacion" name="fechaPublicacion" value="<%= prodToEdit.fechaPublicacion %>">
+                                </div>
+                                <button type="submit" class="submit">Enviar</button>
+                                <button type="reset" class="reset">Borrar</button>
                             </div>
-                        </div>
-                    </div>
+                        <!-- </div>                    -->
+                    </form>
                 </div>
             </main>
             <%- include('../partials/footer.ejs') %>

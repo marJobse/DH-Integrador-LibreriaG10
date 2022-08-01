@@ -15,7 +15,6 @@
                             <i id="buscar" class="fa-solid fa-magnifying-glass"></i>
                         </form>
                     </div>
-                    <hr>
                     <div id="tabla-editar-productos"> 
                         <div class="tabla-editar-productos encabezado">
                             <div class="titulo">Título</div>
@@ -34,8 +33,9 @@
                                     <!-- <div class="precio"></div>
                                     <div class="stock"></div> -->
                                 </div>
-                                <div class="col-3">
-                                    <div class="editar"><a href="/product/edit"><i class="fa-solid fa-pen"></i></a> <a href="/product/delete"><i class="fa-solid fa-trash-can"></i></a></div>
+                                <div class="col-3 editar">
+                                    <a href="/product/edit/<%= product.id %>"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="/product/delete/<%= product.id %>"><i class="fa-solid fa-circle-minus"></i></a>
                                 </div>
 
 

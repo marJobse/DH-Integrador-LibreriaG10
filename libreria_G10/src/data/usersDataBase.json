@@ -97,5 +97,14 @@
   "domicilio": "123 calle falsa",
   "password": "435345",
   "tipo": "user"
+ },
+ {
+  "id": 12,
+  "nombre": "Archibald",
+  "apellido": "Smithers",
+  "email": "idnsdinf@dfg.com",
+  "domicilio": "32423424 Ave Lo",
+  "password": "efwegfwe",
+  "tipo": "user"
  }
 ]

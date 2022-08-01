@@ -24,7 +24,7 @@ const usersController = {
         users.push(nuevoUsuario)
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 
-        res.redirect('/')
+        res.redirect('/product/list')
     }
 }
 
