@@ -9,11 +9,14 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
-router.get("/", productsController.detail);
 router.get("/list", productsController.list);
-router.get("/delete", productsController.delete);
-router.get("/productDetail", productsController.detail);
-router.get("/all", productsController.verBase);
+
+// Detalle producto
+router.get("/detail/:id", productsController.detail);
+
+// Eliminar producto
+router.get("/delete/:id", productsController.deleteview);
+router.post("/delete/:id", productsController.delete);
 
 /*** CREATE ONE PRODUCT ***/
 router.get('/create', productsController.create);

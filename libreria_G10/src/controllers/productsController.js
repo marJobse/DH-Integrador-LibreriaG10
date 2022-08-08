@@ -6,7 +6,11 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productsController = {
     detail: (req, res) => {
-        res.render('../views/products/productDetail.ejs')
+        let productId = req.params.id;
+        const productDetail = products.find( product => {
+            return product.id == productId;
+        })
+        res.render('../views/products/productDetail.ejs', {productDetail: productDetail})
     },
     list: (req, res) => {
         res.render('../views/products/productList.ejs', { products })
@@ -42,11 +46,18 @@ const productsController = {
         res.redirect('/')
 
     },
-    delete: (req, res) => {
-        res.render('../views/products/productConfirmacionEliminar.ejs')
+    deleteview: (req, res) => {
+        let productId = req.params.id;
+        const productDelete = products.find( product => {
+            return product.id == productId;
+        })
+        res.render('../views/products/productDelete.ejs', {productDelete: productDelete})
     },
-    verBase: (req, res) => {
-        res.render('../views/products/all.ejs', { products })
+    delete: (req, res) => {
+        let productId = req.params.id;
+        products.splice((productId - 1 ), 1);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+        res.redirect('/product/list')
     },
     create: (req, res) => {
         res.render('../views/products/product-create-form.ejs')

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        </head>
+
+        <body>
+            <%- include('../partials/header.ejs') %>
+                <main>
+                    <div>
+                        <h2>Confirma que quiere eliminar el siguiente libro:</h2>
+                        <p><%= productDelete.nombre %></p>
+                        <p><%= productDelete.autor %></p>
+                        <form action="/product/delete/<%= productDelete.id %>?_method=DELETE" method="post">
+                            <button type="submit" class="reset">Borrar</button>
+                        </form>
+                    </div>
+                    
+                </main>
+                <%- include('../partials/footer.ejs') %>
+        </body>
+
+</html>
