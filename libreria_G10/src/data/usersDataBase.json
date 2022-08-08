@@ -106,5 +106,14 @@
   "domicilio": "32423424 Ave Lo",
   "password": "efwegfwe",
   "tipo": "user"
+ },
+ {
+  "id": 13,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "dfgsfgfgs",
+  "tipo": "user"
  }
 ]

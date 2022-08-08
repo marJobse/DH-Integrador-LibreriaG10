@@ -23,7 +23,7 @@ router.get('/create', productsController.create);
 
 const multerDiskStorage = multer.diskStorage({
     destination: (req, file, cb) => { // cb= callback
-        let folder = path.join(__dirname, '../../public/images');
+        let folder = path.join(__dirname, '../../public/images/products');
         cb(null, folder);
     },
     filename: (req, file, cb) => {

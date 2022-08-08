@@ -11,10 +11,10 @@
                     <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>?_method=PUT" method="post">
                         <!-- <div class="edit-form-container"> -->
                             <div class="edit-form-top">
-                                <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>">
+                                <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>" accept=".jpg, .jpeg, .png">
                             </div>
                             <div class="edit-form-lower-left">
-                                <img src="/images/<%= prodToEdit.imagen %>">
+                                <img src="/images/products/<%= prodToEdit.imagen %>">
                                 <input type="file" id="imagen" name="imagen">
                             </div>
                             <div class="edit-form-lower-right">
