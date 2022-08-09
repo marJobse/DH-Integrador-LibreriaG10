@@ -15,6 +15,9 @@ const productsController = {
     list: (req, res) => {
         res.render('../views/products/productList.ejs', { products })
     },
+    adminList: (req, res) => {
+        res.render('../views/products/productListAdmin.ejs', { products })
+    },
     edit: (req, res) => {
         let prodId = req.params.id;
         const prodToEdit = products.find( product => {

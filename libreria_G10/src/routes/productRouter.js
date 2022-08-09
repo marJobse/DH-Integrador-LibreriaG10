@@ -9,7 +9,13 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
+// Todos los productos (public)
+
 router.get("/list", productsController.list);
+
+// Todos los productos (admin)
+
+router.get("/admin-list", productsController.adminList);
 
 // Detalle producto
 router.get("/detail/:id", productsController.detail);
