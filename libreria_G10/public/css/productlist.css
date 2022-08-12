@@ -167,6 +167,21 @@ td.editar {
     text-decoration: underline #91dfb9 2px;
 }
 
+main {
+    position: relative;
+}
+
+.product-create {
+    inset: auto 60px 50% auto;
+    position: fixed;
+}
+
+.fa-circle-plus {
+    color: #91dfb9;
+    width: 35px;
+    font-size: 3rem;
+}
+
 @media (min-width: 950px) {
     #product-list-table th {
         font-weight: 700;
