@@ -3,8 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
-const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
+const { check, body, validationResult } = require('express-validator');
 
 
 const usersController = {
@@ -27,21 +28,43 @@ const usersController = {
         res.redirect('/product/list')
     },
 
-    // VERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-    // processRegister: (req, res) => {
-    // const resultValidation = validationResult(req);
-    //  if (resultValidation.error.length > 0) {
-    //      return res.render('../views/users/register.ejs', { errors: resultValidation.mapped(), oldData: req.bod });
-    //
-    //   }
-    //   User.create(req.body);
-    //    return res.send('Validaciones exitosas');
-    // },
-
     login: (req, res) => {
         res.render('../views/users/login.ejs')
     },
 
+
+    loginProcess: (req, res) => {
+        let errors = validationResult(req);
+        console.log(errors);
+        if (errors.isEmpty()) {
+            let usuarioALoguearse;
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email == req.body.email) {
+                    if (req.body.password, users[i].password) {
+                        usuarioALoguearse = users[i];
+                        console.log('lo encontro')
+                        break;
+                    }
+                }
+            }
+            if (usuarioALoguearse == undefined) {
+                return res.render('login', {
+                    errors: [{ msg: 'Credenciales inválidas' }
+                    ]
+                });
+
+            }
+            req.session.usuarioLogueado = usuarioALoguearse;
+            console.log(req.session.usuarioLogueado);
+            res.send('sucess');
+        }
+
+        else {
+            return res.render('../views/users/login.ejs', { errors: errors.errors });
+        }
+    }
 }
+
+
 
 module.exports = usersController

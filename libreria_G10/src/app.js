@@ -8,6 +8,11 @@ const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const session = require('express-session');
 
+const bcrypt = require('bcrypt');
+
+//Capturar la información--> post del login funciona con esto
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 app.set('view engine', 'ejs');

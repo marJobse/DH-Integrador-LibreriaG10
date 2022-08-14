@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router()
 var bodyParser = require('body-parser')
-const { body } = require('express-validator');
 
+const { check, body, validationResult } = require('express-validator');
 // create application/json parser
 var jsonParser = bodyParser.json()
 
 // create application/x-www-form-urlencoded parser
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //Validaciones
@@ -20,14 +21,17 @@ const validateCreateForm = [
 
 ]
 
-const usersController = require("../controllers/usersController")
+const usersController = require("../controllers/usersController");
+const loginValidation = require("../../middlewares/validationLoginMiddleware");
 
 router.get("/register", usersController.register);
 router.post('/', urlencodedParser, usersController.crearUsuario);
+
+//formulario login
 router.get("/login", usersController.login);
-//router.post("/login", [check('email').isEmail().withMessage('Email inválido'),
-//check('password').isLength({ min: 8 }).withMessage('Debe contener mínimo 8 caracteres')
-//], usersController.processLogin);
+//procesa formulario login
+router.post("/login", loginValidation, usersController.loginProcess);
+
 
 
 module.exports = router;
