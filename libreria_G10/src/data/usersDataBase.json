@@ -1,37 +1,101 @@
 [
  {
-  "id": 2,
-  "nombre": "Mariana",
-  "email": "js@"
- },
- {
-  "id": 3,
-  "nombre": "Mariana",
-  "email": "js@"
- },
- {
   "id": 4,
-  "nombre": "Mariana",
-  "email": "js@"
+  "nombre": "Eran",
+  "apellido": "Bruffell",
+  "email": "ebruffell3@dailymail.co.uk",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "w9q87c",
+  "tipo": "user"
  },
  {
   "id": 5,
-  "nombre": "Mariana",
-  "email": "js@"
+  "nombre": "Coriss",
+  "apellido": "Belding",
+  "email": "cbelding4@harvard.edu",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "1SX3HLablImE",
+  "tipo": "user"
  },
  {
   "id": 6,
-  "nombre": "Mariana",
-  "email": "js@"
+  "nombre": "Orbadiah",
+  "apellido": "Serle",
+  "email": "oserle5@live.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "gzb8BzQ",
+  "tipo": "user"
+ },
+ {
+  "id": 7,
+  "nombre": "Ajay",
+  "apellido": "Probbin",
+  "email": "aprobbin6@tuttocitta.it",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "kpkKIKSvY",
+  "tipo": "user"
  },
  {
   "id": 8,
-  "nombre": "Mariana",
-  "email": "js@"
+  "nombre": "Rees",
+  "apellido": "Franzini",
+  "email": "rfranzini7@yelp.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "jTqLik",
+  "tipo": "user"
  },
  {
   "id": 9,
+  "nombre": "Luigi",
+  "apellido": "Eastmead",
+  "email": "leastmead8@java.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "WCHWX3mvx",
+  "tipo": "user"
+ },
+ {
+  "id": 10,
+  "nombre": "Wynn",
+  "apellido": "MacCurlye",
+  "email": "wmaccurlye9@uiuc.edu",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "PGn9oIjj5",
+  "tipo": "user"
+ },
+ {
+  "id": 11,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "435345",
+  "tipo": "user"
+ },
+ {
+  "id": 12,
+  "nombre": "Archibald",
+  "apellido": "Smithers",
+  "email": "idnsdinf@dfg.com",
+  "domicilio": "32423424 Ave Lo",
+  "password": "efwegfwe",
+  "tipo": "user"
+ },
+ {
+  "id": 13,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "dfgsfgfgs",
+  "tipo": "user"
+ },
+ {
+  "id": 11,
   "nombre": "Mariana",
-  "email": "js@"
+  "apellido": "Jobse",
+  "email": "mari_r@gmail.com",
+  "domicilio": "un dom",
+  "password": "1111",
+  "tipo": "user"
  }
 ]
