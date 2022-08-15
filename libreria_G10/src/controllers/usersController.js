@@ -18,9 +18,11 @@ const usersController = {
         nuevoUsuario.nombre = req.body.nombre;
         nuevoUsuario.apellido = req.body.apellido;
         nuevoUsuario.email = req.body.email;
-        nuevoUsuario.domicilio = req.body.domicilio
-        nuevoUsuario.password = req.body.password
-        nuevoUsuario.tipo = "user"
+        nuevoUsuario.domicilio = req.body.domicilio;
+        nuevoUsuario.password = req.body.password;
+        nuevoUsuario.tipo = "user";
+        nuevoUsuario.imagen = req.file.filename;
+
 
         users.push(nuevoUsuario)
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));

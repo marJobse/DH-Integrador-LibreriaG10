@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router()
 var bodyParser = require('body-parser')
+const multer = require("multer");
+const path = require('path');
 
 const { check, body, validationResult } = require('express-validator');
 // create application/json parser
@@ -9,6 +11,20 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+// multer
+const multerDiskStorage = multer.diskStorage({
+    destination: (req, file, cb) => { // cb= callback
+        let folder = path.join(__dirname, '../../public/images/users');
+        cb(null, folder);
+    },
+    filename: (req, file, cb) => {
+        let imageName = 'img-' + Date.now() + '-' + (file.originalname);
+        cb(null, imageName);
+    }
+})
+
+const uploadFile = multer(({ storage: multerDiskStorage })); // multer es un middleware, para implementarlo se almacena en una variable la ejecucín
 
 //Validaciones
 const validateCreateForm = [
@@ -25,7 +41,7 @@ const usersController = require("../controllers/usersController");
 const loginValidation = require("../../middlewares/validationLoginMiddleware");
 
 router.get("/register", usersController.register);
-router.post('/', urlencodedParser, usersController.crearUsuario);
+router.post('/', uploadFile.single('imagen'), usersController.crearUsuario);
 
 //formulario login
 router.get("/login", usersController.login);
