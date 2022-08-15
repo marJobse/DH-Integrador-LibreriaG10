@@ -7,6 +7,8 @@ const productsRouter = require('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const session = require('express-session');
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 
 const bcrypt = require('bcrypt');
 

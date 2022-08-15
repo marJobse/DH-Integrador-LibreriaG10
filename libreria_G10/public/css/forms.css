@@ -103,3 +103,16 @@ h3 {
     display: flex;
     justify-content: center;
 }
+
+.title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+h3.subtitle {
+    position: relative;
+    left: 15%;
+}
