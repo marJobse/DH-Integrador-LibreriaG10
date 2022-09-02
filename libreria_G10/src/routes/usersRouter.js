@@ -57,6 +57,14 @@ router.get('/pruebaSession', (req, res) => {
     req.session.numeroVisitas++;
     res.send('session tiene el numero: ' + req.session.numeroVisitas);
 
+});
+router.get('/check', function (req, res) {
+    if (req.session.usuarioLogueado == undefined) {
+        res.send('no logueado')
+    }
+    else {
+        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
+    }
+})
 
-
-    module.exports = router;
+module.exports = router;
