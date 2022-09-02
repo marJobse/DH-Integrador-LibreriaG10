@@ -23,8 +23,11 @@ const validateCreateForm = [
 
 const usersController = require("../controllers/usersController");
 const loginValidation = require("../../middlewares/validationLoginMiddleware");
+const guestMiddleware = require("../../middlewares/guestMiddleware.js");
+const authMiddleware = require("../../middlewares/authMiddleware.js");
 
-router.get("/register", usersController.register);
+
+router.get("/register", guestMiddleware, usersController.register);
 router.post('/', urlencodedParser, usersController.crearUsuario);
 
 //formulario login
@@ -32,6 +35,22 @@ router.get("/login", usersController.login);
 //procesa formulario login
 router.post("/login", loginValidation, usersController.loginProcess);
 
+router.get('/pruebaSession', (req, res) => {
+    if (req.session.numeroVisitas == undefined) {
+        req.session.numeroVisitas = 0;
+    }
+    req.session.numeroVisitas++;
+    res.send('session tiene el numero: ' + req.session.numeroVisitas);
+
+});
+router.get('/check', function (req, res) {
+    if (req.session.usuarioLogueado == undefined) {
+        res.send('no logueado')
+    }
+    else {
+        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
+    }
+})
 
 
 module.exports = router;

@@ -7,6 +7,9 @@ const productsRouter = require('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const validationLoginMiddleware = require('../middlewares/validationLoginMiddleware');
+const recordameMiddleware = require('../middlewares/recordameMiddleware');
 
 const bcrypt = require('bcrypt');
 
@@ -15,39 +18,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-app.set('view engine', 'ejs');
+// view engine setup
 app.set('views', path.join(__dirname, './views'))
+app.set('view engine', 'ejs');
 
 app.use(express.static(publicPath));
 
 
-//lo indicamos como middleware a nivel app
+//lo indicamos como middleware a nivel app(que todas las pags utilicen sesion)
 app.use(session({ secret: "secret" }))
+
+//el texto dentro de session va a identificar el sitio web
 
 app.use("/", mainRouter)
 app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/carrito", cartRouter)
 
+app.use(validationLoginMiddleware);
+app.use(cookieParser());
+app.use(recordameMiddleware);
+
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));
 
-
-// app.get('/', function (req, res) {
-//     res.sendFile(path.join(__dirname, './views/index.html'));
-// });
-// app.get('/productDetail', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/views/productDetail.html'));
-// });
-
-// app.get('/register', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/views/register.html'));
-// });
-
-// app.get('/login', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/views/login.html'));
-// });
-
-// app.get('/carrito', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/views/productCart.html'));
-// });
