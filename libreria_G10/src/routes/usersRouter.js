@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router()
 var bodyParser = require('body-parser')
+const multer = require("multer");
+const path = require('path');
 
 const { check, body, validationResult } = require('express-validator');
 // create application/json parser
@@ -9,6 +11,20 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+// multer
+const multerDiskStorage = multer.diskStorage({
+    destination: (req, file, cb) => { // cb= callback
+        let folder = path.join(__dirname, '../../public/images/users');
+        cb(null, folder);
+    },
+    filename: (req, file, cb) => {
+        let imageName = 'img-' + Date.now() + '-' + (file.originalname);
+        cb(null, imageName);
+    }
+})
+
+const uploadFile = multer(({ storage: multerDiskStorage })); // multer es un middleware, para implementarlo se almacena en una variable la ejecucín
 
 //Validaciones
 const validateCreateForm = [
@@ -28,13 +44,12 @@ const authMiddleware = require("../../middlewares/authMiddleware.js");
 
 
 router.get("/register", guestMiddleware, usersController.register);
-router.post('/', urlencodedParser, usersController.crearUsuario);
+router.post('/', uploadFile.single('imagen'), usersController.crearUsuario);
 
 //formulario login
 router.get("/login", usersController.login);
 //procesa formulario login
 router.post("/login", loginValidation, usersController.loginProcess);
-
 router.get('/pruebaSession', (req, res) => {
     if (req.session.numeroVisitas == undefined) {
         req.session.numeroVisitas = 0;
@@ -42,15 +57,6 @@ router.get('/pruebaSession', (req, res) => {
     req.session.numeroVisitas++;
     res.send('session tiene el numero: ' + req.session.numeroVisitas);
 
-});
-router.get('/check', function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
-        res.send('no logueado')
-    }
-    else {
-        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
-    }
-})
 
 
-module.exports = router;
+    module.exports = router;

@@ -1,28 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <%- include('../partials/head.ejs') %>
 
-    <body>
-        <%- include('../partials/header.ejs') %>
-            <main>
-                <div id="user-form">
-                    <h3>Creá tu cuenta</h3>
-                    <form id="register-form" action="/users/" method="post">
+        <body>
+            <%- include('../partials/header.ejs') %>
+                <div id="user-form" >
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="products-title">Creá tu cuenta</h3>
+                        </div>
+                    </div>
+                        <form id="register-form" action="/users/" method="POST" enctype="multipart/form-data">
+                            <div id="user-form">
 
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-                        <input type="text" name="domicilio" id="domicilio" placeholder="Domicilio">
-                        <input type="email" id="user-email" name="email" placeholder="Correo electrónico">
-                        <input type="file" id="user-foto" name="foto" accept="image/*">
-                        <input type="password" name="password" id="password" placeholder="Contraseña">
-                        <input type="password" id="password1" placeholder="Confirmar contraseña">
-                        <button type="submit" class="submit">Enviar</button>
-                        <button type="reset" class="reset">Borrar</button>
-                    </form>
+                                <div class="col-12 col-md-6">
+                                    <input type="text" id="nombre" name="nombre" placeholder="Andrea"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="text" id="apellido" name="apellido" placeholder="Perez" class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="text" id="domicilio" name="domicilio" placeholder="Ej: Oceano Atlántico 123, Alma Buena, Argentina."
+                                        class="form-input">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="email" id="email" name="email" placeholder="andrea.perez@email.com"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12">
+                                    <input type="file" id="imagen" name="imagen">
+                                </div>
+                                <div class="col-12">
+                                    <input type="password" id="password" name="password" placeholder="Contraseña"
+                                        class="form-input">
+                                </div>
+                                <div class="col-12">
+                                    <input type="password" id="password2" placeholder="Contraseña"
+                                        class="form-input">
+                                </div>                               
+                                <div class="col-12 register-button-bar">
+                                    <button type="submit" class="submit">Registrarse</button>
+                                    <button type="reset" class="reset">Borrar</button>
+
+                                </div>
+
+                            </div>
+                        
+                        </form>
+
                 </div>
-            </main>
-            <%- include('../partials/footer.ejs') %>
-    </body>
+                <%- include('../partials/footer.ejs') %>
+        </body>
 
 </html>

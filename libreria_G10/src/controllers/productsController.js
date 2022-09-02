@@ -35,7 +35,7 @@ const productsController = {
         prodToEdit.nombre = productUpdates.nombre ;
         prodToEdit.resenia = productUpdates.resenia ;
         prodToEdit.precio = productUpdates.precio ;
-        // prodToEdit.imagen =  req.file.filename ;
+        prodToEdit.imagen =  req.file.filename ;
         prodToEdit.clasificacion = productUpdates.clasificacion ;
         prodToEdit.anioEdicion = productUpdates.anioEdicion ;
         prodToEdit.fechaPublicacion = productUpdates.fechaPublicacion ;
@@ -46,7 +46,7 @@ const productsController = {
         prodToEdit.idioma = productUpdates.idioma ;
         prodToEdit.isbn = productUpdates.isbn ;
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/')
+        res.redirect('/product/admin-list')
 
     },
     deleteview: (req, res) => {
@@ -60,7 +60,7 @@ const productsController = {
         let productId = req.params.id;
         products.splice((productId - 1 ), 1);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/product/list')
+        res.redirect('/product/admin-list')
     },
     create: (req, res) => {
         res.render('../views/products/product-create-form.ejs')
@@ -84,7 +84,7 @@ const productsController = {
         products.push(nuevoProd);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
-        res.redirect('/');
+        res.redirect('/product/admin-list');
     }
 }
 

@@ -97,5 +97,27 @@
         "domicilio": "123 calle falsa",
         "password": "dfgsfgfgs",
         "tipo": "user"
+    },
+    {
+        "id": 11,
+        "nombre": "Mariana",
+        "apellido": "Jobse",
+        "email": "mari_r@gmail.com",
+        "domicilio": "un dom",
+        "password": "1111",
+        "tipo": "user"
+    },
+    {
+        "id": 13,
+        "nombre": "Ignacio",
+        "apellido": "Mateu",
+        "email": "ignaciomateu@gmail.com",
+        "domicilio": "123 calle falsa",
+        "password": "cadfgsfgsdfg",
+        "tipo": "user"
+    },
+    {
+        "id": 14,
+        "tipo": "user"
     }
 ]

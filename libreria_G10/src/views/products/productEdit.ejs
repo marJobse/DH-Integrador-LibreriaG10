@@ -6,9 +6,11 @@
     <body>
         <%- include('../partials/header.ejs') %>
             <main>
+                <div class="title">
+                    <h3 class="subtitle">Editando <%= prodToEdit.nombre %></h3>
+                </div>
                 <div id="user-form">
-                    <h3>Editando <%= prodToEdit.nombre %></h3>
-                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>?_method=PUT" method="post">
+                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <!-- <div class="edit-form-container"> -->
                             <div class="edit-form-top">
                                 <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>" accept=".jpg, .jpeg, .png">
