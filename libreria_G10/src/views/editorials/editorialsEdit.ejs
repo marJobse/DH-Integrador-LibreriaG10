@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3 class="titulo">Editorial Editada: <%= Editorial.title %>
+            </h3>
+            <section class="formulario">
+                <form action="/editorials/update/<%= Editorial.id %>" method="POST">
+                    <label for="nombre">Nombre </label>
+                    <p><input type="text" name="nombre" id="" value="<%= Editorial.nombre %>" required></p>
+
+
+                    <br>
+                    <p> <button class="botonAgregar" type="submit">Actualizar</button>
+
+                        <a class="botonVolver" href="/editorials/list">Listado de Géneros</a>
+                    </p>
+                </form>
+            </section>
+    </body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3>
+                Detalle de la editorial: <%= editorial.nombre %>
+            </h3>
+
+            <section>
+                <button>
+                    <a class="botonVolver" href="/editorials/add">Agregar</a>
+                </button>
+                <button>
+                    <a class="botonVolver" href='/editorials/edit/<%= editorial.id %>'>Editar</a>
+                </button>
+                <form action="/editorials/delete/<%= editorial.id %>" method="get">
+                    <br>
+                    <p> <button class="botonBorrar" type="submit">Borrar</button>
+                    </p>
+                </form>
+                <button>
+                    <a class="botonVolver" href="/editorials/list">Listado de Géneros</a>
+                </button>
+            </section>
+
+    </body>
+
+</html>

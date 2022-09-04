@@ -11,6 +11,12 @@ const genresController = {
         })
 
     },
+    detail: (req, res) => {
+
+        db.Genres.findByPk(req.params.id).then(function (genre) {
+            res.render('../views/genres/genresDetail.ejs', { genre });
+        });
+    },
 
     add: (req, res) => {
         res.render('../views/genres/genresAdd.ejs')
@@ -24,6 +30,26 @@ const genresController = {
             res.send(req.body.nombre)
         })
     },
+
+    edit: (req, res) => {
+        db.Genres.findByPk(req.params.id).then(function (genre) {
+            res.render('../views/genres/genresEdit.ejs', { Genre: genre });
+        })
+
+    },
+
+    update: (req, res) => {
+        db.Genres.update({
+            nombre: req.body.nombre,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function () {
+            res.redirect("/genres/list")
+        })
+    },
+
 
     delete: (req, res) => {
         db.Genres.findByPk(req.params.id).then(function (genre) {

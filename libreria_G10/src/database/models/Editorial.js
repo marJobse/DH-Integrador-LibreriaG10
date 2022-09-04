@@ -21,13 +21,17 @@ module.exports = (sequelize, dataTypes) => {
 
     const Editorials = sequelize.define(alias, columns, config);
 
-    //Genres.associate = function (models) {
-    //  Genres.hasMany(models.Books, {
-    //     as: "libros",
-    //     foreignKey: 'genero_id'
-    // })
+    Editorials.associate = function (models) {
 
-    // }
+        Editorials.belongsToMany(models.Books, {
+            as: "libros",
+            through: 'editoriales_libros',
+            foreignKey: 'editorial_id',
+            otherKey: 'libro_id',
+            timestamps: false
+        })
+
+    }
 
     return Editorials;
 }
