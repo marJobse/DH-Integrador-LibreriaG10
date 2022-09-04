@@ -12,7 +12,6 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING,
         },
-
     };
     let config = {
         tableName: "idiomas", // como se llama la base de datos
@@ -21,13 +20,12 @@ module.exports = (sequelize, dataTypes) => {
 
     const Languages = sequelize.define(alias, columns, config);
 
-    //Genres.associate = function (models) {
-    //  Genres.hasMany(models.Books, {
-    //     as: "libros",
-    //     foreignKey: 'genero_id'
-    // })
-
-    // }
+    Languages.associate = function(model){
+        Languages.hasMany(model.Books, {
+            as: 'libros',
+            foreignKey: 'idioma_id'
+        })
+    }
 
     return Languages;
 }

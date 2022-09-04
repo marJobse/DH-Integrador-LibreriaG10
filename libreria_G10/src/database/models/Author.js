@@ -24,13 +24,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Authors = sequelize.define(alias, columns, config);
 
-    //Genres.associate = function (models) {
-    //  Genres.hasMany(models.Books, {
-    //     as: "libros",
-    //     foreignKey: 'genero_id'
-    // })
 
-    // }
 
     return Authors;
 }
