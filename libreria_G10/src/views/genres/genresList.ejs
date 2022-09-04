@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listado de Generos</title>
-    <link rel='stylesheet' href='/css/style.css' />
+<%- include('../partials/head.ejs') %>
 
-</head>
+    <body>
+        <%- include('../partials/header.ejs') %>
 
-<body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1>LISTADO DE GENEROS</h1>
-    <ul>
-        <% for( let i=0; i < genres.length; i++ ) { %>
-            <li>
-                <a href="/genres/detail/<%= genres[i].id %>">
-                    <%= genres[i].nombre %>
-                </a>
-            </li>
-            <% } %>
+            <h3>Listado de Géneros</h3>
+            <ul>
+                <% for( let i=0; i < genres.length; i++ ) { %>
+                    <div class="botones_editar_borrar">
+                        <li>
+                            <a href="/genres/detail/<%= genres[i].id %>">
+                                <%= genres[i].nombre %>
+                            </a>
+                        </li>
 
-    </ul>
-</body>
+                        <form action="/" method="get">
+                            <p> <button class="boton_editar" type="submit">Editar</button>
+                            </p>
+                        </form action=" /" method="get">
+                        <p> <button class="boton_borrar" type="submit">Borrar</button>
+                        </p>
+                        </form>
 
-</html>
+
+                    </div>
+                    <% } %>
+
+
+            </ul>
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

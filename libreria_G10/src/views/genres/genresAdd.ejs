@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie add</title>
-    <link rel='stylesheet' href='/css/style.css' />
-</head>
+<%- include('../partials/head.ejs') %>
 
-<body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
-    <h1 class="titulo">Agregar Genero</h1>
-    <br>
+    <body>
+        <%- include('../partials/header.ejs') %>
 
+            <main>
+                <h3 class="titulo">Agregar Genero</h3>
+                <br>
 
-    <section class="formulario">
-        <form action="/genres/add" method="POST">
-            <label for="nombre">Nombre </label>
-            <p><input type="nombre" name="nombre" id="" required></p>
-            <div class="col-12">
-                <button type="submit" class="buy-now-button">Agregar</button>
-            </div>
-        </form>
-    </section>
+                <div class=" agregar-genero">
+                    <section class="formulario">
+                        <form action="/genres/add" method="POST">
+                            <label for="nombre">Nombre </label>
+                            <p><input type="nombre" name="nombre" id="" required></p>
+                            <div class="col-12">
+                                <button type="submit" class="buy-now-button">Agregar</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
 
-</body>
-
-</html>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

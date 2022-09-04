@@ -60,3 +60,25 @@ main h2 {
     display: flex;
     margin: auto;
 }
+
+
+.agregar-genero {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+
+}
+
+.botones_editar_borrar {
+    display: flex;
+}
+
+.boton_editar {
+    display: flex;
+    align-items: flex-start;
+}
+
+.boton_borrar {
+    display: flex;
+    align-items: flex-start;
+}

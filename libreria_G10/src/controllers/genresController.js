@@ -12,16 +12,20 @@ const genres = JSON.parse(fs.readFileSync(genresFilePath, 'utf-8'));
 const genresController = {
 
     list: (req, res) => {
-        //res.render('../views/products/productList.ejs', { genres }) //////////////////////////////////////
-        res.send(genres)
+        db.Genres.findAll().then(function (genres) {
+            res.render('../views/genres/genresList.ejs', { genres })
+        })
     },
+
     add: (req, res) => {
         res.render('../views/genres/genresAdd.ejs')
     },
+
     create: (req, res) => {
         // const nuevoGenero = {};
         //nuevoGenero.id = genres.length + 1;
         //nuevoGenero.nombre = req.body.nombre;
+
 
         db.Genres.create({
             nombre: req.body.nombre, // COMO PONERLE EL PRIMER ID, SALE NULL

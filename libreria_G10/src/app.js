@@ -6,10 +6,12 @@ const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
+const genresRouter = require('./routes/genresRouter');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const validationLoginMiddleware = require('../middlewares/validationLoginMiddleware');
 const recordameMiddleware = require('../middlewares/recordameMiddleware');
+
 
 const bcrypt = require('bcrypt');
 
@@ -33,6 +35,9 @@ app.use(session({ secret: "secret" }))
 app.use("/", mainRouter)
 app.use("/product", productsRouter)
 app.use("/users", usersRouter)
+app.use("/genres", genresRouter)
+
+
 app.use("/carrito", cartRouter)
 
 app.use(validationLoginMiddleware);
