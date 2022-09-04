@@ -16,7 +16,11 @@
                             </a>
                         </li>
 
-                        <form action="/" method="get">
+                        <form action="/genres/detail/<%= genres[i].id %>" method="get">
+                            <p> <button class="boton_editar" type="submit">Detalle</button>
+                            </p>
+                        </form>
+                        <form action="/genres/edit/<%= genres[i].id %>" method="get">
                             <p> <button class="boton_editar" type="submit">Editar</button>
                             </p>
                         </form>
