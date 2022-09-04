@@ -1,13 +1,7 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const { check, body, validationResult } = require('express-validator');
-
-
 const express = require("express");
-const path = require('path');
-const fs = require('fs');
-const genresFilePath = path.join(__dirname, '../data/genresDataBase.json');/////////////////////
-const genres = JSON.parse(fs.readFileSync(genresFilePath, 'utf-8'));
 
 const genresController = {
 
@@ -15,6 +9,7 @@ const genresController = {
         db.Genres.findAll().then(function (genres) {
             res.render('../views/genres/genresList.ejs', { genres })
         })
+
     },
 
     add: (req, res) => {
@@ -22,24 +17,39 @@ const genresController = {
     },
 
     create: (req, res) => {
-        // const nuevoGenero = {};
-        //nuevoGenero.id = genres.length + 1;
-        //nuevoGenero.nombre = req.body.nombre;
-
-
         db.Genres.create({
-            nombre: req.body.nombre, // COMO PONERLE EL PRIMER ID, SALE NULL
+            nombre: req.body.nombre,
 
         }).then(function () {
-            // res.redirect("/movies")
-            res.send(genres)
+            res.send(req.body.nombre)
         })
+    },
 
-        //genres.push(nuevoGenero);
-        //fs.writeFileSync(genresFilePath, JSON.stringify(genres, null, ' '));
+    delete: (req, res) => {
+        db.Genres.findByPk(req.params.id).then(function (genre) {
+            res.render('../views/genres/genresDelete.ejs', { genre });
+        });
+    },
 
-        //res.send(genres)
+    confirmDelete: (req, res) => {
+
+        db.Genres_Book.destroy({
+            where: {
+                genero_id: req.params.id
+            }
+        }).then(function () {
+            db.Genres.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+        }).then(function () {
+            db.Genres.findAll().then(function (genres) {
+                res.render('../views/genres/genresList.ejs', { genres })
+            })
+        })
     }
+
 }
 
 module.exports = genresController;

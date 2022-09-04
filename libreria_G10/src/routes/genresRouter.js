@@ -14,6 +14,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 router.get("/list", genresController.list);
 router.get("/add", genresController.add);
 router.post("/add", genresController.create);
+router.get("/delete/:id", genresController.delete);
+router.post("/delete/:id", genresController.confirmDelete);
 
 
 module.exports = router;

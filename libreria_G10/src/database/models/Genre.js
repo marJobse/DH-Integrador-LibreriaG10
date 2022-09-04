@@ -20,13 +20,17 @@ module.exports = (sequelize, dataTypes) => {
 
     const Genres = sequelize.define(alias, columns, config);
 
-    //Genres.associate = function (models) {
-    //  Genres.hasMany(models.Books, {
-    //     as: "libros",
-    //     foreignKey: 'genero_id'
-    // })
+    Genres.associate = function (models) {
 
-    // }
+        Genres.belongsToMany(models.Books, {
+            as: "libros",
+            through: 'generos_libros',
+            foreignKey: 'genero_id',
+            otherKey: 'libro_id',
+            timestamps: false
+        })
+
+    }
 
     return Genres;
 }

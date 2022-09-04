@@ -47,12 +47,20 @@ module.exports = (sequelize, dataTypes) => {
 
     const Book = sequelize.define(alias, columns, config);
 
-    Book.associate = function(model){
+    Book.associate = function (model) {
         Book.belongsTo(model.Languages, {
             as: 'idiomas',
             foreignKey: 'idioma_id'
         })
+        Book.belongsToMany(model.Genres, {
+            as: 'generos',
+            through: 'generos_libros',
+            foreignKey: 'libro_id',
+            otherKey: 'genero_id',
+            timestamps: false
+        })
     }
+
 
 
     return Book;
