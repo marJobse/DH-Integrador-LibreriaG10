@@ -12,6 +12,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const validationLoginMiddleware = require('../middlewares/validationLoginMiddleware');
 const recordameMiddleware = require('../middlewares/recordameMiddleware');
+var methodOverride = require('method-override')
 
 
 const bcrypt = require('bcrypt');
@@ -44,6 +45,7 @@ app.use("/carrito", cartRouter)
 app.use(validationLoginMiddleware);
 app.use(cookieParser());
 app.use(recordameMiddleware);
+app.use(methodOverride('_method'))
 
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));

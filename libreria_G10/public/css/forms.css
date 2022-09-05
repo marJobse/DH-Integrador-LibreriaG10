@@ -13,11 +13,11 @@ form {
     margin-bottom: 2rem;
 }
 
-#user-form form label, #user-form form input {
+#user-form form label, #user-form form input, .product-edit {
     width: 100%;
 }
 
-#user-form form input {
+#user-form form input, .product-edit, .product-create  {
     border: solid 1px #005099;
     margin: .5rem;
     background-color: white;
@@ -115,4 +115,10 @@ h3 {
 h3.subtitle {
     position: relative;
     left: 15%;
+}
+
+.product-edit-label, .product-create-label { 
+    text-align: right;
+    color: #0e131f;
+    font-weight: 700;
 }

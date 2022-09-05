@@ -19,55 +19,73 @@
                             <div class="row product-detail">
 
                                 <div class="col-12 col-md-6">
-                                    <label for="nombre" class="form-label">Nombre del producto:</label>
+                                    <label for="nombre" class="product-create-label" >Nombre del producto:</label>
                                     <input type="text" id="nombre" name="nombre" placeholder="Ej: El amante japonés"
                                         class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="precio" class="form-label">Precio del producto:</label>
+                                    <label for="precio" class="product-create-label" >Precio del producto:</label>
                                     <input type="text" id="precio" name="precio" placeholder="3000" class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="editorial" class="form-label">Editorial:</label>
+                                    <label class="product-edit-label" for="editorial">Editorial</label>
+                                    <select  name="editorial" id="editorial" required>
+                                        <option value="" selected>- elegir editorial - </option>
+                                        <% editoriales.forEach(editorial => { %>
+                                        <option value="<%= editorial.id %>" ><%= editorial.nombre %></option>
+                                        <% }); %>
+                                    </select>
+                                    <!-- <label for="editorial" class="form-label">Editorial:</label>
                                     <input type="text" id="editorial" name="editorial" placeholder="Ej: Oceano"
-                                        class="form-input">
+                                        class="form-input"> -->
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="autor" class="form-label">Autor:</label>
-                                    <input type="text" id="autor" name="autor" placeholder="Isabel Allende"
-                                        class="form-input">
+                                    <label class="product-edit-label" for="autor">Autor</label>
+                                    <select  name="autor" id="autor" required>
+                                        <option value="" selected>- elegir autor - </option>
+                                        <% autores.forEach(autor => { %>
+                                        <option value="<%= autor.id %>" ><%= autor.nombre +' '+ autor.apellido %></option>
+                                        <% }); %>
+                                    </select>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="resenia" class="form-label">Resenia:</label>
+                                    <label for="resenia" class="product-create-label" >Resenia:</label>
                                     <input type="text" id="resenia " name="resenia" placeholder="Este es un libro..."
                                         class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="clasificacion" class="form-label"> Clasificacion:</label>
+                                    <label class="product-edit-label" for="clasificacion">Clasificación</label>
+                                    <select name="clasificacion" id="clasificacion" required>
+                                        <option value="" selected>- elegir clasificación - </option>
+                                        <% generos.forEach(genero => { %>
+                                        <option value="<%= genero.id %>" ><%= genero.nombre %></option>
+                                        <% }); %>
+                                    </select>
+                                    <!-- <label for="clasificacion" class="form-label"> Clasificacion:</label>
                                     <input type="text" id="clasificacion" name="clasificacion" placeholder="Romance"
-                                        class="form-input">
+                                        class="form-input"> -->
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="clasificacion" class="form-label"> Año de Edición:</label>
+                                    <label for="clasificacion" class="product-create-label" > Año de Edición:</label>
                                     <input type="text" id="anioEdicion" name="anioEdicion" placeholder="2012"
                                         class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="fechaPublicacion " class="form-label"> Fecha de Publicación:</label>
+                                    <label for="fechaPublicacion" class="product-create-label" > Fecha de Publicación:</label>
                                     <input type="text" id="fechaPublicacion" name="fechaPublicacion"
                                         placeholder="12-20-2012" class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="stock" class="form-label"> Stock:</label>
+                                    <label for="stock" class="product-create-label" > Stock:</label>
                                     <input type="text" id="stock" name="stock" placeholder="100" class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="nroPaginas" class="form-label"> Número de Páginas:</label>
+                                    <label for="nroPaginas" class="product-create-label" > Número de Páginas:</label>
                                     <input type="text" id="nroPaginas" name="nroPaginas" placeholder="500"
                                         class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="idioma_id" class="form-label"> Idioma:</label>
+                                    <label class="product-create-label" for="idioma_id" class="form-label"> Idioma:</label>
                                     <!-- <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input"> -->
                                     <select name="idioma_id" id="idioma_id" required>
                                         <option value="" disabled selected>- elegir idioma - </option>
@@ -77,13 +95,13 @@
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <label for="isbn" class="form-label">ISBN:</label>
+                                    <label for="isbn" class="product-create-label" >ISBN:</label>
                                     <input type="isbn" id="isbn" name="isbn" placeholder="121212121212"
                                         class="form-input">
                                 </div>
                                 <div class="col-12">
-                                    <label for="imagen" class="form-label">Imágen:</label>
-                                    <input type="file" id="imagen" name="imagen">
+                                    <label for="imagen" class="product-create-label" >Imágen:</label>
+                                    <input type="file"  id="imagen" name="imagen">
                                 </div>
 
                                 <div class="col-12">
