@@ -67,8 +67,14 @@
                                         class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="idioma" class="form-label"> Idioma:</label>
-                                    <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input">
+                                    <label for="idioma_id" class="form-label"> Idioma:</label>
+                                    <!-- <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input"> -->
+                                    <select name="idioma_id" id="idioma_id" required>
+                                        <option value="" disabled selected>- elegir idioma - </option>
+                                        <% idiomas.forEach(idioma => { %>
+                                        <option value="<%= idioma.id %>"><%= idioma.nombre %></option>
+                                        <% }); %>
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <label for="isbn" class="form-label">ISBN:</label>

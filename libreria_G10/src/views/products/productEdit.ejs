@@ -20,19 +20,20 @@
                                 <input type="file" id="imagen" name="imagen">
                             </div>
                             <div class="edit-form-lower-right">
-                                <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autor %>" placeholder="Autor">
-                                <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.categoria %>" placeholder="Categoría">
-                                <input class="edit-area half" type="text" id="anioEdicion" name="anioEdicion" value="<%= prodToEdit.anioEdicion %>" placeholder="Año">
+                                <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autores[0].nombre %> <%= prodToEdit.autores[0].apellido %>" placeholder="Autor">
+                                <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Categoría">
+                                <input class="edit-area half" type="text" id="anioEdicion" name="anioEdicion" value="<%= prodToEdit.anio_edicion %>" placeholder="Año">
                                 <input class="edit-area half" type="text" id="precio" name="precio" value="<%= prodToEdit.precio %>" placeholder="Precio">
                                 <input class="edit-area half" type="text" id="stock" name="stock" value="<%= prodToEdit.stock %>" placeholder="Stock">
                                 <textarea name="resenia" id="resenia" cols="30" rows="3"><%= prodToEdit.resenia %></textarea>
                                 <div class="detalles-libro">
-                                    <input type="text" name="editorial" id="editorial" value="<%= prodToEdit.editorial %>" placeholder="Editorial">
+                                    <input type="text" name="editorial" id="editorial" value="<%= prodToEdit.editoriales[0].nombre %>" placeholder="Editorial">
                                     <input type="text" id="isbn" name="isbn" value="<%= prodToEdit.isbn %>">
-                                    <input type="text" id="nroPaginas" name="nroPaginas" value="<%= prodToEdit.nroPaginas %>">
-                                    <input type="text" id="idioma" name="idioma" value="<%= prodToEdit.idioma %>">
-                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.clasificacion %>" placeholder="Clasificación">
-                                    <input type="text" id="fechaPublicacion" name="fechaPublicacion" value="<%= prodToEdit.fechaPublicacion %>">
+                                    <input type="text" id="nroPaginas" name="nroPaginas" value="<%= prodToEdit.nro_paginas %>">
+                                    <input type="text" id="idioma" name="idioma" value="<%= prodToEdit.idiomas.nombre %>">
+
+                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Clasificación">
+                                    <input type="text" id="fechaPublicacion" name="fechaPublicacion" value="<%= prodToEdit.fecha_publicacion %>">
                                 </div>
                                 <button type="submit" class="submit">Enviar</button>
                                 <button type="reset" class="reset">Borrar</button>

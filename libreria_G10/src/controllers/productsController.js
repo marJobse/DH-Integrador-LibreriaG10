@@ -7,26 +7,78 @@ const db = require('../database/models');
 
 const productsController = {
     detail: (req, res) => {
-        let productId = req.params.id;
-        const productDetail = products.find(product => {
-            return product.id == productId;
+        db.Books.findByPk(req.params.id,{
+            include: [{
+                association: 'editoriales'
+            },{
+                association: 'autores'
+            },{
+                association: 'idiomas'
+            },{
+                association: 'generos'
+            },
+        ]
         })
-        res.render('../views/products/productDetail.ejs', { productDetail: productDetail })
+        .then(libro=>{
+            res.render('../views/products/productDetail.ejs', { productDetail: libro })
+        })
     },
-    list: (req, res) => {
-        res.render('../views/products/productList.ejs', { products })
-        //res.send(products)
+    list: (req, res)=>{
+        db.Books.findAll({
+            include: [{
+                association: 'editoriales'
+            },{
+                association: 'autores'
+            },
+        ]
+        })
+        .then(products=>{
+            console.log(products[1].autores[0])
+            res.render('../views/products/productList.ejs', { products })
+        })
     },
     adminList: (req, res) => {
-        res.render('../views/products/productListAdmin.ejs', { products })
-    },
-    edit: (req, res) => {
-        let prodId = req.params.id;
-        const prodToEdit = products.find(product => {
-            return product.id == prodId
+        db.Books.findAll({
+            include: [{
+                association: 'editoriales'
+            },{
+                association: 'autores'
+            },
+        ]
         })
-        res.render('../views/products/productEdit.ejs', { prodToEdit: prodToEdit })
+        .then(products=>{
+            console.log(products[1].autores[0])
+            res.render('../views/products/productListAdmin.ejs', { products })
+        })
+   },
+    edit: (req, res) => {
+        let allGenres = db.Genres.findAll()
+        let idiomas = db.Languages.findAll()
+        let allAuthors = db.Authors.findAll()
+        let allEditorials =  db.Editorials.findAll()
+        db.Books.findByPk(req.params.id,{
+            include: [{
+                association: 'editoriales'
+            },{
+                association: 'autores'
+            },{
+                association: 'idiomas'
+            },{
+                association: 'generos'
+            },
+        ]
+        })
+        .then(libro=>{
+            res.render('../views/products/productEdit.ejs', { 
+                prodToEdit: libro,
+                generos: allGenres,
+                autores: allAuthors,
+                idiomas: idiomas,
+                editoriales: allEditorials
+            })
+        })
     },
+    
     update: (req, res) => {
         // prepping the info 
         let productUpdates = req.body;
@@ -65,29 +117,11 @@ const productsController = {
         res.redirect('/product/admin-list')
     },
     create: (req, res) => {
-        res.render('../views/products/product-create-form.ejs')
+        db.Languages.findAll()
+        .then(idiomas=>{
+            res.render('../views/products/product-create-form.ejs', {idiomas: idiomas})
+        })
     },
-    // store: (req, res) => {
-    //     const nuevoProd = {};
-    //     nuevoProd.id = products.length + 1;
-    //     nuevoProd.nombre = req.body.nombre;
-    //     nuevoProd.resenia = req.body.resenia;
-    //     nuevoProd.precio = req.body.precio;
-    //     nuevoProd.clasificacion = req.body.clasificacion;
-    //     nuevoProd.imagen = req.file.filename;
-    //     nuevoProd.anioEdicion = req.body.anioEdicion;
-    //     nuevoProd.fechaPublicacion = req.body.fechaPublicacion;
-    //     nuevoProd.stock = req.body.stock;
-    //     nuevoProd.autor = req.body.autor;
-    //     nuevoProd.editorial = req.body.editorial;
-    //     nuevoProd.nroPaginas = req.body.nroPaginas;
-    //     nuevoProd.idioma = req.body.idioma;
-    //     nuevoProd.isbn = req.body.isbn;
-    //     products.push(nuevoProd);
-    //     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-
-    //     res.redirect('/product/admin-list');
-    // }
     store: (req, res) => {
         db.Books.create({
             nombre :  req.body.nombre,
@@ -98,7 +132,7 @@ const productsController = {
             fecha_publicacion:  req.body.fechaPublicacion,
             stock:  req.body.stock,
             nro_paginas:  req.body.nroPaginas,
-            idioma_id:  req.body.idioma,
+            idioma_id:  req.body.idioma_id,
             isbn:  req.body.isbn,})
             .then(()=>{res.redirect('/product/admin-list')})
     }

@@ -21,27 +21,26 @@
 
                             <div class="editar">Acción</div>
                         </div>
-                        <% products.forEach(product => { %>
+                        <% for(let i=0; i < products.length; i++){ %>
                             <div class="tabla-editar-productos fila">
                                 <div class="col-1">
-                                    <div class="portada"><img src='/images/products/<%= product.imagen %>'></div>
+                                    <div class="portada"><img src='/images/products/<%= products[i].imagen %>'></div>
                                 </div>
                                 <div class="col-2">
-                                    <div class="titulo"><a href="/product/detail/<%= product.id %>"><%= product.nombre %></a></div>
-                                    <div class="autor"><%= product.autor %></div>
-                                    <div class="info">Ed. <%= product.editorial %>. Stock: <%= product.stock %> u. $<%= product.precio %></div>
-                                    <!-- <div class="precio"></div>
-                                    <div class="stock"></div> -->
+                                    <div class="titulo"><a href="/product/detail/<%= products[i].id %>"><%= products[i].nombre %></a></div>
+                                    <% for(let j=0; j < products[i].autores.length; j++){ %>
+                                        <div class="autor"><%= products[i].autores[j].nombre %> <%= products[i].autores[j].apellido %></div>
+                                    <% } %>
+                                    <% for(let k=0; k < products[i].autores.length; k++){ %>
+                                    <div class="info">Ed. <%= products[i].editoriales[k].nombre %>. Stock: <%= products[i].stock %> u. $<%= products[i].precio %></div>
+                                    <% } %>
                                 </div>
                                 <div class="col-3 editar">
-                                    <a href="/product/edit/<%= product.id %>"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="/product/delete/<%= product.id %>"><i class="fa-solid fa-circle-minus"></i></a>
+                                    <a href="/product/edit/<%= products[i].id %>"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="/product/delete/<%= products[i].id %>"><i class="fa-solid fa-circle-minus"></i></a>
                                 </div>
-
-
-
                             </div>
-                        <% }) %>
+                        <% } %>
                     </div>
                 </div>
                 <div class="product-create">
