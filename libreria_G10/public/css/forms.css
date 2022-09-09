@@ -17,7 +17,7 @@ form {
     width: 100%;
 }
 
-#user-form form input, .product-edit, .product-create  {
+#user-form form input, .product-edit  {
     border: solid 1px #005099;
     margin: .5rem;
     background-color: white;
@@ -70,14 +70,14 @@ form {
 
 }
 
-button[type="submit"], button[type="reset"]:hover, #comprar,  #cupon-aplicar{
+button[type="submit"], button[type="reset"]:hover, #comprar,  #cupon-aplicar, #boton-comprar{
     background-color: #005099;
     border: solid 1px #005099;
     color: white;
     transition: all .5s;
 }
 
-button[type="reset"], button[type="submit"]:hover, #comprar:hover,  #cupon-aplicar:hover {
+button[type="reset"], button[type="submit"]:hover, #comprar:hover,  #cupon-aplicar:hover, #boton-comprar:hover {
     background-color: white;
     border: solid 1px #005099;
     color: #005099;

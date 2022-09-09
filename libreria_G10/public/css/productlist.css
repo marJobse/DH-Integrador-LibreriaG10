@@ -171,12 +171,12 @@ main {
     position: relative;
 }
 
-.product-create {
+.product-create, .product-admin {
     inset: auto 60px 50% auto;
     position: fixed;
 }
 
-.fa-circle-plus {
+.fa-circle-plus, .fa-pen {
     color: #91dfb9;
     width: 35px;
     font-size: 3rem;

@@ -6,6 +6,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../database/models');
 
 const productsController = {
+
     detail: (req, res) => {
         db.Books.findByPk(req.params.id,{
             include: [

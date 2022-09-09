@@ -11,25 +11,16 @@
                     <a href="/productDetail"><img src="images/oferta.jpg" alt="oferta">
                 </section></a>
                 <h2>Más Vendidos</h2>
-                <section class="mas-vendidos">
-                    <div>
-                        <img src="http://www.fillmurray.com/300/300" alt="">
-                        <h4>Libro 1</h4>
-                        <p>$precio</p>
-                        <button>Comprar</button>
+                <section class="product-section flex">
+                    <% for(let i=0; i < products.length; i++) { %>
+                    <div class="product-item">
+                        <a href="/product/detail/<%= products[i].id %>>"><img class="product-item-img" src="/images/products/<%= products[i].imagen %>" alt=""></a>
+                        
+                        <h4><a href="/product/detail/<%= products[i].id %>>"><%= products[i].nombre %></a></h4>
+                        <p>$<%= products[i].precio %></p>
+                        <a id="boton-comprar" href="/carrito" >Comprar</a>
                     </div>
-                    <div>
-                        <img src="http://www.fillmurray.com/300/300" alt="">
-                        <h4>Libro 2</h4>
-                        <p>$precio</p>
-                        <button>Comprar</button>
-                    </div>
-                    <div>
-                        <img src="http://www.fillmurray.com/300/300" alt="">
-                        <h4>Libro 3</h4>
-                        <p>$precio</p>
-                        <button>Comprar</button>
-                    </div>
+                    <% } %>
                 </section>
             </main>
             <%- include('partials/footer.ejs') %>
