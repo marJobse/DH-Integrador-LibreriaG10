@@ -19,9 +19,9 @@
     margin: 1.5rem
 }
 
-.imagen-libro {
+/* .imagen-libro {
     width: 100%
-}
+} */
 
 .contenedor-cant-button {
     display: flex;
@@ -168,7 +168,7 @@ h4.titulares {
     }
 
     .imagen-libro {
-        width: 50vh;
+        width: 375px;
     }
 
     .contenedor-libros {

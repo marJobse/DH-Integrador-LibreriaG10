@@ -4,6 +4,8 @@ const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 const productsController = {
 
@@ -150,6 +152,24 @@ const productsController = {
             idioma_id:  req.body.idioma_id,
             isbn:  req.body.isbn,})
             .then(()=>{res.redirect('/product/admin-list')})
+    },
+    search: (req, res)=>{
+        let separador = /\s/;
+        let searchTerm = req.body.busqueda
+        let forQuery = req.body.busqueda.replace(/\+/g,' ')
+        console.log(searchTerm)
+        db.Books.findAll(
+            {
+                where: { 
+                    nombre: {[Op.like]: `%${searchTerm}%`}  
+                },
+                include: [
+                        {association: 'editoriales'},
+                        {association: 'autores'}]
+            }).then(products => {
+                    res.render('../views/products/productResults.ejs', {products})
+                }
+            );
     }
 }
 

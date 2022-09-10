@@ -8,7 +8,7 @@
 }
 
 .product-item {
-    width: 30%;
+    width: 20%;
     padding: 1.5rem;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin: 1rem 2rem;
 
 }
 
@@ -40,7 +41,7 @@
 }
 
 #boton-comprar {
-    width: 100%;
+    width: 80%;
     padding: .5rem;
     text-decoration: none;
     font-weight: 700;

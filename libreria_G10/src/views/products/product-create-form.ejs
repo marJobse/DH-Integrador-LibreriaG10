@@ -15,19 +15,19 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <form action="/product/" method="POST" enctype="multipart/form-data">
-                            <div class="row product-detail">
+                        <form action="/product/" method="POST" id="product-create" enctype="multipart/form-data">
+                            <div class="row product-create-div">
 
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="nombre" class="product-create-label" >Nombre del producto:</label>
                                     <input type="text" id="nombre" name="nombre" placeholder="Ej: El amante japonés"
                                         class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="precio" class="product-create-label" >Precio del producto:</label>
                                     <input type="text" id="precio" name="precio" placeholder="3000" class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label class="product-edit-label" for="editorial">Editorial</label>
                                     <select  name="editorial" id="editorial" required>
                                         <option value="" selected>- elegir editorial - </option>
@@ -39,7 +39,7 @@
                                     <input type="text" id="editorial" name="editorial" placeholder="Ej: Oceano"
                                         class="form-input"> -->
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label class="product-edit-label" for="autor">Autor</label>
                                     <select  name="autor" id="autor" required>
                                         <option value="" selected>- elegir autor - </option>
@@ -48,12 +48,12 @@
                                         <% }); %>
                                     </select>
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="resenia" class="product-create-label" >Resenia:</label>
                                     <input type="text" id="resenia " name="resenia" placeholder="Este es un libro..."
                                         class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label class="product-edit-label" for="clasificacion">Clasificación</label>
                                     <select name="clasificacion" id="clasificacion" required>
                                         <option value="" selected>- elegir clasificación - </option>
@@ -65,26 +65,26 @@
                                     <input type="text" id="clasificacion" name="clasificacion" placeholder="Romance"
                                         class="form-input"> -->
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="clasificacion" class="product-create-label" > Año de Edición:</label>
                                     <input type="text" id="anioEdicion" name="anioEdicion" placeholder="2012"
                                         class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="fechaPublicacion" class="product-create-label" > Fecha de Publicación:</label>
                                     <input type="text" id="fechaPublicacion" name="fechaPublicacion"
                                         placeholder="12-20-2012" class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="stock" class="product-create-label" > Stock:</label>
                                     <input type="text" id="stock" name="stock" placeholder="100" class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label for="nroPaginas" class="product-create-label" > Número de Páginas:</label>
                                     <input type="text" id="nroPaginas" name="nroPaginas" placeholder="500"
                                         class="form-input">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="product-create-field">
                                     <label class="product-create-label" for="idioma_id" class="form-label"> Idioma:</label>
                                     <!-- <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input"> -->
                                     <select name="idioma_id" id="idioma_id" required>
@@ -94,12 +94,12 @@
                                         <% }); %>
                                     </select>
                                 </div>
-                                <div class="col-12">
+                                <div class="product-create-field">
                                     <label for="isbn" class="product-create-label" >ISBN:</label>
                                     <input type="isbn" id="isbn" name="isbn" placeholder="121212121212"
                                         class="form-input">
                                 </div>
-                                <div class="col-12">
+                                <div class="product-create-field">
                                     <label for="imagen" class="product-create-label" >Imágen:</label>
                                     <input type="file"  id="imagen" name="imagen">
                                 </div>

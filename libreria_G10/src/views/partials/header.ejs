@@ -1,9 +1,10 @@
 <header class="header">
     <div id="top-search">
-        <form action="/unknown" method="post">
-            <input id="busqueda" type="text" id="search" value="search"
-                placeholder="Busqueda por autor, título o editorial" name="busqueda">
-            <i id="buscar" class="fa-solid fa-magnifying-glass"></i>
+        <form action="/product/search" method="post">
+            <input id="busqueda" type="text" id="search"
+                placeholder="Busqueda por título" name="busqueda">
+            <button type="submit" ><i id="buscar" class="fa-solid fa-magnifying-glass"></i></button>
+
             <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="/users/login"><i class="fa-solid fa-user-large"></i></a>
         </form>

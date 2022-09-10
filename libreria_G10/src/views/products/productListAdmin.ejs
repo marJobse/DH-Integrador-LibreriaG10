@@ -9,10 +9,10 @@
                 <div id="product-list">
                     <h3>Tus productos en venta</h3>
                     <div id="search-bar">
-                        <form id="search-form" action="/unknown" method="post">
-                            <input id="filtro" type="text" value="Búsqueda por autor, título o editorial"
+                        <form id="search-form" action="/product/search" method="post">
+                            <input id="filtro" type="text" placeholder="Búsqueda por título"
                                 name="busqueda">
-                            <i id="buscar" class="fa-solid fa-magnifying-glass"></i>
+                                <button type="submit" ><i id="buscar" class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <div id="tabla-editar-productos"> 

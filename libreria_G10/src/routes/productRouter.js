@@ -46,6 +46,9 @@ router.post('/', uploadFile.single('imagen'), productsController.store);
 router.get("/edit/:id", productsController.edit);
 router.put("/edit/:id", uploadFile.single('imagen'), productsController.update);
 
+// Buscar producto
+router.post("/search", productsController.search)
+
 
 
 module.exports = router;
