@@ -74,7 +74,8 @@ const usersController = {
             if (req.body.recordame != undefined) {
                 res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
             }
-            res.redirect('/')
+            console.log(req.session.usuarioLogueado)
+            res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado})
         }
         else {
             return res.render('../views/users/login.ejs', { errors: errors.errors });

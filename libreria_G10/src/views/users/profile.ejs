@@ -15,7 +15,7 @@
                     <div class="user-image-edit"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
                     <div class="user-image-delete"><i class="fa-solid fa-trash-can"></i></div>
                 </div>
-                <div class="user-section-title"><h3>Juan Francisco Perez</h3></div>
+                <div class="user-section-title"><h3><%= user.nombre %> <%= user.apellido %></h3></div>
             </div>
             <div class="user-details-section">
                 <div class="details-left-col">
@@ -23,14 +23,14 @@
                     <div class="user-section-subtitle">Datos de contacto</div>
                     <div class="user-section-content" >
                         <ul>
-                            <li><em>Email</em>: juani4ever@fake.com</li>
+                            <li><em>Email</em>: <%= user.email %></li>
                             <li><em>Telefono</em>: 098476</li>
                         </ul>
                     </div>
                     <div class="user-section-subtitle">Direcciones</div>
                     <div class="user-section-content">
                         <ul>
-                            <li><em>Dirección</em>: 123 Calle Falsa, Comodoro Rivadavia, Santa Cruz. Argentina. CP 8767</li>
+                            <li><em>Dirección</em>: <%= user.domicilio %></li>
                         </ul>
                     </div>
                 </div>
