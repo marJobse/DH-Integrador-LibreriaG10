@@ -29,7 +29,7 @@ const usersController = {
         users.push(nuevoUsuario)
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 
-        res.redirect('/product/list')
+        res.render('../views/users/profile.ejs', {user: nuevoUsuario})
     },
 
     login: (req, res) => {
@@ -74,7 +74,6 @@ const usersController = {
             if (req.body.recordame != undefined) {
                 res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
             }
-            console.log(req.session.usuarioLogueado)
             res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado})
         }
         else {
@@ -82,7 +81,8 @@ const usersController = {
         }
     },
     profile: (req,res)=>{
-        res.render('../views/users/profile.ejs')
+
+        res.render('../views/users/profile.ejs', {user: req.session.usuarioLogueado})
     }
 
 }

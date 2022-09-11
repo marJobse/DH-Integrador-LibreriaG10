@@ -146,5 +146,32 @@
   "domicilio": "123 calle falsa",
   "password": "$2a$10$7cIghwyvWzaFTBh8/hFyruUAAgIN4mCQ9vXtnkVGOX5kclxk3dGIu",
   "tipo": "user"
+ },
+ {
+  "id": 18,
+  "nombre": "David",
+  "apellido": "Bowie",
+  "email": "db_libronline@fake.com",
+  "domicilio": "678 Baker St, Londres, Catamarca, Argentina. CP. 8999",
+  "password": "$2a$10$gEcPu4iq8.mwlehbpTjG2OE7.GS0xqDktiRz6tL/v.nIuETmcWsdi",
+  "tipo": "user"
+ },
+ {
+  "id": 19,
+  "nombre": "Roger",
+  "apellido": "Waters",
+  "email": "roger.waters@rioceballos.net",
+  "domicilio": "Zorzal 2339, Río Ceballos, Córdoba, Argentina. CP 5009",
+  "password": "$2a$10$RRVxLyMpKzAkEANG.Y2HNuLF9PZ/Xv3FU9iijg73WhVv17fxP5Z0.",
+  "tipo": "user"
+ },
+ {
+  "id": 20,
+  "nombre": "Roger",
+  "apellido": "Waters",
+  "email": "roger.waters@rioceballos.net",
+  "domicilio": "Zorzal 2339, Río Ceballos, Córdoba, Argentina. CP 5009",
+  "password": "$2a$10$JCVFz7ZZGJT4a5uG/KrLM./CJ4lm00GBZw3kNuRsdqv4oVoPUO8y2",
+  "tipo": "user"
  }
 ]
