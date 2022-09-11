@@ -137,5 +137,14 @@
   "domicilio": "a",
   "password": "$2a$10$sEewXWzZ6uA779UcFiaRCO6i84ZOsVg6YgbYay1BI0ttRLAz.9jeu",
   "tipo": "user"
+ },
+ {
+  "id": 17,
+  "nombre": "Juan",
+  "apellido": "Peres",
+  "email": "i@lgnaciomateuive.com",
+  "domicilio": "123 calle falsa",
+  "password": "$2a$10$7cIghwyvWzaFTBh8/hFyruUAAgIN4mCQ9vXtnkVGOX5kclxk3dGIu",
+  "tipo": "user"
  }
 ]

@@ -65,6 +65,8 @@ router.get('/check', function (req, res) {
     else {
         res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
     }
-})
+});
+router.get("/profile", usersController.profile);
+
 
 module.exports = router;

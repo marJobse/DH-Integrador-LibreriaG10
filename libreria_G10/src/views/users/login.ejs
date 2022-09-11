@@ -20,17 +20,15 @@
                         </ul>
                         <% } %>
 
-                            <form action="/users/login" method="POST">
+                            <form id="login-form" action="/users/login" method="POST">
                                 <input type="email" name="email" id="email" placeholder="Correo electrónico">
                                 <input type="password" name="password" id="password" placeholder="Contraseña">
-                                <br>
-                                <label for="">Recordame</label>
-                                <input type="checkbox" name="recordame" id="recordame"><br>
-
-                                <a href="/register">¿Olvidaste tu contraseña?</a>
-
+                                <div class="user-recordar">
+                                    <label id="user-recordar-label" for="">Recordame</label>
+                                    <input type="checkbox" name="recordame" id="recordarme">
+                                </div>
                                 <button type="submit" class="submit">Enviar</button>
-
+                                <a id="recuperar-password" href="/register">¿Olvidaste tu contraseña?</a>
                                 <a id="crear-cuenta" href="/users/register">Creá tu cuenta</a>
                             </form>
                 </div>

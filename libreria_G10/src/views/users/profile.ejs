@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/user-profile.css">
+</head>
+
+<%- include('../partials/head.ejs') %>
+
+        <body>
+            <%- include('../partials/header.ejs') %>
+            <div class="user-name-section">
+                <div class="user-image-div">
+                    <img class="user-image-avatar" src="https://img.theculturetrip.com/450x/smart/wp-content/uploads/2016/03/maxresdefault3.jpg" alt="">
+                    <div class="user-image-edit"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                    <div class="user-image-delete"><i class="fa-solid fa-trash-can"></i></div>
+                </div>
+                <div class="user-section-title"><h3>Juan Francisco Perez</h3></div>
+            </div>
+            <div class="user-details-section">
+                <div class="details-left-col">
+                    <div class="user-section-title">Tus Datos</div>
+                    <div class="user-section-subtitle">Datos de contacto</div>
+                    <div class="user-section-content" >
+                        <ul>
+                            <li><em>Email</em>: juani4ever@fake.com</li>
+                            <li><em>Telefono</em>: 098476</li>
+                        </ul>
+                    </div>
+                    <div class="user-section-subtitle">Direcciones</div>
+                    <div class="user-section-content">
+                        <ul>
+                            <li><em>Dirección</em>: 123 Calle Falsa, Comodoro Rivadavia, Santa Cruz. Argentina. CP 8767</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="details-right-col">
+                    <div class="user-section-title">Tus Compras</div>
+                    <div class="user-compras-tabla-encabezado">
+                        <div class="user-section-subtitle">Fecha</div>
+                        <div class="user-section-subtitle">Nro. Orden</div>
+                        <div class="user-section-subtitle">Total</div>
+                    </div>
+                    <div class="user-compras-tabla-filas">
+                        <div class="user-section-content">2022-08-15</div>
+                        <div class="user-section-content">785763</div>
+                        <div class="user-section-content">$15,678</div>
+                    </div>
+                </div>
+                <div class="user-compras-tabla-filas user-footer">
+                    <a class="profile-actions" href="">Editar Perfil</a>
+                    <a class="profile-actions" href="">Cerrar Sesión</a>
+                </div>
+            </div>   
+            <%- include('../partials/footer.ejs') %>
+        </body>
+
+</html>

@@ -79,6 +79,9 @@ const usersController = {
         else {
             return res.render('../views/users/login.ejs', { errors: errors.errors });
         }
+    },
+    profile: (req,res)=>{
+        res.render('../views/users/profile.ejs')
     }
 
 }

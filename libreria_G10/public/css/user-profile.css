@@ -1,0 +1,82 @@
+
+.user-name-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+}
+.user-image-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    margin: 0 1rem;
+}
+
+.user-image-avatar {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user-details-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.details-left-col, .details-right-col {
+    width: 48%;
+}
+
+.user-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #005099;
+    margin: 1rem .5rem;
+}
+
+.user-compras-tabla-encabezado, .user-compras-tabla-filas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: .5rem;
+}
+.user-compras-tabla-encabezado {
+    background-color: #005099;
+    color: white
+}
+.user-section-subtitle {
+    font-weight: 700
+}
+
+.details-left-col .user-section-subtitle {
+    padding: .5rem;
+    background-color: #005099;
+    color: white;
+}
+
+.user-footer {
+    width: auto;
+    margin: auto;
+}
+
+.profile-actions {
+    margin: 1rem 1rem;
+    font-weight: 600;
+    color: #005099;
+    text-decoration:underline #91dfb9;
+    transition: all .5s;
+}
+
+.profile-actions:hover {
+    color: #91dfb9;
+    text-decoration: underline #005099;
+}
