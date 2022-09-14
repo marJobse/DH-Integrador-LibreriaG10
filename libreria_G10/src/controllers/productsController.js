@@ -6,6 +6,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { brotliDecompress } = require("zlib");
 
 const productsController = {
 
@@ -151,7 +152,15 @@ const productsController = {
             nro_paginas:  req.body.nroPaginas,
             idioma_id:  req.body.idioma_id,
             isbn:  req.body.isbn,})
-            .then(()=>{res.redirect('/product/admin-list')})
+            .then((newBook)=>{
+                let generoLibro = db.Genres_Book.create({
+                    libro_id: newBook.id,
+                    genero_id: req.body.clasificacion,
+                })
+                .then(()=>{
+                    
+                    res.redirect('/product/admin-list')})
+                })
     },
     search: (req, res)=>{
         let separador = /\s/;

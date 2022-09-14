@@ -11,7 +11,7 @@
                 <div class="container products-wrapper">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="products-title">Formulario de creación de productos</h2>
+                            <h2 class="products-title">Crear nuevo libro</h2>
                         </div>
                     </div>
                     <div class="col-12">
@@ -86,7 +86,6 @@
                                 </div>
                                 <div class="product-create-field">
                                     <label class="product-create-label" for="idioma_id" class="form-label"> Idioma:</label>
-                                    <!-- <input type="text" id="idioma" name="idioma" placeholder="ES" class="form-input"> -->
                                     <select name="idioma_id" id="idioma_id" required>
                                         <option value="" disabled selected>- elegir idioma - </option>
                                         <% idiomas.forEach(idioma => { %>
@@ -104,9 +103,9 @@
                                     <input type="file"  id="imagen" name="imagen">
                                 </div>
 
-                                <div class="col-12">
-                                    <button type="submit" class="buy-now-button">Guardar producto</button>
-                                </div>
+   
+                                    <button type="submit" class="product-create-button">Guardar producto</button>
+
                             </div>
                         </form>
                     </div>
