@@ -106,11 +106,24 @@ const productsController = {
         })
     },
     delete: (req, res) => {
-        db.Books.destroy({
-            where: {id: req.params.id}
+        let generos = db.Genres_Book.destroy({
+            where: {libro_id: req.params.id}
+        }); 
+        let editoriales = db.Editorials_Book.destroy({
+            where: {libro_id: req.params.id}
+        }); 
+        let autores = db.Authors_Book.destroy({
+            where: {libro_id: req.params.id}
+        });
+        Promise.all([generos, editoriales, autores])
+        .then(()=>{
+            db.Books.destroy({
+                where: {id: req.params.id}
+            })
+            .then(()=>{
+                res.redirect('/product/admin-list')
+            })    
         })
-
-        res.redirect('/product/admin-list')
     },
     create: (req, res) => {
         let generos = db.Genres.findAll()
