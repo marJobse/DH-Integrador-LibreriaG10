@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3>Listado de Autores</h3>
+            <ul>
+                <% for( let i=0; i < authors.length; i++ ) { %>
+                    <div class="botones_editar_borrar">
+                        <li>
+                            <a href="/authors/detail/<%= authors[i].id %>">
+                                <%= authors[i].nombre %> <%= authors[i].apellido %>
+
+                            </a>
+                        </li>
+
+                        <form action="/authors/detail/<%= authors[i].id %>" method="get">
+                            <p> <button class="boton_editar" type="submit">Detalle</button>
+                            </p>
+                        </form>
+                        <form action="/authors/edit/<%= authors[i].id %>" method="get">
+                            <p> <button class="boton_editar" type="submit">Editar</button>
+                            </p>
+                        </form>
+                        <form action="/authors/delete/<%= authors[i].id %>" method="get">
+                            <p> <button class="boton_borrar" type="submit">Borrar</button>
+                            </p>
+                        </form>
+
+
+                    </div>
+                    <% } %>
+
+
+            </ul>
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

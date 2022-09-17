@@ -8,6 +8,7 @@ const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const genresRouter = require('./routes/genresRouter');
 const editorialsRouter = require('./routes/editorialsRouter');
+const authorsRouter = require('./routes/authorsRouter');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const validationLoginMiddleware = require('../middlewares/validationLoginMiddleware');
@@ -39,6 +40,8 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
+app.use("/authors", authorsRouter)
+
 
 app.use("/carrito", cartRouter)
 

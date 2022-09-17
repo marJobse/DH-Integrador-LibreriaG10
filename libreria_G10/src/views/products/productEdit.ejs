@@ -10,7 +10,7 @@
                     <h3 class="subtitle">Editando <%= prodToEdit.nombre %></h3>
                 </div>
                 <div id="user-form">
-                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST" enctype="multipart/form-data">
                         <!-- <div class="edit-form-container"> -->
                             <div class="edit-form-top">
                                 <label class="product-edit-label" for="nombre">Título</label>
@@ -81,8 +81,8 @@
                                             <%}%>><%= idioma.nombre %></option>
                                         <% }); %>
                                     </select>
-                                    <label class="product-edit-label" for="clasificacion">Clasificación</label>
-                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Clasificación">
+                                    <!-- <label class="product-edit-label" for="clasificacion">Clasificación</label>
+                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.generos[0].id %>" placeholder="Clasificación"> -->
                                     <label class="product-edit-label" for="fechaPublicacion">Fecha de publicación</label>
                                     <input type="text" id="fechaPublicacion" name="fechaPublicacion" value="<%= prodToEdit.fecha_publicacion %>">
                                 </div>

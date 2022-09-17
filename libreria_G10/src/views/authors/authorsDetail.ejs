@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3>
+                Detalle del autor: <%= author.nombre %> <%= author.apellido %>
+            </h3>
+
+            <section>
+                <button>
+                    <a class="botonVolver" href="/authors/add">Agregar</a>
+                </button>
+                <button>
+                    <a class="botonVolver" href='/authors/edit/<%= author.id %>'>Editar</a>
+                </button>
+                <form action="/authors/delete/<%= author.id %>" method="get">
+                    <br>
+                    <p> <button class="botonBorrar" type="submit">Borrar</button>
+                    </p>
+                </form>
+                <button>
+                    <a class="botonVolver" href="/authors/list">Listado de Autores</a>
+                </button>
+            </section>
+
+    </body>
+
+</html>
