@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3>Estas seguro de querer borrar este Autor? : <%= author.nombre %> <%= author.apellido %>
+            </h3>
+            <p>
+            <form action="/authors/delete/<%= author.id %>" method="POST">
+                <br>
+                <p> <button class="botonBorrar" type="submit">Borrar Autor</button>
+
+                    <a class="botonVolver" href="/authors/list">Listado de Autores</a>
+                </p>
+
+            </form>
+            </p>
+
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

@@ -12,7 +12,7 @@
                         <form id="search-form" action="/product/search" method="post">
                             <input id="filtro" type="text" placeholder="Búsqueda por título"
                                 name="busqueda">
-                                <button id="busqueda" type="submit" ><i id="buscar" class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="search-button" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <div id="tabla-editar-productos"> 
@@ -21,6 +21,7 @@
 
                             <div class="editar">Acción</div>
                         </div>
+                        <% if (products.length > 0){ %>
                         <% for(let i=0; i < products.length; i++){ %>
                             <div class="tabla-editar-productos fila">
                                 <div class="col-1">
@@ -40,7 +41,11 @@
                                     <a href="/product/delete/<%= products[i].id %>"><i class="fa-solid fa-circle-minus"></i></a>
                                 </div>
                             </div>
+                        <% }} else { %>
+                        <p>No se encontraron resultados. Probá con ampliar el campo de Búsqueda
+                        </p>
                         <% } %>
+
                     </div>
                 </div>
                 <div class="product-create">

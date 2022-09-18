@@ -6,6 +6,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { brotliDecompress } = require("zlib");
 
 const productsController = {
 
@@ -64,37 +65,11 @@ const productsController = {
             })
         })
     },
-    
-    // update: (req, res) => {
-    //     // prepping the info 
-    //     let productUpdates = req.body;
-    //     let productId = req.params.id;
-    //     const prodToEdit = products.find(product => product.id == productId);
-    //     // updating product properties 
-    //     prodToEdit.id = productId;
-    //     prodToEdit.nombre = productUpdates.nombre;
-    //     prodToEdit.resenia = productUpdates.resenia;
-    //     prodToEdit.precio = productUpdates.precio;
-    //     prodToEdit.imagen = req.file.filename;
-    //     prodToEdit.clasificacion = productUpdates.clasificacion;
-    //     prodToEdit.anioEdicion = productUpdates.anioEdicion;
-    //     prodToEdit.fechaPublicacion = productUpdates.fechaPublicacion;
-    //     prodToEdit.stock = productUpdates.stock;
-    //     prodToEdit.autor = productUpdates.autor;
-    //     prodToEdit.editorial = productUpdates.editorial;
-    //     prodToEdit.nroPaginas = productUpdates.nroPaginas;
-    //     prodToEdit.idioma = productUpdates.idioma;
-    //     prodToEdit.isbn = productUpdates.isbn;
-    //     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-    //     res.redirect('/product/admin-list')
-
-    // },
     update: (req,res)=> {
         db.Books.update({
             nombre :  req.body.nombre,
             resenia :  req.body.resenia,
             precio:  req.body.precio,
-            imagen:  req.file.filename,
             anio_edicion:  req.body.anioEdicion,
             fecha_publicacion:  req.body.fechaPublicacion,
             stock:  req.body.stock,
@@ -103,28 +78,54 @@ const productsController = {
             isbn:  req.body.isbn
         },
         { where: {id: req.params.id}})
+        .then(() => {
+            if(req.file != 'undefined'){
+                db.Books.update({ imagen:  req.file.filename }, { where: {id: req.params.id}})    
+            };
+            db.Genres_Book.update(
+                { genero_id: req.body.clasificacion },
+                { where: {libro_id: req.params.id}}
+                );
+            db.Editorials_Book.update(
+                { editorial_id: req.body.editorial },
+                { where: {libro_id: req.params.id}}
+                );
+            db.Authors_Book.update(
+                { autor_id: req.body.autor },
+                { where: {libro_id: req.params.id}}
+                )
+        })
         .then(()=>{
             res.redirect('/product/admin-list')
         })
     },
     deleteview: (req, res) => {
-        let productId = req.params.id;
-        const productDelete = products.find(product => {
-            return product.id == productId;
+        db.Books.findByPk(req.params.id)
+        .then(libro=>{
+            res.render('../views/products/productDelete.ejs', { productDelete: libro })
         })
-        res.render('../views/products/productDelete.ejs', { productDelete: productDelete })
     },
     delete: (req, res) => {
-        let productId = req.params.id;
-        products.splice((productId - 1), 1);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/product/admin-list')
+        let generos = db.Genres_Book.destroy({
+            where: {libro_id: req.params.id}
+        }); 
+        let editoriales = db.Editorials_Book.destroy({
+            where: {libro_id: req.params.id}
+        }); 
+        let autores = db.Authors_Book.destroy({
+            where: {libro_id: req.params.id}
+        });
+        Promise.all([generos, editoriales, autores])
+        .then(()=>{
+            db.Books.destroy({
+                where: {id: req.params.id}
+            })
+            .then(()=>{
+                res.redirect('/product/admin-list')
+            })    
+        })
     },
     create: (req, res) => {
-        // db.Languages.findAll()
-        // .then(idiomas=>{
-        //     res.render('../views/products/product-create-form.ejs', {idiomas: idiomas})
-        // })
         let generos = db.Genres.findAll()
         let idiomas = db.Languages.findAll()
         let autores = db.Authors.findAll()
@@ -150,22 +151,48 @@ const productsController = {
             stock:  req.body.stock,
             nro_paginas:  req.body.nroPaginas,
             idioma_id:  req.body.idioma_id,
-            isbn:  req.body.isbn,})
-            .then(()=>{res.redirect('/product/admin-list')})
+            isbn:  req.body.isbn,
+        }).then(newBook => {
+            db.Genres_Book.create({
+                libro_id: newBook.id,
+                genero_id: req.body.clasificacion
+            }), 
+            db.Editorials_Book.create({
+                libro_id: newBook.id,
+                editorial_id: req.body.editorial
+            }), 
+            db.Authors_Book.create({
+                libro_id: newBook.id,
+                autor_id: req.body.autor
+            })
+        }).then((resultado)=>{
+            console.log(resultado)
+            res.redirect('/product/admin-list')
+        })
     },
     search: (req, res)=>{
         let separador = /\s/;
         let searchTerm = req.body.busqueda
         let forQuery = req.body.busqueda.replace(/\+/g,' ')
-        console.log(searchTerm)
+        console.log(forQuery)
         db.Books.findAll(
             {
-                where: { 
-                    nombre: {[Op.like]: `%${searchTerm}%`}  
-                },
                 include: [
-                        {association: 'editoriales'},
-                        {association: 'autores'}]
+                    {model: db.Editorials, as: 'editoriales'},
+                    {model: db.Authors, as: 'autores'}],
+                where: {
+                    [Op.or]:[
+                        { nombre: {[Op.like]: `%${searchTerm}%`} },
+                        { resenia: {[Op.like]: `%${searchTerm}%`} },
+                        { '$autores.apellido$': {[Op.like]: `%${searchTerm}%`}},
+                        { '$autores.nombre$': {[Op.like]: `%${searchTerm}%`}},
+
+                        { '$editoriales.nombre$': {[Op.like]: `%${searchTerm}%`}}
+
+                        // { [autores.apellido]: {[Op.like]: `%${searchTerm}%`} },
+                        ]
+                        
+                    }
             }).then(products => {
                     res.render('../views/products/productResults.ejs', {products})
                 }

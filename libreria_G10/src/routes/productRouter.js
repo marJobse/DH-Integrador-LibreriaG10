@@ -22,7 +22,7 @@ router.get("/detail/:id", productsController.detail);
 
 // Eliminar producto
 router.get("/delete/:id", productsController.deleteview);
-router.delete("/delete/:id", productsController.delete);
+router.post("/delete/:id", productsController.delete);
 
 /*** CREATE ONE PRODUCT ***/
 router.get('/create', productsController.create);
@@ -44,7 +44,7 @@ router.post('/', uploadFile.single('imagen'), productsController.store);
 
 // EDITAR PRODUCTO 
 router.get("/edit/:id", productsController.edit);
-router.put("/edit/:id", uploadFile.single('imagen'), productsController.update);
+router.post("/edit/:id", uploadFile.single('imagen'), productsController.update);
 
 // Buscar producto
 router.post("/search", productsController.search)

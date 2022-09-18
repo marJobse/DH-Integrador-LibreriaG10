@@ -88,6 +88,13 @@ td.editar {
     color: #005099;
 }
 
+.search-button {
+    position: absolute;
+    justify-self: flex-start;
+    right: 0;
+    padding: .5rem;
+}
+
 .tabla-editar-productos.encabezado{
     display: flex;
     flex-direction: row;

@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "Editorials_Book"; //nombre de tabla, del archivo en plural
+    let alias = "Authors_Book"; //nombre de tabla, del archivo en plural
 
     let columns = {  // columnas
         // id: {
@@ -14,18 +14,18 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
         },
-        editorial_id: {
+        autor_id: {
             type: dataTypes.INTEGER,
         },
     };
 
     let config = {
-        tableName: "editoriales_libros", // como se llama la base de datos
+        tableName: "autores_libros", // como se llama la base de datos
         timestamps: false//createdate
     };
 
-    const Editorials_Book = sequelize.define(alias, columns, config);
+    const Authors_Book = sequelize.define(alias, columns, config);
 
 
-    return Editorials_Book;
+    return Authors_Book;
 }

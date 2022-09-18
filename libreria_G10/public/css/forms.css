@@ -43,7 +43,7 @@ form, .product-create-div {
       margin: 1rem .5rem 1rem .5rem;
 }
 
-#user-form button {
+#user-form button, .product-create-button {
       width: 45%;
       font-weight: 900;
       font-size: 1rem;
@@ -84,6 +84,7 @@ button[type="reset"], button[type="submit"]:hover, #comprar:hover,  #cupon-aplic
     transition: all .5s;
 }
 
+
 #user-form button:hover {
     border: solid 1px #005099;
 }
@@ -123,7 +124,7 @@ h3.subtitle {
 
 .product-edit-label, .product-create-label { 
     text-align: right;
-    color: #0e131f;
+    color: #005099;
     font-weight: 700;
 }
 

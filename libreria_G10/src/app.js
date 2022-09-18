@@ -10,6 +10,7 @@ const genresRouter = require('./routes/genresRouter');
 const editorialsRouter = require('./routes/editorialsRouter');
 const languajesRouter = require('./routes/languajesRouter');
 
+const authorsRouter = require('./routes/authorsRouter');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const validationLoginMiddleware = require('../middlewares/validationLoginMiddleware');
@@ -41,7 +42,12 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
+<<<<<<< HEAD
 app.use("/languajes", languajesRouter)
+=======
+app.use("/authors", authorsRouter)
+
+>>>>>>> a33342b50a6872dd1a1e38d42eef5d58b6b59af8
 
 app.use("/carrito", cartRouter)
 

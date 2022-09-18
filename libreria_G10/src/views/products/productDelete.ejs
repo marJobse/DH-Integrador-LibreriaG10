@@ -13,7 +13,7 @@
                         <h2>Confirma que quiere eliminar el siguiente libro:</h2>
                         <p><%= productDelete.nombre %></p>
                         <p><%= productDelete.autor %></p>
-                        <form action="/product/delete/<%= productDelete.id %>?_method=DELETE" method="POST">
+                        <form action="/product/delete/<%= productDelete.id %>" method="POST">
                             <button type="submit" class="reset">Borrar</button>
                         </form>
                     </div>
