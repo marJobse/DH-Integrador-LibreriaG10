@@ -152,8 +152,7 @@ const productsController = {
             nro_paginas:  req.body.nroPaginas,
             idioma_id:  req.body.idioma_id,
             isbn:  req.body.isbn,
-        },
-        ).then(newBook => {
+        }).then(newBook => {
             db.Genres_Book.create({
                 libro_id: newBook.id,
                 genero_id: req.body.clasificacion
@@ -166,8 +165,8 @@ const productsController = {
                 libro_id: newBook.id,
                 autor_id: req.body.autor
             })
-        })
-        .then(()=>{
+        }).then((resultado)=>{
+            console.log(resultado)
             res.redirect('/product/admin-list')
         })
     },
@@ -175,15 +174,21 @@ const productsController = {
         let separador = /\s/;
         let searchTerm = req.body.busqueda
         let forQuery = req.body.busqueda.replace(/\+/g,' ')
-        console.log(searchTerm)
+        console.log(forQuery)
         db.Books.findAll(
             {
                 include: [
-                    {association: 'editoriales'},
-                    {association: 'autores'}],
+                    {model: db.Editorials, as: 'editoriales'},
+                    {model: db.Authors, as: 'autores'}],
                 where: {
                     [Op.or]:[
                         { nombre: {[Op.like]: `%${searchTerm}%`} },
+                        { resenia: {[Op.like]: `%${searchTerm}%`} },
+                        { '$autores.apellido$': {[Op.like]: `%${searchTerm}%`}},
+                        { '$autores.nombre$': {[Op.like]: `%${searchTerm}%`}},
+
+                        { '$editoriales.nombre$': {[Op.like]: `%${searchTerm}%`}}
+
                         // { [autores.apellido]: {[Op.like]: `%${searchTerm}%`} },
                         ]
                         
