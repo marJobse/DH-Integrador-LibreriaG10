@@ -42,12 +42,9 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
-<<<<<<< HEAD
 app.use("/languajes", languajesRouter)
-=======
 app.use("/authors", authorsRouter)
 
->>>>>>> a33342b50a6872dd1a1e38d42eef5d58b6b59af8
 
 app.use("/carrito", cartRouter)
 

@@ -6,9 +6,8 @@ const express = require("express");
 const languajeController = {
 
     list: (req, res) => {
-        db.Languaje.findAll().then(function (languajes) {
-            res.send(languajes)
-            // res.render('../views/languajes/languajesList.ejs', { languajes })
+        db.Languages.findAll().then(function (languajes) {
+            res.render('../views/languajes/languajesList.ejs', { languajes })
         })
 
     },
