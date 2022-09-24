@@ -8,7 +8,7 @@ const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const genresRouter = require('./routes/genresRouter');
 const editorialsRouter = require('./routes/editorialsRouter');
-const languajesRouter = require('./routes/languajesRouter');
+const languagesRouter = require('./routes/languagesRouter');
 
 const authorsRouter = require('./routes/authorsRouter');
 const session = require('express-session');
@@ -46,7 +46,10 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
-app.use("/languajes", languajesRouter)
+
+
+app.use("/languages", languagesRouter)
+
 app.use("/authors", authorsRouter)
 
 

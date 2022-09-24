@@ -67,9 +67,10 @@ router.get('/check', function (req, res) {
         res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
     }
 });
-router.get("/profile", usersController.profile);
+router.get("/profile", authMiddleware, usersController.profile); //le agregue auth
+router.get("/edit/:id", usersController.edit);
+router.post("/update/:id", usersController.update);
 router.get("/logout", usersController.logout);
-
 
 
 module.exports = router;
