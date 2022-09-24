@@ -10,7 +10,7 @@
                 <ul>
                     <div>
                         <li class="list-item item-add">
-                            <a href="/languajes/add">Agregar idioma (+)</a>
+                            <a href="/languages/add">Agregar idioma (+)</a>
                         </li>
                         <li class="list-item table-header">
                             <div class="list-name">
@@ -21,18 +21,18 @@
                             </div>
                         </li>
                     </div>
-                    <% for( let i=0; i < languajes.length; i++ ) { %>
+                    <% for( let i=0; i < languages.length; i++ ) { %>
                         <div class="botones_editar_borrar">
                             <li class="list-item">
                                 <div class="list-name">
-                                    <a href="/languajes/detail/<%= languajes[i].id %>">
-                                        <%= languajes[i].nombre %>
+                                    <a>
+                                        <%= languages[i].nombre %>
                                     </a>
                                 </div>
                                 <div class="list-option">
-                                    <a href="/languajes/edit/<%= languajes[i].id %>">Editar</a>
+                                    <a href="/languages/edit/<%= languages[i].id %>">Editar</a>
                                     <span class="list-option-separator"> | </span>
-                                    <a href="/languajes/delete/<%= languajes[i].id %>">Borrar</a>
+                                    <a href="/languages/delete/<%= languages[i].id %>">Borrar</a>
                                 </div>
                             </li>
 

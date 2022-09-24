@@ -10,7 +10,7 @@
                 <ul>
                     <div>
                         <li class="list-item item-add">
-                            <a href="/genres/add">Agregar género (+)</a> 
+                            <a href="/genres/add">Agregar género (+)</a>
                         </li>
                         <li class="list-item table-header">
                             <div class="list-name">
@@ -25,23 +25,23 @@
                         <div class="botones_editar_borrar">
                             <li class="list-item">
                                 <div class="list-name">
-                                    <a href="/genres/detail/<%= genres[i].id %>">
-                                        <%= genres[i].nombre %> 
+                                    <a>
+                                        <%= genres[i].nombre %>
                                     </a>
                                 </div>
                                 <div class="list-option">
                                     <a href="/genres/edit/<%= genres[i].id %>">Editar</a>
-                                    <span class="list-option-separator"> | </span> 
+                                    <span class="list-option-separator"> | </span>
                                     <a href="/genres/delete/<%= genres[i].id %>">Borrar</a>
                                 </div>
                             </li>
-                            
+
                         </div>
                         <% } %>
-            
-            
+
+
                 </ul>
-            
+
             </div>
             </main>
             <%- include('../partials/footer.ejs') %>
