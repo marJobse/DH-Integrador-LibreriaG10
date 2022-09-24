@@ -3,7 +3,7 @@ function guestMiddleware(req, res, next) {
         next();
     }
     else {
-        res.send('página solo para invitados')
+        res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
     }
 }
 module.exports = guestMiddleware;

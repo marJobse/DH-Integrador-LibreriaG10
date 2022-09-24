@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Languages = sequelize.define(alias, columns, config);
 
-    Languages.associate = function(model){
+    Languages.associate = function (model) {
         Languages.hasMany(model.Books, {
             as: 'libros',
             foreignKey: 'idioma_id'

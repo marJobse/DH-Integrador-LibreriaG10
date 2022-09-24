@@ -3,7 +3,7 @@ function authMiddleware(req, res, next) {
         next();
     }
     else {
-        res.send('página solo para usuarios logueados')
+        res.render('../views/users/login.ejs')
     }
 }
 module.exports = authMiddleware;

@@ -44,10 +44,11 @@ const authMiddleware = require("../../middlewares/authMiddleware.js");
 
 
 router.get("/register", guestMiddleware, usersController.register);
-router.post('/', uploadFile.single('imagen'), usersController.crearUsuario);
+router.post('/', uploadFile.single('imagen'), usersController.store);
 
 //formulario login
-router.get("/login", usersController.login);
+router.get("/login", guestMiddleware, usersController.login);
+
 //procesa formulario login
 router.post("/login", loginValidation, usersController.loginProcess);
 router.get('/pruebaSession', (req, res) => {
@@ -66,7 +67,10 @@ router.get('/check', function (req, res) {
         res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
     }
 });
-router.get("/profile", usersController.profile);
+router.get("/profile", authMiddleware, usersController.profile); //le agregue auth
+router.get("/edit/:id", usersController.edit);
+router.post("/update/:id", usersController.update);
+router.get("/logout", usersController.logout);
 
 
 module.exports = router;

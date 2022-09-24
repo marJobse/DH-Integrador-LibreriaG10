@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <main>
+                <h3 class="titulo">Agregar Idioma</h3>
+                <br>
+
+                <div class=" agregar-genero">
+                    <section class="formulario">
+                        <form action="/languages/add" method="POST">
+                            <label for="nombre">Nombre </label>
+                            <p><input type="nombre" name="nombre" id="" required></p>
+                            <div class="col-12">
+                                <button type="submit" class="buy-now-button">Agregar</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

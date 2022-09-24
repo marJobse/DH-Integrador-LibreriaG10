@@ -20,13 +20,11 @@ module.exports = (sequelize, dataTypes) => {
 
     const UsersType = sequelize.define(alias, columns, config);
 
-    //Genres.associate = function (models) {
-    //  Genres.hasMany(models.Books, {
-    //     as: "libros",
-    //     foreignKey: 'genero_id'
-    // })
 
-    // }
 
     return UsersType;
 }
+
+//-- tipo_usuarios
+//INSERT INTO `tipo_usuarios` (id, nombre) VALUES (1,"administrador"), (2, "user");
+//select * from tipo_usuarios;

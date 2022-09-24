@@ -33,7 +33,11 @@ app.use(express.static(publicPath));
 
 
 //lo indicamos como middleware a nivel app(que todas las pags utilicen sesion)
-app.use(session({ secret: "secret" }))
+app.use(session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false // para que no aparezcan los deprecated undefined...
+}))
 
 //el texto dentro de session va a identificar el sitio web
 
@@ -42,12 +46,9 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
-<<<<<<< HEAD
-app.use("/languajes", languajesRouter)
-=======
+app.use("/languages", languajesRouter)
 app.use("/authors", authorsRouter)
 
->>>>>>> a33342b50a6872dd1a1e38d42eef5d58b6b59af8
 
 app.use("/carrito", cartRouter)
 

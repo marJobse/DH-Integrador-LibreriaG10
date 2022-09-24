@@ -23,14 +23,16 @@ const genresController = {
     },
 
     create: (req, res) => {
+        console.log("***********************************" + req.body.nombre)
         db.Genres.create({
             nombre: req.body.nombre,
 
         }).then(function () {
-            res.send(req.body.nombre)
+            db.Genres.findAll().then(function (genres) {
+                res.render('../views/genres/genresList.ejs', { genres })
+            })
         })
     },
-
     edit: (req, res) => {
         db.Genres.findByPk(req.params.id).then(function (genre) {
             res.render('../views/genres/genresEdit.ejs', { Genre: genre });
