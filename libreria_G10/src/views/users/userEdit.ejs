@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3 class="titulo">Perfil Editado: <%= user.email %>
+            </h3>
+            <section class="formulario">
+                <form action="/users/update/<%= user.id %>" method="POST">
+                    <label for="nombre">Nombre </label>
+                    <p><input type="text" name="nombre" id="" value="<%= user.nombre %>" required></p>
+                    <label for="apellido">Apellido </label>
+                    <p><input type="text" name="apellido" id="" value="<%= user.apellido %>" required></p>
+                    <label for="domicilio">Domicilio </label>
+                    <p><input type="text" name="domicilio" id="" value="<%= user.domicilio %>" required></p>
+
+                    <br>
+                    <p> <button class="botonAgregar" type="submit">Actualizar</button>
+
+                        <a class="botonVolver" href="/users/profile">Perfil del usuario</a>
+                    </p>
+                </form>
+            </section>
+    </body>
+
+</html>

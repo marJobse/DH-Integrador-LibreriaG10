@@ -5,37 +5,44 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-
-            <h3>Listado de Autores</h3>
-            <ul>
-                <% for( let i=0; i < authors.length; i++ ) { %>
-                    <div class="botones_editar_borrar">
-                        <li>
-                            <a href="/authors/detail/<%= authors[i].id %>">
-                                <%= authors[i].nombre %> <%= authors[i].apellido %>
-
-                            </a>
-                        </li>
-
-                        <form action="/authors/detail/<%= authors[i].id %>" method="get">
-                            <p> <button class="boton_editar" type="submit">Detalle</button>
-                            </p>
-                        </form>
-                        <form action="/authors/edit/<%= authors[i].id %>" method="get">
-                            <p> <button class="boton_editar" type="submit">Editar</button>
-                            </p>
-                        </form>
-                        <form action="/authors/delete/<%= authors[i].id %>" method="get">
-                            <p> <button class="boton_borrar" type="submit">Borrar</button>
-                            </p>
-                        </form>
-
-
+<div class="relations-chart">
+    <h3>Listado de Autores</h3>
+    <ul>
+        <div>
+            <li class="list-item item-add">
+                <a href="/authors/add">Agregar autor (+)</a> 
+            </li>
+            <li class="list-item table-header">
+                <div class="list-name">
+                    Autor
+                </div>
+                <div class="list-option">
+                    Opciones
+                </div>
+            </li>
+        </div>
+        <% for( let i=0; i < authors.length; i++ ) { %>
+            <div class="botones_editar_borrar">
+                <li class="list-item">
+                    <div class="list-name">
+                        <a href="/authors/detail/<%= authors[i].id %>">
+                            <%= authors[i].nombre %> <%= authors[i].apellido %>
+                        </a>
                     </div>
-                    <% } %>
+                    <div class="list-option">
+                        <a href="/authors/edit/<%= authors[i].id %>">Editar</a>
+                        <span class="list-option-separator"> | </span> 
+                        <a href="/authors/delete/<%= authors[i].id %>">Borrar</a>
+                    </div>
+                </li>
+                
+            </div>
+            <% } %>
 
 
-            </ul>
+    </ul>
+
+</div>
 
             </main>
             <%- include('../partials/footer.ejs') %>

@@ -46,7 +46,11 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
+<<<<<<< HEAD
 app.use("/languages", languajesRouter)
+=======
+app.use("/languajes", languajesRouter)
+>>>>>>> e34c1cdf74c0c4441e71c96bd10409c3ee47a070
 app.use("/authors", authorsRouter)
 
 
