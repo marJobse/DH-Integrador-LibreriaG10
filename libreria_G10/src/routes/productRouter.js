@@ -4,6 +4,7 @@ const productsController = require("../controllers/productsController")
 const multer = require("multer");
 const path = require('path');
 var bodyParser = require('body-parser')
+const authMiddleware = require('../../middlewares/authMiddleware')
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -15,7 +16,7 @@ router.get("/list", productsController.list);
 
 // Todos los productos (admin)
 
-router.get("/admin-list", productsController.adminList);
+router.get("/admin-list", authMiddleware , productsController.adminList);
 
 // Detalle producto
 router.get("/detail/:id", productsController.detail);

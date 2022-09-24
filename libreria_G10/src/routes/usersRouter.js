@@ -67,6 +67,8 @@ router.get('/check', function (req, res) {
     }
 });
 router.get("/profile", usersController.profile);
+router.get("/logout", usersController.logout);
+
 
 
 module.exports = router;

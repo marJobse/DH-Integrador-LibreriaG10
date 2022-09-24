@@ -33,7 +33,10 @@ const usersController = {
     },
 
     login: (req, res) => {
-        res.render('../views/users/login.ejs')
+        if(req.session.usuarioLogueado || res.cookie.recordame){
+            res.render('../views/users/profile.ejs', {user: req.session.usuarioLogueado})
+        } else {
+        res.render('../views/users/login.ejs')}
     },
 
 
@@ -69,10 +72,11 @@ const usersController = {
             }
             // parte que hace el loggin
             req.session.usuarioLogueado = usuarioALoguearse;
+            console.log(req.session.usuarioLogueado)
 
             // 60.000 mls= 60 seg
             if (req.body.recordame != undefined) {
-                res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
+                res.cookie('recordame', usuarioALoguearse.id, { maxAge: 600000 })
             }
             res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado})
         }
@@ -83,7 +87,12 @@ const usersController = {
     profile: (req,res)=>{
 
         res.render('../views/users/profile.ejs', {user: req.session.usuarioLogueado})
+    },
+    logout: (req, res)=> {
+        req.session.destroy();
+        res.redirect('/')
     }
+
 
 }
 
