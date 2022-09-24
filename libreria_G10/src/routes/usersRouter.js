@@ -44,7 +44,7 @@ const authMiddleware = require("../../middlewares/authMiddleware.js");
 
 
 router.get("/register", guestMiddleware, usersController.register);
-router.post('/', uploadFile.single('imagen'), usersController.crearUsuario);
+router.post('/', uploadFile.single('imagen'), usersController.store);
 
 //formulario login
 router.get("/login", usersController.login);

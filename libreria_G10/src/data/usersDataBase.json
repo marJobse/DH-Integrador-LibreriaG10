@@ -173,5 +173,14 @@
   "domicilio": "Zorzal 2339, Río Ceballos, Córdoba, Argentina. CP 5009",
   "password": "$2a$10$JCVFz7ZZGJT4a5uG/KrLM./CJ4lm00GBZw3kNuRsdqv4oVoPUO8y2",
   "tipo": "user"
+ },
+ {
+  "id": 21,
+  "nombre": "Ernesto",
+  "apellido": "Montiel",
+  "email": "ernestomontiel@calle.com",
+  "domicilio": "123 otra calle. 234 Córdoba Capital",
+  "password": "$2a$10$K98ydkTguhAjZHGbtfGcuuD4hREoTHp3/PqoiEMeQB2K7jPFQMt1K",
+  "tipo": "user"
  }
 ]
