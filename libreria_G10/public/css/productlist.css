@@ -164,13 +164,13 @@ td.editar {
     font-size: .7rem;
 }
 
-.encabezado .titulo, .encabezado .editar, .titulo a {
+.encabezado .titulo, .encabezado .editar, .titulo a, .list-name a {
     font-weight: 700;
     color: #005099;
     text-decoration: none;
 }
 
-.titulo a:hover {
+.titulo a:hover, .list-name a:hover {
     text-decoration: underline #91dfb9 2px;
 }
 

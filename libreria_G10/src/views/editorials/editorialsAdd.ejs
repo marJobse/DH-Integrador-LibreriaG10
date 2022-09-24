@@ -6,18 +6,14 @@
     <body>
         <%- include('../partials/header.ejs') %>
 
-            <main>
+            <main class="tabla-agregar">
                 <h3 class="titulo">Agregar Editorial</h3>
-                <br>
-
-                <div class=" agregar-genero">
+                <div>
                     <section class="formulario">
                         <form action="/editorials/add" method="POST">
                             <label for="nombre">Nombre </label>
                             <p><input type="nombre" name="nombre" id="" required></p>
-                            <div class="col-12">
-                                <button type="submit" class="buy-now-button">Agregar</button>
-                            </div>
+                            <button type="submit" class="btn-relaciones">Agregar</button>
                         </form>
                     </section>
                 </div>

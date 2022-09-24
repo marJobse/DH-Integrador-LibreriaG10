@@ -86,3 +86,78 @@ main h2 {
 .products-title{
     margin: 5%;
 }
+
+/* Estilos de CRUD Relaciones */
+
+li.list-item {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.list-name {
+    width: fit-content;
+    padding: .1rem;
+}
+
+.relations-chart {
+    width: 80%;
+    margin: auto;
+
+}
+
+.table-header {
+    background-color: #005099;
+    padding: .3rem;
+
+}
+
+.list-name, .list-option {
+    color: white;
+    font-weight: 600;
+}
+
+.list-option a, .list-option-separator {
+    color: black;
+    text-decoration: none;
+
+}
+
+
+.list-option a:hover {
+    color: #005099;
+    text-decoration: underline 2px #91dfb9;;
+
+}
+
+.item-add a {
+    width: 100%;
+    text-align: right;
+    color: #005099;
+    text-decoration: none;
+    font-weight: 500;
+    padding: .2rem;
+
+}
+
+.item-add a:hover {
+    color: #005099;
+    text-decoration: underline 2px #91dfb9;;
+}
+
+.tabla-agregar {
+    width: 80%;
+    margin: auto;
+}
+.tabla-agregar section, .tabla-agregar section form p, .tabla-agregar section form input {
+    width: 100%;
+}
+
+.tabla-agregar section form label {
+    font-weight: 600;
+}
+
+
+.tabla-agregar section form input {
+    border: solid 1px #005099;
+    padding: .5rem
+}
