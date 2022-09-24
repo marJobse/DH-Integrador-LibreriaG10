@@ -5,25 +5,55 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
+            <div id="user-form">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="products-title">Editando al usuario: <%= user.email %>
+                        </h3>
+                    </div>
+                </div>
 
-            <h3 class="titulo">Perfil Editado: <%= user.email %>
-            </h3>
-            <section class="formulario">
-                <form action="/users/update/<%= user.id %>" method="POST">
-                    <label for="nombre">Nombre </label>
-                    <p><input type="text" name="nombre" id="" value="<%= user.nombre %>" required></p>
-                    <label for="apellido">Apellido </label>
-                    <p><input type="text" name="apellido" id="" value="<%= user.apellido %>" required></p>
-                    <label for="domicilio">Domicilio </label>
-                    <p><input type="text" name="domicilio" id="" value="<%= user.domicilio %>" required></p>
+                <form id="register-form" action="/users/" method="POST" enctype="multipart/form-data">
+                    <div id="user-form">
 
-                    <br>
-                    <p> <button class="botonAgregar" type="submit">Actualizar</button>
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="nombre" name="nombre" value="<%= user.nombre %>" required
+                                class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="apellido" name="apellido" value="<%= user.apellido %>" required
+                                class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="domicilio" name="domicilio" value="<%= user.domicilio %>" required
+                                class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="telefono" name="telefono" value="<%= user.telefono %>" required
+                                class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="password" id="password" name="password" placeholder="Contraseña"
+                                class="form-input">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" id="password2" placeholder="Contraseña" class="form-input">
+                        </div>
+                        <div class="col-12 register-button-bar">
+                            <button type="submit" class="submit">Registrarse</button>
+                            <button type="reset" class="reset">Borrar</button>
 
-                        <a class="botonVolver" href="/users/profile">Perfil del usuario</a>
-                    </p>
+                        </div>
+
+                    </div>
+
                 </form>
-            </section>
+
+            </div>
+            <%- include('../partials/footer.ejs') %>
     </body>
 
 </html>
