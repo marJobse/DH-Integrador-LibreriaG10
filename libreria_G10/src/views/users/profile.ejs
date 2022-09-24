@@ -12,7 +12,7 @@
             <div class="user-name-section">
                 <div class="user-image-div">
                     <img class="user-image-avatar"
-                        src="https://img.theculturetrip.com/450x/smart/wp-content/uploads/2016/03/maxresdefault3.jpg"
+                        src="/images/users/<%= user.imagen %>"
                         alt="">
                     <div class="user-image-edit"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
                     <div class="user-image-delete"><i class="fa-solid fa-trash-can"></i></div>
@@ -32,7 +32,7 @@
                         <ul>
                             <li><em>Email</em>: <%= user.email %>
                             </li>
-                            <li><em>Telefono</em>: 098476</li>
+                            <li><em>Telefono</em>: <%= user.telefono %></li>
                         </ul>
                     </div>
                     <div class="user-section-subtitle">Direcciones</div>

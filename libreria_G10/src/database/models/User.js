@@ -21,6 +21,12 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING,
         },
+        imagen: {
+            type: dataTypes.STRING,
+        },
+        telefono: {
+            type: dataTypes.STRING,
+        },
         tipo_id: {
             type: dataTypes.INTEGER(10),
         },

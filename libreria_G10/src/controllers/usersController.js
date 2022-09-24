@@ -33,6 +33,8 @@ const usersController = {
                     apellido: req.body.apellido,
                     email: req.body.email,
                     domicilio: req.body.domicilio,
+                    imagen: req.file.filename,
+                    telefono: req.body.telefono,
                     password: bcrypt.hashSync(req.body.password, 10),
                     tipo_id: 1,
                 }).then((user) => {
