@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 
-const loginValidation = [
+const registerValidation = [
 
     body('nombre').isLength({ min: 3 }).withMessage('El nombre debe ser mas largo').bail()
         .notEmpty().withMessage("Debes completar el nombre"),
@@ -16,11 +16,12 @@ const loginValidation = [
         .notEmpty().withMessage("Debes completar el telefono"),
 
     body('email').isEmail().withMessage('Email inválido').bail()
-        .notEmpty().withMessage("Campo obligatorio"),
+        .notEmpty().withMessage("Debes completar el email"),
 
     body('password').isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo').bail()
-        .notEmpty().withMessage("Campo obligatorio"),
+        .notEmpty().withMessage("Debes completar la contraseña"),
+
 
 ]
 
-module.exports = loginValidation;
+module.exports = registerValidation;

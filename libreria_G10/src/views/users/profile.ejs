@@ -11,10 +11,8 @@
         <%- include('../partials/header.ejs') %>
             <div class="user-name-section">
                 <div class="user-image-div">
-                    <img class="user-image-avatar"
-                        src="/images/users/<%= user.imagen %>"
-                        alt="">
-                    <div class="user-image-edit"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                    <img class="user-image-avatar" src="/images/users/<%= user.imagen %>" alt="">
+                    <div class="user-image-edit">>a href= <i class="fa-solid fa-arrow-up-from-bracket"></i></div>
                     <div class="user-image-delete"><i class="fa-solid fa-trash-can"></i></div>
                 </div>
                 <div class="user-section-title">
@@ -32,7 +30,8 @@
                         <ul>
                             <li><em>Email</em>: <%= user.email %>
                             </li>
-                            <li><em>Telefono</em>: <%= user.telefono %></li>
+                            <li><em>Telefono</em>: <%= user.telefono %>
+                            </li>
                         </ul>
                     </div>
                     <div class="user-section-subtitle">Direcciones</div>

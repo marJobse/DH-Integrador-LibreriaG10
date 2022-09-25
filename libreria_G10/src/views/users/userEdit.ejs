@@ -5,6 +5,8 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
+
+
             <div id="user-form">
                 <div class="row">
                     <div class="col-12">
@@ -13,38 +15,33 @@
                     </div>
                 </div>
 
-                <form id="register-form" action="/users/" method="POST" enctype="multipart/form-data">
+
+                <form id="register-form" action=" /users/update/<%=user.id %>" method="POST">
                     <div id="user-form">
 
                         <div class="col-12 col-md-6">
-                            <input type="text" id="nombre" name="nombre" value="<%= user.nombre %>" required
-                                class="form-input">
+                            <label for="nombre">Nombre </label>
+                            <input type="text" id="nombre" name="nombre" value="<%= user.nombre %>" class="form-input"
+                                required>
                         </div>
                         <div class="col-12 col-md-6">
-                            <input type="text" id="apellido" name="apellido" value="<%= user.apellido %>" required
-                                class="form-input">
+                            <label for="nombre">Apellido </label>
+                            <input type="text" id="apellido" name="apellido" value="<%= user.apellido %>"
+                                class="form-input" required>
                         </div>
                         <div class="col-12 col-md-6">
-                            <input type="text" id="domicilio" name="domicilio" value="<%= user.domicilio %>" required
-                                class="form-input">
+                            <label for="nombre">Domicilio </label>
+                            <input type="text" id="domicilio" name="domicilio" value="<%= user.domicilio %>"
+                                class="form-input" required>
                         </div>
                         <div class="col-12 col-md-6">
-                            <input type="text" id="telefono" name="telefono" value="<%= user.telefono %>" required
-                                class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>" required>
-                        </div>
-                        <div class="col-12">
-                            <input type="password" id="password" name="password" placeholder="Contraseña"
-                                class="form-input">
-                        </div>
-                        <div class="col-12">
-                            <input type="password" id="password2" placeholder="Contraseña" class="form-input">
+                            <label for="nombre">Telefono </label>
+                            <input type="text" id="telefono" name="telefono" value="<%= user.telefono %>"
+                                class="form-input" required>
                         </div>
                         <div class="col-12 register-button-bar">
-                            <button type="submit" class="submit">Registrarse</button>
-                            <button type="reset" class="reset">Borrar</button>
+                            <button type="submit" class="submit">Actualizar</button>
+
 
                         </div>
 
@@ -53,7 +50,6 @@
                 </form>
 
             </div>
-            <%- include('../partials/footer.ejs') %>
     </body>
 
 </html>

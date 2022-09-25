@@ -27,21 +27,35 @@ const usersController = {
                 }
             }
             console.log("usuario duplicado " + duplicado)
+
             if (!duplicado) {
-                db.Users.create({
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    domicilio: req.body.domicilio,
-                    imagen: req.file.filename,
-                    telefono: req.body.telefono,
-                    password: bcrypt.hashSync(req.body.password, 10),
-                    tipo_id: 1,
-                }).then((user) => {
-                    console.log(user)
-                    res.render('../views/users/login.ejs')
-                })
+                let password = (req.body.password);
+                let confirmacion_password = (req.body.password2);
+                if (password == confirmacion_password) {
+
+                    db.Users.create({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        domicilio: req.body.domicilio,
+                        imagen: req.file.filename,
+                        telefono: req.body.telefono,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        tipo_id: 1,
+                    }).then((user) => {
+                        console.log(user)
+                        res.render('../views/users/login.ejs', { user })
+                    })
+                }
+                else {
+                    return res.render('../views/users/register.ejs', {
+                        errors: [{ msg: 'Las contraseñas no coinciden. Intente nuevamente' },
+                        ]
+                    });
+                }
+
             }
+
             else {
                 return res.render('../views/users/register.ejs', {
                     errors: [{ msg: 'El email ' + req.body.email + ' ya se encuentra registrado. Intente nuevamente' }
@@ -102,6 +116,7 @@ const usersController = {
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             domicilio: req.body.domicilio,
+            telefono: req.body.telefono,
         }, {
             where: {
                 id: req.params.id

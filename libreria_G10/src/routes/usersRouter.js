@@ -41,9 +41,11 @@ const usersController = require("../controllers/usersController");
 const loginValidation = require("../../middlewares/validationLoginMiddleware");
 const guestMiddleware = require("../../middlewares/guestMiddleware.js");
 const authMiddleware = require("../../middlewares/authMiddleware.js");
+const registerMiddleware = require("../../middlewares/registerMiddleware.js");
 
 
 router.get("/register", guestMiddleware, usersController.register);
+
 router.post('/', uploadFile.single('imagen'), usersController.store);
 
 //formulario login
