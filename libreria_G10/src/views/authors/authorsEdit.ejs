@@ -5,23 +5,26 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-
-            <h3 class="titulo">Autor Editado: <%= author.title %>
-            </h3>
-            <section class="formulario">
-                <form action="/authors/update/<%= author.id %>" method="POST">
-                    <label for="nombre">Nombre </label>
-                    <p><input type="text" name="nombre" id="" value="<%= author.nombre %>" required></p>
-                    <label for="apellido">Apellido </label>
-                    <p><input type="text" name="apellido" id="" value="<%= author.apellido %>" required></p>
-
-                    <br>
-                    <p> <button class="botonAgregar" type="submit">Actualizar</button>
-
+            <div class="section-container">
+                
+                <h3 class="titulo">Autor Editado: <%= author.title %>
+                </h3>
+                <section class="formulario">
+                    <form action="/authors/update/<%= author.id %>" method="POST">
+                        <label for="nombre">Nombre </label>
+                        <input type="text" name="nombre" id="" value="<%= author.nombre %>" required>
+                        <label for="apellido">Apellido </label>
+                        <input type="text" name="apellido" id="" value="<%= author.apellido %>" required>
+    
+                        <button class="botonAgregar" type="submit">Actualizar</button>
+                    <p> 
                         <a class="botonVolver" href="/authors/list">Listado de Autores</a>
                     </p>
-                </form>
-            </section>
+                            
+                        
+                    </form>
+                </section>
+            </div>
     </body>
 
 </html>
