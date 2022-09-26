@@ -152,7 +152,7 @@ li.list-item {
     width: 100%;
 }
 
-.tabla-agregar section form label {
+.tabla-agregar section form label, .section-container .formulario label {
     font-weight: 600;
 }
 
@@ -160,4 +160,32 @@ li.list-item {
 .tabla-agregar section form input {
     border: solid 1px #005099;
     padding: .5rem
+}
+
+.section-container {
+    width: 80%;
+    margin: auto;
+}
+
+.section-container .formulario input {
+    border: solid 1px #005099;
+    padding: .5rem;
+    width: 100%;
+
+}
+
+.section-container .formulario button {
+    width: 50%;
+    padding: .5rem;
+    margin: 1rem auto;
+    background-color: #005099;
+    border: solid 1px #005099;
+    color: white;
+    transition: all .5s;
+    font-weight: 900;
+}
+.section-container .formulario p {
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
