@@ -5,21 +5,22 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
+        <div class="section-container">
 
             <h3 class="titulo">Idioma Editado: <%= Language.nombre %>
             </h3>
             <section class="formulario">
                 <form action="/languages/update/<%= Language.id %>" method="POST">
                     <label for="nombre">Nombre </label>
-                    <p><input type="text" name="nombre" id="" value="<%= Language.nombre %>" required></p>
-
-                    <br>
-                    <p> <button class="botonAgregar" type="submit">Actualizar</button>
-
+                    <input type="text" name="nombre" id="" value="<%= Language.nombre %>" required>
+                    
+                    <button class="botonAgregar" type="submit">Actualizar</button>
+                    <p> 
                         <a class="botonVolver" href="/languages/list">Listado de Idiomas</a>
                     </p>
                 </form>
             </section>
+        </div>
     </body>
 
 </html>
