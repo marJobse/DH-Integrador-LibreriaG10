@@ -33,7 +33,8 @@ function recordameMiddleware(req, res, next) {
         db.Users.findAll().then(function (usuarios) {
             encontrados = usuarios;
         }).then(function () {
-            let usuarioALoguearse;
+            let usuarioALoguearse
+
             for (let i = 0; i < encontrados.length; i++) {
                 if (encontrados[i].email == req.cookies.recordame) {
                     usuarioALoguearse = encontrados[i];
@@ -41,7 +42,7 @@ function recordameMiddleware(req, res, next) {
                 }
             }
             req.session.usuarioLogueado = usuarioALoguearse;
-            console.log("sesion", req.session.usuarioLogueado)
+            console.log('logueadooooooo ' + req.session.usuarioLogueado)
         })
     }
 

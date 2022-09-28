@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/user-profile.css">
+</head>
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <div id="user-form">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="products-title">Editando imagen del usuario: <%= user.email %>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="user-name-section">
+                    <div class="user-image-div">
+                        <img class="user-image-avatar" src="/images/users/<%= user.imagen %>" alt="">
+                    </div>
+
+                    <form id="register-form" action="/users/updateImage/<%=user.id %>" method="POST">
+                        <div id="user-form">
+                            <div class="col-12 col-md-6">
+                                <label for="imagen" class="form-label">Imagen:</label>
+                                <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>"
+                                    class="form-input">
+                            </div>
+
+
+                        </div>
+                        <div class="col-12 register-button-bar">
+                            <button type="submit" class="submit">Actualizar</button>
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>
