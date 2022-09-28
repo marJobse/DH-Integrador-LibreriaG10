@@ -46,32 +46,24 @@ const registerMiddleware = require("../../middlewares/registerMiddleware.js");
 
 router.get("/register", guestMiddleware, usersController.register);
 
-router.post('/', uploadFile.single('imagen'), usersController.store);
+
+
+router.post('/', uploadFile.single('imagen'), registerMiddleware, usersController.store);
 
 //formulario login
 router.get("/login", guestMiddleware, usersController.login);
-
 //procesa formulario login
 router.post("/login", loginValidation, usersController.loginProcess);
-router.get('/pruebaSession', (req, res) => {
-    if (req.session.numeroVisitas == undefined) {
-        req.session.numeroVisitas = 0;
-    }
-    req.session.numeroVisitas++;
-    res.send('session tiene el numero: ' + req.session.numeroVisitas);
 
-});
-router.get('/check', function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
-        res.send('no logueado')
-    }
-    else {
-        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
-    }
-});
 router.get("/profile", authMiddleware, usersController.profile); //le agregue auth
+
 router.get("/edit/:id", usersController.edit);
 router.post("/update/:id", usersController.update);
+
+router.get("/editImage/:id", usersController.editImage);
+router.post("/updateImage/:id", uploadFile.single('imagen'), usersController.updateImage);
+
+//router.post("/edit/:id", uploadFile.single('imagen'), productsController.update);
 router.get("/logout", usersController.logout);
 
 

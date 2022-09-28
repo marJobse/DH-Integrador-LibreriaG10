@@ -14,10 +14,10 @@
 
 
                 <% if (typeof errors !='undefined' ) { %>
-                    <p style="color: red"> Errores: </p>
+
                     <ul>
                         <% for (let i=0; i< errors.length;i++){%>
-                            <li>
+                            <li style="color: red">
                                 <%= errors[i].msg %>
                             </li>
                             <%} %>
@@ -28,36 +28,36 @@
                             <div id="user-form">
 
                                 <div class="col-12 col-md-6">
-                                    <input type="text" id="nombre" name="nombre" placeholder="Andrea" class="form-input"
-                                        required>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Andrea"
+                                        class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <input type="text" id="apellido" name="apellido" placeholder="Perez"
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <input type="text" id="domicilio" name="domicilio"
                                         placeholder="Ej: Oceano Atlántico 123, Alma Buena, Argentina."
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <input type="text" id="telefono" name="telefono" placeholder="Teléfono"
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <input type="email" id="email" name="email" placeholder="andrea.perez@email.com"
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12">
-                                    <input type="file" id="imagen" name="imagen" required>
+                                    <input type="file" id="imagen" name="imagen">
                                 </div>
                                 <div class="col-12">
                                     <input type="password" id="password" name="password" placeholder="Contraseña"
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12">
                                     <input type="password" id="password2" name="password2" placeholder="Contraseña"
-                                        class="form-input" required>
+                                        class="form-input">
                                 </div>
                                 <div class="col-12 register-button-bar">
                                     <button type="submit" class="submit">Registrarse</button>

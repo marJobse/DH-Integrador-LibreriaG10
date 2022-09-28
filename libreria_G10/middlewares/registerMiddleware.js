@@ -3,23 +3,30 @@ const { body } = require('express-validator');
 
 const registerValidation = [
 
-    body('nombre').isLength({ min: 3 }).withMessage('El nombre debe ser mas largo').bail()
-        .notEmpty().withMessage("Debes completar el nombre"),
+    body('nombre').notEmpty().withMessage("Debes completar el nombre").bail()
+        .isLength({ min: 2 }).withMessage('El nombre debe ser mas largo'),
 
-    body('apellido').isLength({ min: 3 }).withMessage('El apellido debe ser mas largo').bail()
-        .notEmpty().withMessage("Debes completar el apellido"),
+    body('apellido').notEmpty().withMessage("Debes completar el apellido").bail()
+        .isLength({ min: 2 }).withMessage('El apellido debe ser mas largo'),
 
-    body('domicilio').isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo').bail()
-        .notEmpty().withMessage("Debes completar el domicilio"),
 
-    body('telefono').isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo').bail()
-        .notEmpty().withMessage("Debes completar el telefono"),
+    body('domicilio').notEmpty().withMessage("Debes completar el domicilio").bail()
+        .isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo'),
 
-    body('email').isEmail().withMessage('Email inválido').bail()
-        .notEmpty().withMessage("Debes completar el email"),
 
-    body('password').isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo').bail()
-        .notEmpty().withMessage("Debes completar la contraseña"),
+    body('telefono').notEmpty().withMessage("Debes completar el telefono").bail()
+        .isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo'),
+
+
+    body('email').notEmpty().withMessage("Debes completar el email").bail()
+        .isEmail().withMessage('Email inválido'),
+
+    body('password').notEmpty().withMessage("Debes completar la contraseña").bail()
+        .isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo'),
+
+    body('password1').notEmpty().withMessage("Debes completar la confirmación de la contraseña").bail()
+        .isLength({ min: 8 }).withMessage('Contraseña de 8 caracteres como mínimo')
+
 
 
 ]
