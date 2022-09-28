@@ -100,7 +100,11 @@ const productsController = {
             })
     },
     deleteview: (req, res) => {
-        db.Books.findByPk(req.params.id)
+        db.Books.findByPk(req.params.id, {
+            include: [
+                { association: 'editoriales' },
+                { association: 'autores' }]
+        })
             .then(libro => {
                 res.render('../views/products/productDelete.ejs', { productDelete: libro })
             })

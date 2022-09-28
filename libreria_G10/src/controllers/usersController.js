@@ -36,7 +36,7 @@ const usersController = {
                     imagen: req.file.filename,
                     telefono: req.body.telefono,
                     password: bcrypt.hashSync(req.body.password, 10),
-                    tipo_id: 1,
+                    tipo_id: 2,
                 }).then((user) => {
                     console.log(user)
                     res.render('../views/users/login.ejs')

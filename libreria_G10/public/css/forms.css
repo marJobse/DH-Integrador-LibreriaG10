@@ -70,7 +70,7 @@ form, .product-create-div {
 
 }
 
-button[type="submit"], button[type="reset"]:hover, #comprar,  #cupon-aplicar, #boton-comprar, #busqueda{
+button[type="submit"], button[type="reset"]:hover, #comprar,  #cupon-aplicar, #boton-comprar, #busqueda {
     background-color: #005099;
     border: solid 1px #005099;
     color: white;

@@ -90,7 +90,7 @@ main h2 {
 /* Estilos de CRUD Relaciones */
 
 li.list-item {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -129,7 +129,7 @@ li.list-item {
 
 }
 
-.item-add a {
+.item-add a, .section-container p a, .regresar-a-creacion a {
     width: 100%;
     text-align: right;
     color: #005099;
@@ -139,7 +139,7 @@ li.list-item {
 
 }
 
-.item-add a:hover {
+.item-add a:hover, .section-container p a:hover, .regresar-a-creacion a:hover {
     color: #005099;
     text-decoration: underline 2px #91dfb9;;
 }
@@ -188,4 +188,9 @@ li.list-item {
     width: 100%;
     margin: auto;
     text-align: center;
+}
+
+.regresar-a-creacion {
+    text-align: center;
+    margin: 1rem;
 }
