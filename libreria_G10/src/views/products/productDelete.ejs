@@ -8,17 +8,19 @@
 
         <body>
             <%- include('../partials/header.ejs') %>
-                <main>
-                    <div>
-                        <h2>Confirma que quiere eliminar el siguiente libro:</h2>
+                    <div class="section-container">
+                        <h3>Confirma que quieres eliminar el siguiente libro:</h2>
                         <p><%= productDelete.nombre %></p>
                         <p><%= productDelete.autor %></p>
+                        <section class="formulario">
+
                         <form action="/product/delete/<%= productDelete.id %>" method="POST">
                             <button type="submit" class="reset">Borrar</button>
                         </form>
+                    </section>
+
                     </div>
                     
-                </main>
                 <%- include('../partials/footer.ejs') %>
         </body>
 

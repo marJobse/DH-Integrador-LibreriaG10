@@ -4,20 +4,20 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-
+            <div class="section-container">
             <h3>Estas seguro de querer borrar este idioma : <%= language.nombre %>
             </h3>
-            <p>
+            <section class="formulario">
+
             <form action="/languages/delete/<%= language.id %>" method="POST">
                 <br>
-                <p> <button class="botonBorrar" type="submit">Borrar Idioma</button>
-
+                <button class="botonBorrar" type="submit">Borrar Idioma</button>
+                <p>
                     <a class="botonVolver" href="/languages/list">Listado de Idiomas</a>
                 </p>
 
             </form>
-            </p>
-
-            </main>
+        </section>
+            </div>
             <%- include('../partials/footer.ejs') %>
     </body>

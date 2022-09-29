@@ -23,10 +23,17 @@
 
 #top-search i {
     width: 1rem;
+    font-size: 1rem;
     margin: .5rem;
     color: white;
     z-index: 10;
     transition: color, .5s;
+}
+
+#busqueda-icono {
+    background-color: #0e131f;
+    border: none;
+
 }
 
 #top-search i:hover {
@@ -38,6 +45,8 @@
 #busqueda {
     width: 60%;
     background-color: white;
+    color: #005099;
+    padding: .4rem;
     border: solid 1px #0e131f;
     transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
 }

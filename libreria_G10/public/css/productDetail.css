@@ -6,7 +6,7 @@
 }
 
 .contenedor-detalles-libro-seleccionado {
-    width: 50%;
+    width: 80%;
 }
 
 .contenedor-imagen-libro-seleccionado {
@@ -37,6 +37,7 @@
     float: left;
     text-align: left;
     color: #FF0035;
+    align-self: center;
 }
 
 .contenedor-cantidad label {
@@ -77,16 +78,17 @@
 }
 
 .btn-cart {
-    width: 100%;
-    padding: 8px;
+    width: 75%;
+    padding: .5rem;
     font-weight: bold;
-    border-radius: 8px;
-    text-align: right;
+    border-radius: 0;
+    text-align: center;
 }
 
 .agregar-carrito {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    width: 100%;
 }
 
 .resenia {
@@ -147,8 +149,9 @@
 }
 
 .nombre-libro {
-    font-size: 18px;
+    font-size: 2rem;
     color: #005099;
+    margin-bottom: 0;
 }
 
 .precio-libro-seleccionado {
@@ -156,6 +159,8 @@
     font-weight: bold;
     color: #005099;
 }
+
+
 
 h4.titulares {
     padding: 10px;
@@ -165,6 +170,9 @@ h4.titulares {
 @media (min-width: 769px) {
     .contenedor-libro-seleccionado {
         flex-direction: row;
+    }
+    .contenedor-detalles-libro-seleccionado {
+        width: 50%;
     }
 
     .imagen-libro {

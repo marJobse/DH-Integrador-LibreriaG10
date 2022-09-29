@@ -27,7 +27,7 @@ const editorialController = {
             nombre: req.body.nombre,
 
         }).then(function () {
-            res.send(req.body.nombre)
+            res.redirect('/editorials/list')
         })
     },
 

@@ -9,6 +9,7 @@
                 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
                 <link href="../../css/productDetail.css" rel="stylesheet" />
+                <link href="../../css/productCart.css" rel="stylesheet" />
                 <main>
                     <div class="contenedor-libro-seleccionado">
                         <div class="contenedor-imagen-libro-seleccionado">
@@ -23,7 +24,7 @@
                                 <div class="anio-edicion"><strong><%= productDetail.anioEdicion %></strong> </div>
                                 <p class="precio-libro-seleccionado">$<%= productDetail.precio %></p>
                                 <div class="contenedor-cant-button">
-                                    <div class="contenedor-cantidad">
+                                    <!-- <div class="contenedor-cantidad">
                                         <label for="cant">Cant:</label>
                                         <div class="contador">
                                             <div id="modificador">
@@ -35,10 +36,15 @@
                                                 <span>+</span>
                                             </div>
                                         </div>
+                                    </div> -->
+                                    <div class="producto cantidad">
+                                        <div class="carrito-add">-</div>
+                                        <div class="carrito-cantidad">1</div>
+                                        <div class="carrito-remove">+</div>
                                     </div>
                                     <div class="agregar-carrito">
-                                        <button type="button-comprar" title="Comprar"
-                                            class="button btn-cart"><span>Comprar</span></button>
+                                        <button type="submit" title="Comprar"
+                                            class="button btn-cart">Comprar</button>
                                     </div>
                                 </div>
                                 <br>
