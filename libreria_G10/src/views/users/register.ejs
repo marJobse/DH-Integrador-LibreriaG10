@@ -9,8 +9,10 @@
                         <h3 class="products-title">Crea tu cuenta</h3>
                     </div>
                 </div>
+
                 <form id="register-form" action="/users/" method="POST" enctype="multipart/form-data">
                     <div id="user-form">
+
                         <div class="col-12 col-md-6 is-invalid">
                             <label for="nombre">Nombre:</label>
                             <input type="text" id="nombre" name="nombre"
@@ -93,12 +95,17 @@
                                 <%= errors.password2.msg %>
                                     <% } %>
                         </div>
+
                         <div class="col-12 register-button-bar">
                             <button type="submit" class="submit">Registrarse</button>
                             <button type="reset" class="reset">Borrar</button>
+
                         </div>
+
                     </div>
+
                 </form>
+
             </div>
             <%- include('../partials/footer.ejs') %>
     </body>
