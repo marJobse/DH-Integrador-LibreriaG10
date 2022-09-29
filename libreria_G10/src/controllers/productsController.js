@@ -79,8 +79,9 @@ const productsController = {
         },
             { where: { id: req.params.id } })
             .then(() => {
-                if (req.file != 'undefined') {
-                    db.Books.update({ imagen: req.file.filename }, { where: { id: req.params.id } })
+                console.log(req.file)
+                if (req.body.imagen != '') {
+                    db.Books.update({ imagen: req.body.imagen }, { where: { id: req.params.id } })
                 };
                 db.Genres_Book.update(
                     { genero_id: req.body.clasificacion },
@@ -100,7 +101,11 @@ const productsController = {
             })
     },
     deleteview: (req, res) => {
-        db.Books.findByPk(req.params.id)
+        db.Books.findByPk(req.params.id, {
+            include: [
+                { association: 'editoriales' },
+                { association: 'autores' }]
+        })
             .then(libro => {
                 res.render('../views/products/productDelete.ejs', { productDelete: libro })
             })
@@ -153,10 +158,10 @@ const productsController = {
             idioma_id: req.body.idioma_id,
             isbn: req.body.isbn,
         }).then(newBook => {
-            db.Genres_Book.create({
-                libro_id: newBook.id,
-                genero_id: req.body.clasificacion
-            }),
+                db.Genres_Book.create({
+                    libro_id: newBook.id,
+                    genero_id: req.body.clasificacion
+                })
                 db.Editorials_Book.create({
                     libro_id: newBook.id,
                     editorial_id: req.body.editorial
@@ -165,8 +170,7 @@ const productsController = {
                     libro_id: newBook.id,
                     autor_id: req.body.autor
                 })
-        }).then((resultado) => {
-            console.log(resultado)
+        }).then(() => {
             res.redirect('/product/admin-list')
         })
     },

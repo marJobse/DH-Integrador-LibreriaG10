@@ -4,17 +4,18 @@ const editorialsController = require("../controllers/editorialController")
 const multer = require("multer");
 const path = require('path');
 var bodyParser = require('body-parser')
+const adminMiddleware = require('../../middlewares/adminMiddleware')
 
 
 // Todos los productos (public)
 
-router.get("/list", editorialsController.list);
-router.get("/detail/:id", editorialsController.detail);
-router.get("/add", editorialsController.add);
+router.get("/list", adminMiddleware, editorialsController.list);
+// router.get("/detail/:id", editorialsController.detail);
+router.get("/add", adminMiddleware, editorialsController.add);
 router.post("/add", editorialsController.create);
-router.get("/delete/:id", editorialsController.delete);
+router.get("/delete/:id", adminMiddleware, editorialsController.delete);
 router.post("/delete/:id", editorialsController.confirmDelete);
-router.get("/edit/:id", editorialsController.edit);
+router.get("/edit/:id", adminMiddleware, editorialsController.edit);
 router.post("/update/:id", editorialsController.update);
 
 

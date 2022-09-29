@@ -29,12 +29,10 @@ const usersController = {
                     }
                 }
                 console.log("usuario duplicado " + duplicado)
-
                 if (!duplicado) {
                     let password = (req.body.password);
                     let confirmacion_password = (req.body.password2);
                     if (password == confirmacion_password) {
-
                         db.Users.create({
                             nombre: req.body.nombre,
                             apellido: req.body.apellido,
@@ -43,10 +41,10 @@ const usersController = {
                             imagen: req.file.filename,
                             telefono: req.body.telefono,
                             password: bcrypt.hashSync(req.body.password, 10),
-                            tipo_id: 1,
+                            tipo_id: 2,
                         }).then((user) => {
                             console.log(user)
-                            res.render('../views/users/login.ejs', { user })
+                            res.render('../views/users/profile.ejs', { user })
                         })
                     }
                     else {
@@ -55,9 +53,7 @@ const usersController = {
                             ]
                         });
                     }
-
                 }
-
                 else {
                     return res.render('../views/users/register.ejs', {
                         errors: [{ msg: 'El email ' + req.body.email + ' ya se encuentra registrado. Intente nuevamente' }
@@ -68,16 +64,14 @@ const usersController = {
         } else {
             //  return res.render('../views/users/register.ejs', { errors: errors.errors });
             return res.render('../views/users/register.ejs',
-                {
-                    errors: errors.mapped(),
-                    oldData: req.body
-                }
+               {
+                 errors: errors.mapped(),
+                 oldData: req.body
+            }
             );
-            //  return res.send(errors.mapped());
+            // return res.send(errors.mapped());
         }
     },
-
-
     login: (req, res) => {
         //  res.send('usuario logueado' + req.session.usuarioLogueado)
         if (req.session.usuarioLogueado) {
@@ -86,7 +80,6 @@ const usersController = {
             res.render('../views/users/login.ejs')
         }
     },
-
     loginProcess: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
@@ -139,19 +132,16 @@ const usersController = {
             telefono: req.body.telefono,
         },
             { where: { id: req.params.id } })
-
             .then(function (user) {
                 db.Users.findByPk(req.params.id).then(function (user) {
                     res.render('../views/users/profile.ejs', { user: user }) // el profile no agarra los datos pero se cambiaron
                 })
             })
     },
-
     editImage: (req, res) => {
         db.Users.findByPk(req.params.id).then(function (user) {
             req.session.usuarioLogueado = user; // sino, cuando edito el usuario, el logueado es el primero sin cambios
             res.render('../views/users/editImage.ejs', { user: req.session.usuarioLogueado });
-
         })
     },
     updateImage: (req, res) => {
@@ -168,7 +158,6 @@ const usersController = {
                 })
             })
     },
-
     profile: (req, res) => {
         res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
     },

@@ -40,11 +40,10 @@
                                 <!-- <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Categoría"> -->
                                 
                                 <label class="product-edit-label" for="categoria">Género</label>
-                                <select class="product-edit" name="categoria" id="categoria" required>
+                                <select class="product-edit" name="clasificacion" id="clasificacion" required>
                                     <option value="" selected>- elegir género - </option>
                                     <% generos.forEach(genero => { %>
-                                    <option value="<%= genero.id %>" 
-                                        <% if(genero.id == prodToEdit.generos[0].id){ %> 
+                                    <option value="<%= genero.id %>" <% if(genero.id == prodToEdit.generos[0].id){ %> 
                                             selected 
                                         <%}%>><%= genero.nombre %></option>
                                     <% }); %>
@@ -75,7 +74,7 @@
                                     <input type="text" id="nroPaginas" name="nroPaginas" value="<%= prodToEdit.nro_paginas %>">
                                     <!-- <input type="text" id="idioma" name="idioma" value="<%= prodToEdit.idiomas.nombre %>"> -->
                                     <label class="product-edit-label" for="idioma">Idioma</label>
-                                    <select  class="product-create" name="idioma" id="idioma" required>
+                                    <select  class="product-edit" name="idioma" id="idioma" required>
                                         <option value="<%= prodToEdit.idiomas.nombre %>" selected>- elegir idioma - </option>
                                         <% idiomas.forEach(idioma => { %>
                                         <option value="<%= idioma.id %>" 
@@ -96,7 +95,7 @@
                     </form>
                 </div>
             </main>
-            <%- include(' ../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>
     </body>
 
 </html>

@@ -5,6 +5,7 @@ const multer = require("multer");
 const path = require('path');
 var bodyParser = require('body-parser')
 const authMiddleware = require('../../middlewares/authMiddleware')
+const adminMiddleware = require('../../middlewares/adminMiddleware')
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -16,17 +17,17 @@ router.get("/list", productsController.list);
 
 // Todos los productos (admin)
 
-router.get("/admin-list", authMiddleware , productsController.adminList);
+router.get("/admin-list", adminMiddleware , productsController.adminList);
 
 // Detalle producto
 router.get("/detail/:id", productsController.detail);
 
 // Eliminar producto
-router.get("/delete/:id", productsController.deleteview);
+router.get("/delete/:id", adminMiddleware , productsController.deleteview);
 router.post("/delete/:id", productsController.delete);
 
 /*** CREATE ONE PRODUCT ***/
-router.get('/create', productsController.create);
+router.get('/create', adminMiddleware , productsController.create);
 
 const multerDiskStorage = multer.diskStorage({
     destination: (req, file, cb) => { // cb= callback
@@ -44,7 +45,7 @@ const uploadFile = multer(({ storage: multerDiskStorage })); // multer es un mid
 router.post('/', uploadFile.single('imagen'), productsController.store);
 
 // EDITAR PRODUCTO 
-router.get("/edit/:id", productsController.edit);
+router.get("/edit/:id", adminMiddleware , productsController.edit);
 router.post("/edit/:id", uploadFile.single('imagen'), productsController.update);
 
 // Buscar producto

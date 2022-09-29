@@ -59,14 +59,12 @@ const languageController = {
     },
 
     confirmDelete: (req, res) => {
-        db.Books.update({
-            idioma_id: null
-        }, {
+        db.Languages.destroy({
             where: {
-                idioma_id: req.params.id
+                id: req.params.id
             }
         }).then(function () {
-            res.send("nulleado")
+            res.redirect("/languages/list")
 
         })
 

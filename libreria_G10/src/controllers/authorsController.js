@@ -64,7 +64,7 @@ const authorsController = {
 
         db.Authors_Book.destroy({
             where: {
-                genero_id: req.params.id
+                autor_id: req.params.id
             }
         }).then(function () {
             db.Authors.destroy({

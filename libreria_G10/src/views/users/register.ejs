@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <%- include('../partials/head.ejs') %>
-
     <body>
         <%- include('../partials/header.ejs') %>
             <div id="user-form">
@@ -25,7 +23,6 @@
                                 <%= errors.nombre.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="apellido">Apellido:</label>
                             <input type="text" id="apellido" name="apellido"
@@ -37,7 +34,6 @@
                                 <%= errors.apellido.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="domicilio">Domicilio:</label>
                             <input type="text" id="domicilio" name="domicilio"
@@ -49,7 +45,6 @@
                                 <%= errors.domicilio.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="telefono">Telefono:</label>
                             <input type="text" id="telefono" name="telefono"
@@ -61,19 +56,16 @@
                                 <%= errors.telefono.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="email">Email:</label>
                             <input type="text" id="email" name="email"
                                 value=" <%= locals.oldData ? oldData.email : null  %> " class="form-input is-invalid">
                         </div>
-
                         <div class="text-danger">
                             <% if (locals.errors && errors.email) { %>
                                 <%= errors.email.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12">
                             <label for="imagen">Imagen:</label>
                             <input type="file" id="imagen" name="imagen">
@@ -83,19 +75,16 @@
                                 <%= errors.imagen.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12">
                             <label for="password">Contraseña:</label>
                             <input type="password" id="password" name="password" placeholder="Contraseña"
                                 class="form-input">
                         </div>
-
                         <div class="text-danger">
                             <% if (locals.errors && errors.password) { %>
                                 <%= errors.password.msg %>
                                     <% } %>
                         </div>
-
                         <div class="col-12">
                             <label for="password2">Confirmar contraseña:</label>
                             <input type="password" id="password2" name="password2" placeholder="Contraseña"
@@ -120,5 +109,4 @@
             </div>
             <%- include('../partials/footer.ejs') %>
     </body>
-
 </html>

@@ -4,7 +4,8 @@
   "description": "Temática del sitio web:\r     Eshop de libros, para un público de 25 a 65 años.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon libreria_G10/src/app.js"
   },
   "repository": {
     "type": "git",
