@@ -66,7 +66,14 @@ const usersController = {
                 }
             })
         } else {
-            return res.render('../views/users/register.ejs', { errors: errors.errors });
+            //  return res.render('../views/users/register.ejs', { errors: errors.errors });
+            return res.render('../views/users/register.ejs',
+                {
+                    errors: errors.mapped(),
+                    oldData: req.body
+                }
+            );
+            //  return res.send(errors.mapped());
         }
     },
 
