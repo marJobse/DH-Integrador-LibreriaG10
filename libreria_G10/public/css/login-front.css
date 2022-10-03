@@ -1,0 +1,11 @@
+input .is-valid {
+    color: #198754;
+}
+
+input .is-invalid {
+    color: red;
+}
+
+div .errores {
+    color: red
+}

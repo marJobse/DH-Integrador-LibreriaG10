@@ -11,6 +11,10 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const { Console } = require("console");
 const { promiseImpl } = require("ejs");
+
+let avatar = 'images/users/avatar.png';
+
+
 const usersController = {
     register: (req, res) => {
         res.render('../views/users/register.ejs')
@@ -28,7 +32,6 @@ const usersController = {
                         break;
                     }
                 }
-                console.log("usuario duplicado " + duplicado)
                 if (!duplicado) {
                     let password = (req.body.password);
                     let confirmacion_password = (req.body.password2);
@@ -62,13 +65,13 @@ const usersController = {
                 }
             })
         } else {
-            //  return res.render('../views/users/register.ejs', { errors: errors.errors });
-            return res.render('../views/users/register.ejs',
-               {
-                 errors: errors.mapped(),
-                 oldData: req.body
-            }
-            );
+            return res.render('../views/users/register.ejs', { errors: errors.errors });
+            // return res.render('../views/users/register.ejs',
+            //   {
+            //       errors: errors.mapped(),
+            //      oldData: req.body
+            // }
+            //   );
             // return res.send(errors.mapped());
         }
     },
@@ -104,14 +107,13 @@ const usersController = {
                 // parte que hace el loggin
                 //delete.usuarioALoguearse.password; //para no guardarla en la sesion
                 req.session.usuarioLogueado = usuarioALoguearse;
-                console.log('************************login process' + usuarioALoguearse);
                 // 60.000 mls= 60 seg
                 if (req.body.recordame != undefined) {
                     res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
                 }
             }).then(function () {
                 res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
-                res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
+
             })
         }
         else {
@@ -147,16 +149,36 @@ const usersController = {
     updateImage: (req, res) => {
         db.Users.findByPk(req.params.id)
             .then((user) => {
-                console.log(req.body.imagen)
+
                 if (req.file != 'undefined') {
-                    db.Users.update({ imagen: req.body.imagen }, { where: { id: req.params.id } })
+                    db.Users.update({ imagen: req.file.filename }, { where: { id: req.params.id } })
                 }
-            }).then((user) => {
-                db.Users.findByPk(req.params.id).then(function (user) {
-                    req.session.usuarioLogueado = user;
-                    res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
-                })
+                req.session.usuarioLogueado = user;
+                res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
+
             })
+
+
+    },
+    deleteImage: (req, res) => {
+        db.Users.findByPk(req.params.id).then(function (user) {
+            req.session.usuarioLogueado = user; // sino, cuando edito el usuario, el logueado es el primero sin cambios
+            res.render('../views/users/deleteImage.ejs', { user: req.session.usuarioLogueado });
+        })
+    },
+    processDeleteImage: (req, res) => {
+        db.Users.findByPk(req.params.id)
+            .then((user) => {
+                if (req.file != 'undefined') {
+                    console.log(req.file)
+                    db.Users.update({ imagen: 'img-1664762335619-avatar-lectura.jpg' }, { where: { id: req.params.id } })
+                }
+                req.session.usuarioLogueado = user;
+                res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
+
+            })
+
+
     },
     profile: (req, res) => {
         res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })

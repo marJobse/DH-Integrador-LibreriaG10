@@ -63,6 +63,10 @@ router.post("/update/:id", usersController.update);
 router.get("/editImage/:id", usersController.editImage);
 router.post("/updateImage/:id", uploadFile.single('imagen'), usersController.updateImage);
 
+router.get("/deleteImage/:id", usersController.deleteImage);
+router.post("/processDeleteImage/:id", uploadFile.single('imagen'), usersController.processDeleteImage);
+
+
 //router.post("/edit/:id", uploadFile.single('imagen'), productsController.update);
 router.get("/logout", usersController.logout);
 

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<head>
+    <link rel="stylesheet" href="/css/login-front.css">
+</head>
+
 <%- include('../partials/head.ejs') %>
 
     <body>
@@ -8,32 +12,35 @@
             <main>
                 <div id="user-form">
                     <h3>Inicia sesión</h3>
+                    <div class="errores">
+                        <% if (typeof errors !='undefined' ) { %>
+                            <ul>
+                                <% for (let i=0; i< errors.length;i++){%>
+                                    <li>
+                                        <%= errors[i].msg %>
+                                    </li>
+                                    <%} %>
+                            </ul>
+                            <% } %>
+                    </div>
 
-                    <% if (typeof errors !='undefined' ) { %>
-                        <p style="color: red"> Errores: </p>
-                        <ul>
-                            <% for (let i=0; i< errors.length;i++){%>
-                                <li>
-                                    <%= errors[i].msg %>
-                                </li>
-                                <%} %>
-                        </ul>
-                        <% } %>
-
-                            <form id="login-form" action="/users/login" method="POST">
-                                <input type="email" name="email" id="email" placeholder="Correo electrónico">
-                                <input type="password" name="password" id="password" placeholder="Contraseña">
-                                <div class="user-recordar">
-                                    <label id="user-recordar-label" for="">Recordame</label>
-                                    <input type="checkbox" name="recordame" id="recordarme">
-                                </div>
-                                <button type="submit" class="submit">Enviar</button>
-                                <a id="recuperar-password" href="/register">¿Olvidaste tu contraseña?</a>
-                                <a id="crear-cuenta" href="/users/register">Creá tu cuenta</a>
-                            </form>
+                    <form id="login-form" action="/users/login" method="POST">
+                        <input type="email" autofocus name="email" id="email" placeholder="Correo electrónico">
+                        <input type="password" name="password" id="password" placeholder="Contraseña">
+                        <div class=" user-recordar">
+                            <label id="user-recordar-label" for="">Recordame</label>
+                            <input type="checkbox" name="recordame" id="recordarme">
+                        </div>
+                        <button type="submit" class="submit">Enviar</button>
+                        <a id="recuperar-password" href="/register">¿Olvidaste tu contraseña?</a>
+                        <a id="crear-cuenta" href="/users/register">Crea tu cuenta</a>
+                    </form>
                 </div>
             </main>
             <%- include('../partials/footer.ejs') %>
+
+                <script src="/js/validation-login-front.js">
+                </script>
     </body>
 
 </html>

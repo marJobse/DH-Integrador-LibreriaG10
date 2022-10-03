@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <link rel="stylesheet" href="/css/registerForm.css">
-</head>
 <%- include('../partials/head.ejs') %>
 
     <body>
@@ -14,16 +10,8 @@
                         <h3 class="products-title">Crea tu cuenta</h3>
                     </div>
                 </div>
-                <div class="errores">
-                    <% if (typeof errors !='undefined' ) { %>
-                        <ul>
-                            <% for (let i=0; i< errors.length;i++){%>
-                                <li>
-                                    <%= errors[i].msg %>
-                                </li>
-                                <%} %>
-                        </ul>
-                        <% } %>
+                <div class="errores-front">
+                    <ul></ul>
                 </div>
 
                 <form class="form-register" id="register-form" action="/users/" method="POST"
@@ -33,43 +21,76 @@
                             <label for="nombre">Nombre:</label>
                             <input autofocus type="text" id="nombre" name="nombre" class="form-input-nombre">
                         </div>
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.nombre) { %>
+                                <%= errors.nombre.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12 col-md-6">
                             <label for="apellido">Apellido:</label>
                             <input type="text" id="apellido" name="apellido" class="form-input-apellido">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.apellido) { %>
+                                <%= errors.apellido.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12 col-md-6">
                             <label for="domicilio">Domicilio:</label>
                             <input type="text" id="domicilio" name="domicilio" class="form-input-domicilio">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.domicilio) { %>
+                                <%= errors.domicilio.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12 col-md-6">
                             <label for="telefono">Telefono:</label>
                             <input type="text" id="telefono" name="telefono" class="form-input-telefono">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.telefono) { %>
+                                <%= errors.telefono.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12 col-md-6">
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" class="form-input-email">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.email) { %>
+                                <%= errors.email.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12">
                             <label for="imagen">Imagen:</label>
                             <input type="file" id="imagen" name="imagen">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.imagen) { %>
+                                <%= errors.imagen.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12">
                             <label for="password">Contraseña:</label>
                             <input type="password" id="password" name="password" placeholder="Contraseña"
                                 class="form-input-password">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.password) { %>
+                                <%= errors.password.msg %>
+                                    <% } %>
+                        </div>
                         <div class="col-12">
                             <label for="password2">Confirmar contraseña:</label>
                             <input type="password" id="password2" name="password2" placeholder="Contraseña"
                                 class="form-input-confirmar-password">
                         </div>
-
+                        <div class="text-danger">
+                            <% if (locals.errors && errors.password2) { %>
+                                <%= errors.password2.msg %>
+                                    <% } %>
+                        </div>
 
                         <div class="col-12 register-button-bar">
                             <button type="submit" class="submit">Registrarse</button>
@@ -89,3 +110,6 @@
     </body>
 
 </html>
+
+
+/// además hay un mapped de errore
