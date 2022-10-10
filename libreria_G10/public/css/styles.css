@@ -213,3 +213,18 @@ li.list-item {
     text-align: center;
     margin: 1rem;
 }
+
+.errores {
+    margin: 0 auto 10px auto;
+    background-color: #ff0035;
+    color: white;
+    padding: 0.5rem;
+}
+
+.errores ul {
+    text-align: center;
+}
+
+.errores ul li {
+    list-style-type: none;
+}

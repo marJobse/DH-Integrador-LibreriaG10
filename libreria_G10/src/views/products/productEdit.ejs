@@ -7,6 +7,17 @@
     <body>
         <%- include('../partials/header.ejs') %>
             <main>
+                <% if (typeof errors !='undefined' ) { %>
+                    <div class="errores">
+                        <ul>
+                            <% for (let i=0; i< errors.length;i++){%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <%} %>
+                        </ul>
+                    </div>
+                    <% } %>
                 <div class="title">
                     <h3 class="subtitle">Editando <%= prodToEdit.nombre %>
                     </h3>

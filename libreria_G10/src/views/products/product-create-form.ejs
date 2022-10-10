@@ -8,6 +8,17 @@
 
         <body>
             <%- include('../partials/header.ejs') %>
+            <% if (typeof errors !='undefined' ) { %>
+                <div class="errores">
+                    <ul>
+                        <% for (let i=0; i< errors.length;i++){%>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+                            <%} %>
+                    </ul>
+                </div>
+            <% } %>
                 <div class="container products-wrapper">
                     <div class="row">
                         <div class="col-12">
