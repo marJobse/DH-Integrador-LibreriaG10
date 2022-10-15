@@ -39,6 +39,10 @@ app.use(session({
     saveUninitialized: false // para que no aparezcan los deprecated undefined...
 }))
 
+app.use(validationLoginMiddleware);
+app.use(cookieParser());
+app.use(recordameMiddleware);
+
 //el texto dentro de session va a identificar el sitio web
 
 app.use("/", mainRouter)
@@ -55,10 +59,11 @@ app.use("/authors", authorsRouter)
 
 app.use("/carrito", cartRouter)
 
-app.use(validationLoginMiddleware);
-app.use(cookieParser());
-app.use(recordameMiddleware);
+
+
 app.use(methodOverride('_method'))
+
+
 
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));

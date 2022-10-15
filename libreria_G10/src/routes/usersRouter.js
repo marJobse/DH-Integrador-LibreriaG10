@@ -42,7 +42,7 @@ const loginValidation = require("../../middlewares/validationLoginMiddleware");
 const guestMiddleware = require("../../middlewares/guestMiddleware.js");
 const authMiddleware = require("../../middlewares/authMiddleware.js");
 const registerMiddleware = require("../../middlewares/registerMiddleware.js");
-
+const recordameMiddleware = require("../../middlewares/recordameMiddleware.js");
 
 router.get("/register", guestMiddleware, usersController.register);
 
@@ -57,18 +57,29 @@ router.post("/login", loginValidation, usersController.loginProcess);
 
 router.get("/profile", authMiddleware, usersController.profile); //le agregue auth
 
-router.get("/edit/:id", usersController.edit);
+router.get("/edit/:id", authMiddleware, usersController.edit);
 router.post("/update/:id", usersController.update);
 
-router.get("/editImage/:id", usersController.editImage);
+router.get("/editImage/:id", authMiddleware, usersController.editImage);
 router.post("/updateImage/:id", uploadFile.single('imagen'), usersController.updateImage);
 
-router.get("/deleteImage/:id", usersController.deleteImage);
+router.get("/deleteImage/:id", authMiddleware, usersController.deleteImage);
 router.post("/processDeleteImage/:id", uploadFile.single('imagen'), usersController.processDeleteImage);
 
 
 //router.post("/edit/:id", uploadFile.single('imagen'), productsController.update);
-router.get("/logout", usersController.logout);
+router.get("/logout", authMiddleware, usersController.logout);
+
+router.get('/check', function (req, res) {
+    if (req.session.usuarioLogueado == undefined) {
+        res.send('no logueado')
+    }
+    else {
+        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
+    }
+})
+
+
 
 
 module.exports = router;

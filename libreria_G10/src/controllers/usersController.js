@@ -1,8 +1,5 @@
 const express = require("express");
 const path = require('path');
-//const fs = require('fs');
-// const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-//const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const session = require('express-session');
 const { validationResult } = require('express-validator');
 let bcrypt = require("bcryptjs");
@@ -107,7 +104,7 @@ const usersController = {
                 // parte que hace el loggin
                 //delete.usuarioALoguearse.password; //para no guardarla en la sesion
                 req.session.usuarioLogueado = usuarioALoguearse;
-                // 60.000 mls= 60 seg
+
                 if (req.body.recordame != undefined) {
                     res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
                 }

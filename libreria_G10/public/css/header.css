@@ -66,6 +66,7 @@
     position: relative;
     z-index: 0;
 }
+
 .menu-item {
     width: 20%;
     margin: auto;
@@ -75,14 +76,14 @@
 
 }
 
-.menu-item a{
+.menu-item a {
     color: white;
     font-weight: 900;
     top: .4rem;
     text-decoration: none;
 }
 
-.menu-item a:hover{
+.menu-item a:hover {
     color: #91dfb9;
     font-weight: 900;
     top: .4rem;
@@ -96,7 +97,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 #logo {
@@ -126,7 +127,7 @@ span.menu-item:hover {
     .menu-item {
         display: block;
     }
-    
+
     #top-search {
         width: 50%;
         margin: 0px;
@@ -136,15 +137,21 @@ span.menu-item:hover {
         position: absolute;
         z-index: 10;
     }
+
     #busqueda {
         opacity: 0%;
         transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
     }
 
-    form:hover #busqueda{
+    form:hover #busqueda {
         opacity: 100%;
     }
-    #busqueda:hover{
+
+    #busqueda:hover {
         opacity: 100%;
+    }
+
+    .bienvenido {
+        color: white
     }
 }

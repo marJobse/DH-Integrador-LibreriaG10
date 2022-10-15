@@ -1,15 +1,15 @@
 const db = require('../database/models');
 
 const mainController = {
-    home: (req, res)=> {
+    home: (req, res) => {
         db.Books.findAll({
             include: [
-                {association: 'editoriales'},
-                {association: 'autores'}]
+                { association: 'editoriales' },
+                { association: 'autores' }]
         })
-        .then(products=>{
-            res.render('../views/index.ejs', { products })
-        })
+            .then(products => {
+                res.render('../views/index.ejs', { products })
+            })
     },
 }
 
