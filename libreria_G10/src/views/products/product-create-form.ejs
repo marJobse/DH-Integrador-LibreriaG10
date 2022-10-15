@@ -8,6 +8,17 @@
 
         <body>
             <%- include('../partials/header.ejs') %>
+            <% if (typeof errors !='undefined' ) { %>
+                <div class="errores">
+                    <ul>
+                        <% for (let i=0; i< errors.length;i++){%>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+                            <%} %>
+                    </ul>
+                </div>
+            <% } %>
                 <div class="container products-wrapper">
                     <div class="row">
                         <div class="col-12">
@@ -66,8 +77,8 @@
                                     </select>
                                 </div>
                                 <div class="product-create-field">
-                                    <label for="resenia" class="product-create-label" >Resenia:</label>
-                                    <input type="text" id="resenia " name="resenia" placeholder="Este es un libro..."
+                                    <label for="resenia" class="product-create-label" >Reseña:</label>
+                                    <input type="text" id="resenia" name="resenia" placeholder="Este es un libro..."
                                         class="form-input">
                                 </div>
                                 <div class="product-create-field">
@@ -112,7 +123,7 @@
                                 </div>
                                 <div class="product-create-field">
                                     <label for="isbn" class="product-create-label" >ISBN:</label>
-                                    <input type="isbn" id="isbn" name="isbn" placeholder="121212121212"
+                                    <input type="text" id="isbn" name="isbn" placeholder="121212121212"
                                         class="form-input">
                                 </div>
                                 <div class="product-create-field">
@@ -129,6 +140,8 @@
 
                 </div>
                 <%- include('../partials/footer.ejs') %>
+                <script src="/js/validation-create-front.js"></script>
+                
         </body>
 
 </html>
