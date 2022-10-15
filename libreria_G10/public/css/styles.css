@@ -228,3 +228,11 @@ li.list-item {
 .errores ul li {
     list-style-type: none;
 }
+
+.is-invalid::placeholder {
+    color:#ff0035
+}
+
+#editorial.is-invalid, #autor.is-invalid, #clasificacion.is-invalid, #idioma_id.is-invalid {
+    color:#ff0035
+}

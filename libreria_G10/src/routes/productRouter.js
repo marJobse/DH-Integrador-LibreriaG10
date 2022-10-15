@@ -6,11 +6,11 @@ const path = require('path');
 var bodyParser = require('body-parser')
 const authMiddleware = require('../../middlewares/authMiddleware')
 const adminMiddleware = require('../../middlewares/adminMiddleware')
+const productCreateValidator = require('../../middlewares/productCreateMiddleware')
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const { check, body, validationResult } = require('express-validator');
-const productCreateValidator = require('../../middlewares/productCreateMiddleware.js')
 
 // Todos los productos (public)
 

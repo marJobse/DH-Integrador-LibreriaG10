@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
 
     campoNombre.addEventListener('blur', () => {
         if (campoNombre.value.trim() == '') {   // si esta vacio
-            campoNombre.placeholder = 'Debes ingresar un nombre.';
+            campoNombre.placeholder = 'Debes ingresar dos nombres.';
             campoNombre.classList.remove('is-valid');
             campoNombre.classList.add('is-invalid');
             errores.push('El nombre esta vacio');
@@ -86,6 +86,25 @@ window.addEventListener('load', function () {
             else {                              // si es válido
                 campoPrecio.classList.remove('is-invalid');
                 campoPrecio.classList.add('is-valid');
+            }
+        }
+
+    });
+    campoIsbn.addEventListener('blur', () => {
+        if (campoIsbn.value.trim() == '') {   // si esta vacio
+            campoIsbn.placeholder = 'El ISBN no puede estar vacio';
+            campoIsbn.classList.remove('is-valid');
+            campoIsbn.classList.add('is-invalid');
+            errores.push('El ISBN no puede estar vacio');
+        } else {
+            if (!campoIsbn.value.trim().length > 13) {
+                errores.push('Debe tener 13 dígitos');
+                campoIsbn.classList.remove('is-valid');
+                campoIsbn.classList.add('is-invalid');
+            }
+            else {                              // si es válido
+                campoIsbn.classList.remove('is-invalid');
+                campoIsbn.classList.add('is-valid');
             }
         }
 
@@ -154,6 +173,54 @@ window.addEventListener('load', function () {
             campoNroPaginas.classList.add('is-valid');
         };
     });
+
+    campoEditorial.addEventListener('blur',()=>{
+        if(campoEditorial.value == ''){
+            errores.push('Debes seleccionar una Editorial');
+            campoEditorial.placeholder = 'Debes seleccionar una Editorial';
+            campoEditorial.classList.remove('is-valid');
+            campoEditorial.classList.add('is-invalid');
+        } else {
+            campoEditorial.classList.remove('is-invalid');
+            campoEditorial.classList.add('is-valid');
+        };    
+    })
+
+    campoAutor.addEventListener('blur',()=>{
+        if(campoAutor.value == ''){
+            errores.push('Debes seleccionar un autor');
+            campoAutor.placeholder = 'Debes seleccionar un autor';
+            campoAutor.classList.remove('is-valid');
+            campoAutor.classList.add('is-invalid');
+        } else {
+            campoAutor.classList.remove('is-invalid');
+            campoAutor.classList.add('is-valid');
+        };    
+    })
+
+    campoClasificacion.addEventListener('blur',()=>{
+        if(campoClasificacion.value == ''){
+            errores.push('Debes seleccionar una clasificación');
+            campoClasificacion.placeholder = 'Debes seleccionar una clasificación';
+            campoClasificacion.classList.remove('is-valid');
+            campoClasificacion.classList.add('is-invalid');
+        } else {
+            campoClasificacion.classList.remove('is-invalid');
+            campoClasificacion.classList.add('is-valid');
+        };    
+    })
+
+    campoIdioma.addEventListener('blur',()=>{
+        if(campoIdioma.value == ''){
+            errores.push('Debes seleccionar un idioma');
+            campoIdioma.placeholder = 'Debes seleccionar un idioma';
+            campoIdioma.classList.remove('is-valid');
+            campoIdioma.classList.add('is-invalid');
+        } else {
+            campoIdioma.classList.remove('is-invalid');
+            campoIdioma.classList.add('is-valid');
+        };    
+    })
 
         if (errores.length > 0) {
             e.preventDefault();
