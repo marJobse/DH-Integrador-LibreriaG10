@@ -9,6 +9,7 @@ const { Op } = require("sequelize");
 const { Console } = require("console");
 const { promiseImpl } = require("ejs");
 
+
 let avatar = 'images/users/avatar.png';
 
 
@@ -102,7 +103,7 @@ const usersController = {
                     });
                 }
                 // parte que hace el loggin
-                //delete.usuarioALoguearse.password; //para no guardarla en la sesion
+                delete usuarioALoguearse.password; //para no guardarla en la sesion
                 req.session.usuarioLogueado = usuarioALoguearse;
 
                 if (req.body.recordame != undefined) {
@@ -184,7 +185,40 @@ const usersController = {
         res.clearCookie('recordame');
         req.session.destroy();
         res.render('../views/users/login.ejs')
+    },
+
+    //------------------------------API---------------------------------------------------------------------
+
+    listaUsuarios: async (req, res) => {
+        //res.send('hola lista')
+        db.Users.findAll()
+            .then(usuarios => {
+                res.json({
+                    meta: {
+                        status: 200,
+                        count: usuarios.length,
+                        url: "api/users" //endpoint
+                    },
+                    data: usuarios
+
+                });
+            });
+    },
+
+    usuario_id: async (req, res) => {
+        //res.send('hola usuario')
+        db.Users.findByPk(req.params.id)
+            .then(function (user) {
+                res.json({
+                    meta: {
+                        status: 200,
+                        url: "api/users/:id" //endpoint
+                    },
+                    data: user
+                });
+            });
     }
+
 }
 
 module.exports = usersController

@@ -4,6 +4,7 @@ const app = express();
 const publicPath = path.join(__dirname, '../public');
 const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productRouter');
+const API_UsersRouter = require('./routes/API_UsersRouter');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const genresRouter = require('./routes/genresRouter');
@@ -50,6 +51,7 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
+app.use("/api/users", API_UsersRouter)
 
 
 app.use("/languages", languagesRouter)
