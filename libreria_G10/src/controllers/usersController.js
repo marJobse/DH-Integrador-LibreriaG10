@@ -181,17 +181,10 @@ const usersController = {
         res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
     },
     logout: (req, res) => {
-        if (req.session) {
-            req.session.destroy(err => {
-                if (err) {
-                    res.status(400).send('Unable to log out')
-                } else {
-                    res.render('../views/users/login.ejs')
-                }
-            });
-        } else {
-            res.end()
-        }
-    },
+        res.clearCookie('recordame');
+        req.session.destroy();
+        res.render('../views/users/login.ejs')
+    }
 }
+
 module.exports = usersController
