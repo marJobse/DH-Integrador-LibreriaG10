@@ -1,4 +1,3 @@
-console.log('se vinculo bien')
 
 window.addEventListener('load', function () {
     let formulario = document.querySelector("#product-create"); 
