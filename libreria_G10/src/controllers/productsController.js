@@ -68,6 +68,7 @@ const productsController = {
     },
     update: (req, res) => {
         // back end validation results
+        console.log(validationResult(req))
         let errors = validationResult(req);
         if(errors.isEmpty()) {
             // if no errors, check for duplicate isbn

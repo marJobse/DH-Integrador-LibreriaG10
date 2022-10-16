@@ -40,7 +40,7 @@ app.use(session({
     saveUninitialized: false // para que no aparezcan los deprecated undefined...
 }))
 
-app.use(validationLoginMiddleware);
+// app.use(validationLoginMiddleware);
 app.use(cookieParser());
 app.use(recordameMiddleware);
 

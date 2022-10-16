@@ -8,22 +8,22 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
+        <% if (typeof errors !='undefined' ) { %>
+        <div class="errores">
+                <ul>
+                    <% for (let i=0; i< errors.length;i++){%>
+                        <li>
+                            <%= errors[i].msg %>
+                        </li>
+                        <%} %>
+                </ul>
+            </div>
+            <% } %>
             <div id="user-form">
                 <div class="row">
                     <div class="col-12">
                         <h3 class="products-title">Crea tu cuenta</h3>
                     </div>
-                </div>
-                <div class="errores">
-                    <% if (typeof errors !='undefined' ) { %>
-                        <ul>
-                            <% for (let i=0; i< errors.length;i++){%>
-                                <li>
-                                    <%= errors[i].msg %>
-                                </li>
-                                <%} %>
-                        </ul>
-                        <% } %>
                 </div>
 
                 <form class="form-register" id="register-form" action="/users/" method="POST"

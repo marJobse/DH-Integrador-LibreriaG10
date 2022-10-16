@@ -9,20 +9,20 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-            <main>
+        <main>
+                <% if (typeof errors !='undefined' ) { %>
+                    <div class="errores">
+                        <ul>
+                            <% for (let i=0; i< errors.length;i++){%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <%} %>
+                        </ul>
+                    </div>
+                        <% } %>
                 <div id="user-form">
                     <h3>Inicia sesión</h3>
-                    <div class="errores">
-                        <% if (typeof errors !='undefined' ) { %>
-                            <ul>
-                                <% for (let i=0; i< errors.length;i++){%>
-                                    <li>
-                                        <%= errors[i].msg %>
-                                    </li>
-                                    <%} %>
-                            </ul>
-                            <% } %>
-                    </div>
 
                     <form id="login-form" action="/users/login" method="POST">
                         <input type="email" autofocus name="email" id="email" placeholder="Correo electrónico">
