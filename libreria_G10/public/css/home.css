@@ -42,7 +42,7 @@
     text-decoration: underline #91dfb9 2px;
 }
 
-#boton-comprar {
+.boton-comprar {
     width: 80%;
     padding: .5rem;
     text-decoration: none;

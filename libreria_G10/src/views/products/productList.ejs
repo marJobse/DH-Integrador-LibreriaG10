@@ -36,7 +36,7 @@
                                     <% } %>
                                 </div>
                                 <div class="col-3 editar">
-                                    <a href="/carrito"><i class="fa-solid fa-bag-shopping"></i></i></a>
+                                    <a href="/carrito"><i class="fa-solid fa-bag-shopping" id="<%= products[i].id %>"></i></i></a>
                                 </div>
                             </div>
                         <% } %>
@@ -50,6 +50,8 @@
                 </div>
             </main>
             <%- include('../partials/footer.ejs') %>
+            <script src="/js/listAddToCart.js"></script>
+
     </body>
 
 </html>

@@ -17,10 +17,12 @@
                         <div class="product-image-container"><a href="/product/detail/<%= products[i].id %>"><img class="product-item-img" src="/images/products/<%= products[i].imagen %>" alt=""></a></div>
                         <h4><a href="/product/detail/<%= products[i].id %>"><%= products[i].nombre %></a></h4>
                         <p>$<%= products[i].precio %></p>
-                        <a id="boton-comprar" href="/carrito" >Comprar</a>
+                        <a class="boton-comprar" id="<%= products[i].id %>" href="/carrito" >Agregar al carrito</a>
                     </div>
                     <% } %>
                 </section>
             </main>
             <%- include('partials/footer.ejs') %>
+            <script src="/js/homeAddToCart.js"></script>
+
     </body>

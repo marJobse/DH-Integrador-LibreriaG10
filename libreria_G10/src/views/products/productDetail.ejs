@@ -37,14 +37,14 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                    <div class="producto cantidad">
+                                    <!-- <div class="producto cantidad">
                                         <div class="carrito-add">-</div>
                                         <div class="carrito-cantidad">1</div>
                                         <div class="carrito-remove">+</div>
-                                    </div>
+                                    </div> -->
                                     <div class="agregar-carrito">
                                         <button type="submit" title="Comprar"
-                                            class="button btn-cart">Comprar</button>
+                                            class="button btn-cart boton-comprar" id="<%= productDetail.id %>">Agregar al Carrito</button>
                                     </div>
                                 </div>
                                 <br>
@@ -113,6 +113,8 @@
                     </div>
                 </main>
                 <%- include('../partials/footer.ejs') %>
+                <script src="/js/homeAddToCart.js"></script>
+
         </body>
 
 </html>
