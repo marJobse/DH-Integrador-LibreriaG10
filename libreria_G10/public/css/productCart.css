@@ -95,18 +95,18 @@
     color: #91dfb9;
 } */
 
-#delete {
+.delete {
     border: none;
     background-color: white;
     color: #91dfb9;
     transition: background-color, .5s, color, .5s;
 }
-#delete:hover {
+.delete:hover {
     background-color: #91dfb9;
     color: white;
 }
 
-#delete:focus {
+.delete:focus {
     background-color: white;
     color: #91dfb9;
 }
@@ -175,9 +175,12 @@
     margin: 1rem 0px;
 }
 
-.producto.subtotal::before, .producto.precio::before {
+.producto.subtotal::before, .producto.precio::before, .total-monto::before {
 content: '$'
 }
+
+.monto-descontado {
+color: #ff0035;}
 /* Reglas para desktop */
 
 @media (min-width: 950px) {

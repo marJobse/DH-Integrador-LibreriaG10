@@ -19,6 +19,7 @@ const recordameMiddleware = require('../middlewares/recordameMiddleware');
 var methodOverride = require('method-override')
 
 const apiBooksRouter = require('./routes/api/booksRouter')
+const apiDiscountsRouter = require('./routes/api/discountsRouter')
 
 const bcrypt = require('bcrypt');
 
@@ -63,6 +64,7 @@ app.use("/authors", authorsRouter)
 app.use("/carrito", cartRouter)
 
 app.use('/api/books',apiBooksRouter);
+app.use('/api/discounts', apiDiscountsRouter)
 
 
 app.use(methodOverride('_method'))
