@@ -8,6 +8,7 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const { Console } = require("console");
 const { promiseImpl } = require("ejs");
+const e = require("express");
 
 
 let avatar = 'images/users/avatar.png';
@@ -193,16 +194,18 @@ const usersController = {
         //res.send('hola lista')
         db.Users.findAll()
             .then(usuarios => {
+
                 res.json({
                     meta: {
                         status: 200,
                         count: usuarios.length,
                         url: "api/users" //endpoint
-                    },
+                    }, //id, name, email, detail url
+                    //  apellido, domicilio, imagen ,telefono, tipo_id,password
                     data: usuarios
-
                 });
             });
+
     },
 
     usuario_id: async (req, res) => {

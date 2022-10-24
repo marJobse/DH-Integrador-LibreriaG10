@@ -17,35 +17,36 @@
                                 <%} %>
                         </ul>
                     </div>
-                <% } %>
-                <div class="title">
-                    <h3 class="subtitle">Editando <%= prodToEdit.nombre %>
-                    </h3>
-                </div>
-                <div id="user-form">
-                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST"
-                        enctype="multipart/form-data">
-                        <!-- <div class="edit-form-container"> -->
-                        <div class="edit-form-top">
-                            <label class="product-edit-label" for="nombre">Título</label>
-                            <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>"
-                                accept=".jpg, .jpeg, .png">
+                    <% } %>
+                        <div class="title">
+                            <h3 class="subtitle">Editando <%= prodToEdit.nombre %>
+                            </h3>
                         </div>
-                        <div class="edit-form-lower-left">
-                            <img src="/images/products/<%= prodToEdit.imagen %>">
-                            <input type="file" id="imagen" name="imagen">
-                        </div>
-                        <div class="edit-form-lower-right">
-                            <!-- <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autores[0].nombre %> <%= prodToEdit.autores[0].apellido %>" placeholder="Autor"> -->
+                        <div id="user-form">
+                            <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST"
+                                enctype="multipart/form-data">
+                                <!-- <div class="edit-form-container"> -->
+                                <div class="edit-form-top">
+                                    <label class="product-edit-label" for="nombre">Título</label>
+                                    <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>"
+                                        accept=".jpg, .jpeg, .png">
+                                </div>
+                                <div class="edit-form-lower-left">
+                                    <img src="/images/products/<%= prodToEdit.imagen %>">
+                                    <input type="file" id="imagen" name="imagen">
+                                </div>
+                                <div class="edit-form-lower-right">
 
-                            <label class="product-edit-label" for="autor">Autor</label>
-                            <select class="product-edit" name="autor" id="autor" required>
-                                <option value="">- elegir autor - </option>
-                                <% autores.forEach(autor=> { %>
-                                    <option value="<%= autor.id %>" <% if(autor.id==prodToEdit.autores[0].id){ %>
-                                        selected
-                                        <%}%>
-                                            ><%= autor.nombre +' '+ autor.apellido %></option>
+
+                                    <label class="product-edit-label" for="autor">Autor</label>
+                                    <select class="product-edit" name="autor" id="autor" required>
+                                        <option value="">- elegir autor - </option>
+                                        <% autores.forEach(autor=> { %>
+                                            <option value="<%= autor.id %>" <% if(autor.id==prodToEdit.autores[0].id){
+                                                %>
+                                                selected
+                                                <%}%>
+                                                    ><%= autor.nombre +' '+ autor.apellido %></option>
                                     <% }); %>
                                 </select>
                                 <!-- <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Categoría"> -->
@@ -106,8 +107,8 @@
                     </form>
                 </div>
             </main>
-        <%- include('../partials/footer.ejs') %>
-        <script src="/js/validation-create-front.js"></script>
+        <%- include(' ../partials/footer.ejs') %>
+                                                        <script src="/js/validation-create-front.js"></script>
 
     </body>
 
