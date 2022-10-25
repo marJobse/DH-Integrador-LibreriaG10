@@ -148,16 +148,19 @@ const usersController = {
     updateImage: (req, res) => {
         db.Users.findByPk(req.params.id)
             .then((user) => {
-
                 if (req.file != 'undefined') {
-                    db.Users.update({ imagen: req.file.filename }, { where: { id: req.params.id } })
+                    db.Users.update({ imagen: req.file.filename }, { where: { id: req.params.id } }).then((usuarioEditado)=>{
+                        user.dataValues.imagen= req.file.filename;
+                        req.session.usuarioLogueado = user;
+                       return res.redirect('/users/profile')       
+                    })
                 }
-                req.session.usuarioLogueado = user;
-                res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
-
-            })
-
-
+                else{
+                    req.session.usuarioLogueado = user;
+                    res.redirect('/users/profile')
+                }            
+             } )
+                
     },
     deleteImage: (req, res) => {
         db.Users.findByPk(req.params.id).then(function (user) {
@@ -176,8 +179,6 @@ const usersController = {
                 res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
 
             })
-
-
     },
     profile: (req, res) => {
         res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
@@ -188,40 +189,7 @@ const usersController = {
         res.render('../views/users/login.ejs')
     },
 
-    //------------------------------API---------------------------------------------------------------------
-
-    listaUsuarios: async (req, res) => {
-        //res.send('hola lista')
-        db.Users.findAll()
-            .then(usuarios => {
-
-                res.json({
-                    meta: {
-                        status: 200,
-                        count: usuarios.length,
-                        url: "api/users" //endpoint
-                    }, //id, name, email, detail url
-                    //  apellido, domicilio, imagen ,telefono, tipo_id,password
-                    data: usuarios
-                });
-            });
-
-    },
-
-    usuario_id: async (req, res) => {
-        //res.send('hola usuario')
-        db.Users.findByPk(req.params.id)
-            .then(function (user) {
-                res.json({
-                    meta: {
-                        status: 200,
-                        url: "api/users/:id" //endpoint
-                    },
-                    data: user
-                });
-            });
-    }
-
+  
 }
 
 module.exports = usersController
