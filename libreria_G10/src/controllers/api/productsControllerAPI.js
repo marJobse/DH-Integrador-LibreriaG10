@@ -5,6 +5,56 @@ const { Op } = require("sequelize");
 
 
 const productsAPIController = {
+    'count': (req, res) => {
+        db.Books.count()
+        .then(resultado => {
+            console.log(resultado)
+            let respuesta = {
+                meta:  {
+                    status: 200,
+                    url: '/api/books/count'
+                },
+                data: resultado
+            }
+            res.json(respuesta);
+        })
+    },
+    'products': (req, res) => {
+        let products = db.Books.findAll({
+                            include: [
+                                { association: 'editoriales' },
+                                { association: 'autores' },
+                                { association: 'generos' }]
+                                })
+        let generos = db.Genres.findAll()
+        
+        Promise.all([products, generos])
+        .then(([products, generos]) => {
+            let booksByGenres = {
+
+            }
+            generos.forEach(genero => {
+                db.Books.findAll({
+                    include: [
+                        { model: db.Genres, as: 'generos' }],
+                    where: {'$generos.nombre$': genero.nombre}
+                })
+                .then(e => { booksByGenres[genero.nombre] = e.length })
+            })
+            let respuesta = {
+                meta: {
+                    status : 200,
+                    url: '/api/books/products'
+                },
+                data: {
+                    count: products.length,
+                    products: products,
+                    booksByGenres: booksByGenres
+                }
+            }
+                res.json(respuesta);
+            })
+    },
     'list': (req, res) => {
                db.Books.findAll({
             include: [
@@ -35,7 +85,6 @@ const productsAPIController = {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        total: libro.length,
                         url: '/api/books/:id'
                     },
                     data: libro
