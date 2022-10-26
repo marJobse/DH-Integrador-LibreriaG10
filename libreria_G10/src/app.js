@@ -4,7 +4,7 @@ const app = express();
 const publicPath = path.join(__dirname, '../public');
 const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productRouter');
-const API_UsersRouter = require('./routes/API_UsersRouter');
+const UsersRouterAPI = require('./routes/api/UsersRouterAPI');
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const genresRouter = require('./routes/genresRouter');
@@ -53,7 +53,7 @@ app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
-app.use("/api/users", API_UsersRouter)
+app.use("/api/users", UsersRouterAPI)
 
 
 app.use("/languages", languagesRouter)
@@ -63,7 +63,7 @@ app.use("/authors", authorsRouter)
 
 app.use("/carrito", cartRouter)
 
-app.use('/api/books',apiBooksRouter);
+app.use('/api/books', apiBooksRouter);
 app.use('/api/discounts', apiDiscountsRouter)
 
 

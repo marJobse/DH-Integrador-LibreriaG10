@@ -20,7 +20,7 @@ const productsController = {
                 { association: 'generos' }]
         })
             .then(libro => {
-                res.render('../views/products/productDetail.ejs', { productDetail: libro })
+                res.render('../views/products/productDetail.ejs', { productDetail: libro, user: req.session.usuarioLogueado })
             })
     },
     list: (req, res) => {
@@ -40,7 +40,8 @@ const productsController = {
                 { association: 'autores' }]
         })
             .then(products => {
-                res.render('../views/products/productListAdmin.ejs', { products })
+                res.render('../views/products/productListAdmin.ejs', { products, user: req.session.usuarioLogueado })
+
             })
     },
     edit: (req, res) => {
@@ -57,29 +58,31 @@ const productsController = {
         })
         Promise.all([generos, idiomas, autores, editoriales, libro])
             .then(([generos, idiomas, autores, editoriales, libro]) => {
+                //console.log(autores)
+                //res.send(autores[2].nombre)
                 res.render('../views/products/productEdit.ejs', {
                     prodToEdit: libro,
                     generos: generos,
                     autores: autores,
                     idiomas: idiomas,
-                    editoriales: editoriales
+                    editoriales: editoriales, user: req.session.usuarioLogueado
                 })
             })
+
     },
     update: (req, res) => {
         // back end validation results
         console.log(validationResult(req))
         let errors = validationResult(req);
-        if(errors.isEmpty()) {
+        if (errors.isEmpty()) {
             // if no errors, check for duplicate isbn
-            let checkForDuplicate ;
-            db.Books.findAll({ 
-                where: { isbn: req.body.isbn } 
-            }).then(results=>{
+            let checkForDuplicate;
+            db.Books.findAll({
+                where: { isbn: req.body.isbn }
+            }).then(results => {
                 checkForDuplicate = results
                 console.log(checkForDuplicate[0])
-                if(checkForDuplicate.length == 1)
-                {
+                if (checkForDuplicate.length == 1) {
                     db.Books.update({
                         nombre: req.body.nombre,
                         resenia: req.body.resenia,
@@ -172,7 +175,8 @@ const productsController = {
                 { association: 'autores' }]
         })
             .then(libro => {
-                res.render('../views/products/productDelete.ejs', { productDelete: libro })
+                res.render('../views/products/productDelete.ejs', { productDelete: libro, user: req.session.usuarioLogueado
+                })
             })
     },
     delete: (req, res) => {
@@ -206,7 +210,9 @@ const productsController = {
                     generos: generos,
                     autores: autores,
                     idiomas: idiomas,
-                    editoriales: editoriales
+                    editoriales: editoriales,
+                    user: req.session.usuarioLogueado
+
                 })
             })
     },
@@ -214,75 +220,79 @@ const productsController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             // no errors found: check for duplicate (isbn)
-            let checkForDuplicate ;
-            db.Books.findOne({ 
-                where: { isbn: req.body.isbn } 
+            let checkForDuplicate;
+            db.Books.findOne({
+                where: { isbn: req.body.isbn }
             })
-            .then(duplicateResult=>{
-                checkForDuplicate = {duplicateResult};
-                // If no duplicate, create new book
-                if (checkForDuplicate.duplicateResult === null) {
-                    db.Books.create({
-                        nombre: req.body.nombre,
-                        resenia: req.body.resenia,
-                        precio: req.body.precio,
-                        imagen: req.file.filename,
-                        anio_edicion: req.body.anioEdicion,
-                        fecha_publicacion: req.body.fechaPublicacion,
-                        stock: req.body.stock,
-                        nro_paginas: req.body.nroPaginas,
-                        idioma_id: req.body.idioma_id,
-                        isbn: req.body.isbn,
-                    }).then(newBook => {
-                        let addGenreRel = db.Genres_Book.create({
-                            libro_id: newBook.id,
-                            genero_id: req.body.clasificacion
-                        })
-                        let addEditorialRel = db.Editorials_Book.create({
-                            libro_id: newBook.id,
-                            editorial_id: req.body.editorial
-                        })
-                        let addAuthorRel = db.Authors_Book.create({
-                            libro_id: newBook.id,
-                            autor_id: req.body.autor
-                        })
-                        Promise.all([addGenreRel, addEditorialRel, addAuthorRel])
-                            .then(() => { res.redirect('/product/admin-list') })
-                    });
-                    // if there is a duplicate, send error
-                } else { 
-                    let generos = db.Genres.findAll()
-                    let idiomas = db.Languages.findAll()
-                    let autores = db.Authors.findAll()
-                    let editoriales = db.Editorials.findAll()
-                    Promise.all([generos, idiomas, autores, editoriales])
-                    .then(([generos, idiomas, autores, editoriales])=>{
-                    res.render('../views/products/product-create-form.ejs', {
-                        generos: generos,
-                        autores: autores,
-                        idiomas: idiomas,
-                        editoriales: editoriales,
-                        errors: [{ msg: 'El isbn ya se encuentra registrado. No es posible registrar dos libros con el mismo isbn.' }]
-                    })})
-                }
-            })
+                .then(duplicateResult => {
+                    checkForDuplicate = { duplicateResult };
+                    // If no duplicate, create new book
+                    if (checkForDuplicate.duplicateResult === null) {
+                        db.Books.create({
+                            nombre: req.body.nombre,
+                            resenia: req.body.resenia,
+                            precio: req.body.precio,
+                            imagen: req.file.filename,
+                            anio_edicion: req.body.anioEdicion,
+                            fecha_publicacion: req.body.fechaPublicacion,
+                            stock: req.body.stock,
+                            nro_paginas: req.body.nroPaginas,
+                            idioma_id: req.body.idioma_id,
+                            isbn: req.body.isbn,
+                        }).then(newBook => {
+                            let addGenreRel = db.Genres_Book.create({
+                                libro_id: newBook.id,
+                                genero_id: req.body.clasificacion
+                            })
+                            let addEditorialRel = db.Editorials_Book.create({
+                                libro_id: newBook.id,
+                                editorial_id: req.body.editorial
+                            })
+                            let addAuthorRel = db.Authors_Book.create({
+                                libro_id: newBook.id,
+                                autor_id: req.body.autor
+                            })
+                            Promise.all([addGenreRel, addEditorialRel, addAuthorRel])
+                                .then(() => { res.redirect('/product/admin-list') })
+                        });
+                        // if there is a duplicate, send error
+                    } else {
+                        let generos = db.Genres.findAll()
+                        let idiomas = db.Languages.findAll()
+                        let autores = db.Authors.findAll()
+                        let editoriales = db.Editorials.findAll()
+                        Promise.all([generos, idiomas, autores, editoriales])
+                            .then(([generos, idiomas, autores, editoriales]) => {
+                                res.render('../views/products/product-create-form.ejs', {
+                                    generos: generos,
+                                    autores: autores,
+                                    idiomas: idiomas,
+                                    editoriales: editoriales,
+                                    errors: [{ msg: 'El isbn ya se encuentra registrado. No es posible registrar dos libros con el mismo isbn.' }]
+                                })
+                            })
+                    }
+                })
             // If there are validations errors, show the list of errors
-        } else { 
+        } else {
             let generos = db.Genres.findAll()
             let idiomas = db.Languages.findAll()
             let autores = db.Authors.findAll()
             let editoriales = db.Editorials.findAll()
             Promise.all([generos, idiomas, autores, editoriales])
-            .then(([generos, idiomas, autores, editoriales])=>{
-            res.render('../views/products/product-create-form.ejs', {
-                generos: generos,
-                autores: autores,
-                idiomas: idiomas,
-                editoriales: editoriales,
-                errors: errors.array()
-            })})
-        }
+                .then(([generos, idiomas, autores, editoriales]) => {
+                    res.render('../views/products/product-create-form.ejs', {
+                        generos: generos,
+                        autores: autores,
+                        idiomas: idiomas,
+                        editoriales: editoriales,
+                        errors: errors.array(),
+                        user: req.session.usuarioLogueado
+                })
+                    })
+                }
 
+    
     },
     search: (req, res) => {
         let separador = /\s/;
@@ -308,9 +318,10 @@ const productsController = {
 
                 }
             }).then(products => {
-                res.render('../views/products/productResults.ejs', { products })
-            }
-            );
+                res.render('../views/products/productResults.ejs', { products, user: req.session.usuarioLogueado
+
+                })
+            })
     }
 }
 
