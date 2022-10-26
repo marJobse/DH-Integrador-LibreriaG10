@@ -30,7 +30,7 @@ const productsController = {
                 { association: 'autores' }]
         })
             .then(products => {
-                res.render('../views/products/productList.ejs', { products })
+                res.render('../views/products/productList.ejs', { products, user: req.session.usuarioLogueado })
             })
     },
     adminList: (req, res) => {

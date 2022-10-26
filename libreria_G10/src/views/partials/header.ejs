@@ -1,13 +1,13 @@
 <header class="header">
     <div>
 
-        <h5 class="bienvenido">Bienvenido</h5>
+        <h5 class="bienvenido">Bienvenido
         <% if (locals.user) { %>
-            <h5 class="bienvenido">
+            
                 <%= locals.user.email%>
-            </h5>
+     
             <% } %>
-
+</h5>
     </div>
     <div id="top-search">
         <form action="/product/search" method="post">

@@ -5,6 +5,10 @@ const productsControllerAPI = require('../../controllers/api/productsControllerA
 //Rutas
 //Listado de libros
 router.get('/', productsControllerAPI.list);
+// conteo de libros
+router.get('/count', productsControllerAPI.count);
+router.get('/products', productsControllerAPI.products)
+
 // detalle de libro
 router.get('/:id', productsControllerAPI.detail);
 
