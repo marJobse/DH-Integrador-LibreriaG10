@@ -27,19 +27,16 @@ const productsAPIController = {
                                 { association: 'generos' }]
                                 })
         let generos = db.Genres.findAll()
-        
+
         Promise.all([products, generos])
         .then(([products, generos]) => {
             let booksByGenres = {
 
             }
             generos.forEach(genero => {
-                db.Books.findAll({
-                    include: [
-                        { model: db.Genres, as: 'generos' }],
-                    where: {'$generos.nombre$': genero.nombre}
-                })
-                .then(e => { booksByGenres[genero.nombre] = e.length })
+                const filteredBooks = products.filter(product => product.generos[0].nombre == genero.nombre )
+                let currentGenero = genero.nombre
+                booksByGenres[currentGenero] = filteredBooks.length
             })
             let respuesta = {
                 meta: {
