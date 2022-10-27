@@ -5,34 +5,36 @@ const { Op } = require("sequelize");
 
 
 const productsAPIController = {
-    'count': (req, res) => {
-        db.Books.count()
-        .then(resultado => {
-            console.log(resultado)
-            let respuesta = {
-                meta:  {
-                    status: 200,
-                    url: '/api/books/count'
-                },
-                data: resultado
-            }
-            res.json(respuesta);
-        })
-    },
+    // 'count': (req, res) => {
+    //     db.Books.count()
+    //     .then(resultado => {
+    //         console.log(resultado)
+    //         let respuesta = {
+    //             meta:  {
+    //                 status: 200,
+    //                 url: '/api/books/count'
+    //             },
+    //             data: resultado
+    //         }
+    //         res.json(respuesta);
+    //     })
+    // },
     'products': (req, res) => {
         let products = db.Books.findAll({
-                            include: [
-                                { association: 'editoriales' },
-                                { association: 'autores' },
-                                { association: 'generos' }]
-                                })
+            include: [
+                { association: 'editoriales' },
+                { association: 'autores' },
+                { association: 'generos' }],
+            })
         let generos = db.Genres.findAll()
-
+        let booksByGenres = {}
+        let booksArray = []
+        
         Promise.all([products, generos])
         .then(([products, generos]) => {
-            let booksByGenres = {
-
-            }
+            products.map(product => {
+                booksArray.push({ "id":product.id, "name":product.nombre, "resenia":product.resenia, "autores":product.autores, "categories":product.generos, "detail": "http://localhost:3030/product/detail/"+product.id })
+            })
             generos.forEach(genero => {
                 const filteredBooks = products.filter(product => product.generos[0].nombre == genero.nombre )
                 let currentGenero = genero.nombre
@@ -45,7 +47,7 @@ const productsAPIController = {
                 },
                 data: {
                     count: products.length,
-                    products: products,
+                    products: booksArray,
                     booksByGenres: booksByGenres
                 }
             }
@@ -79,6 +81,7 @@ const productsAPIController = {
                 { association: 'generos' }]
         })
             .then(libro => {
+                libro.dataValues.imagenURL = "http://localhost:3030/images/products/"+libro.imagen
                 let respuesta = {
                     meta: {
                         status: 200,

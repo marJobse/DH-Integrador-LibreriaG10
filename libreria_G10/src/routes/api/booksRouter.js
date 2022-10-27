@@ -6,7 +6,7 @@ const productsControllerAPI = require('../../controllers/api/productsControllerA
 //Listado de libros
 router.get('/', productsControllerAPI.list);
 // conteo de libros
-router.get('/count', productsControllerAPI.count);
+// router.get('/count', productsControllerAPI.count);
 router.get('/products', productsControllerAPI.products)
 
 // detalle de libro
