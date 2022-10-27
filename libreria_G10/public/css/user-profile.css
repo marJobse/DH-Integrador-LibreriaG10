@@ -18,6 +18,11 @@
     margin: 0 1rem;
 }
 
+#user-image-div-edit {
+    margin: auto;
+    width: 50%;
+}
+
 .user-image-avatar {
     width: 100%;
     border-radius: 50%;
@@ -82,8 +87,38 @@
     text-decoration: underline #005099;
 }
 
+#user-img-update {
+    width: 100%;
+}
+
+#submit-user-img {
+    position: relative;
+    top: .7rem;
+}
+
+#user-img-div-flex {
+    flex-wrap: wrap;
+}
+
+#submit-user-img {
+    width: fit-content !important;
+}
+
 @media (min-width:600px) {
     .details-left-col, .details-right-col {
         width: 48%;
     }
+    #user-img-update {
+        width: 45%;
+    }
+    
+    #user-img-div-flex {
+        flex-wrap: nowrap;
+    }
+
+    #user-image-div-edit {
+        margin: 0 1rem;
+        width: 10%;
+    }
+
 }

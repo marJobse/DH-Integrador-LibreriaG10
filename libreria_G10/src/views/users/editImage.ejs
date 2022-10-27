@@ -13,32 +13,32 @@
             <div id="user-form">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="products-title">Editando imagen del usuario: <%= user.email %>
+                        <h3 class="products-title">Editando imagen del usuario: <%= user.nombre + " " + user.apellido %>
                         </h3>
                     </div>
                 </div>
 
-                <div class="user-name-section">
-                    <div class="user-image-div">
+                <div class="user-name-section" id="user-img-div-flex">
+                    <div class="user-image-div" id="user-image-div-edit">
                         <img class="user-image-avatar" src="/images/users/<%= user.imagen %>" alt="">
                     </div>
 
-                    <form id="register-form" action="/users/updateImage/<%=user.id %>" method="POST"
+                    <form id="user-img-form" action="/users/updateImage/<%=user.id %>" method="POST"
                         enctype="multipart/form-data">
-                        <div id="user-form">
-                            <div class="col-12 col-md-6">
-                                <label for="imagen" class="form-label">Imagen:</label>
-                                <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>"
-                                    class="form-input">
+                        <div id="user-img-update">
+                            <label for="imagen" class="form-label">Imagen:</label>
+                            <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>"
+                                class="form-input">
                             </div>
+                            <button type="submit" id="submit-user-img">Actualizar</button>
+                            <div class="col-12 col-md-6">
 
 
                         </div>
-                        <div class="col-12 register-button-bar">
-                            <button type="submit" class="submit">Actualizar</button>
+                        <!-- <div class="col-12 register-button-bar">
 
 
-                        </div>
+                        </div> -->
 
                     </form>
                 </div>
