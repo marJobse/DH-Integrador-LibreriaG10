@@ -111,6 +111,10 @@ span.menu-item:hover {
     color: #91dfb9;
 }
 
+.user-bienvenida {
+    display: none;
+}
+
 /* span.menu-item:hover:after {
     background-color: #91dfb9;
     bottom: 10;
@@ -150,8 +154,13 @@ span.menu-item:hover {
     #busqueda:hover {
         opacity: 100%;
     }
-
+    .user-bienvenida {
+        display: block;
+        position: absolute;
+        margin: 0;
+    }
     .bienvenido {
-        color: white
+        color: #91dfb9;
+        margin: 1rem;
     }
 }

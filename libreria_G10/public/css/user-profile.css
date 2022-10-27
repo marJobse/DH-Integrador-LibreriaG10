@@ -14,6 +14,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 10%;
+    min-width: 80px;
     margin: 0 1rem;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .details-left-col, .details-right-col {
-    width: 48%;
+    width: 100%;
 }
 
 .user-section-title {
@@ -79,4 +80,10 @@
 .profile-actions:hover {
     color: #91dfb9;
     text-decoration: underline #005099;
+}
+
+@media (min-width:600px) {
+    .details-left-col, .details-right-col {
+        width: 48%;
+    }
 }

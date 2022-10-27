@@ -1,14 +1,10 @@
 <header class="header">
-    <div>
-
-        <h5 class="bienvenido">Bienvenido
-        <% if (locals.user) { %>
-            
-                <%= locals.user.email%>
-     
-            <% } %>
-</h5>
-    </div>
+    
+    <% if (locals.user) { %>
+        <div class="user-bienvenida">
+            <h5 class="bienvenido">Hola <%= locals.user.nombre + ' ' + locals.user.apellido %>! </h5>
+        </div>
+    <% } %>
     <div id="top-search">
         <form action="/product/search" method="post">
             <input id="busqueda" type="text" id="search" placeholder="Busqueda por título" name="busqueda">
