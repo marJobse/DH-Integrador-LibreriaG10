@@ -109,26 +109,21 @@ window.addEventListener('load', function () {
 
     });
     campoImagen.addEventListener('blur', () => {
+        let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        if (campoImagen.value != '') {
-            errores.push('Tienes que subir una imagen');
-            campoImagen.classList.remove('is-valid');
-            campoImagen.classList.add('is-invalid');
-        }
-        // else {
-        //     let fileExtension = campoImagen.value
-        //     // console.log(originalname)
-        //     if (!acceptedExtensions.includes(fileExtension)) {
-        //         errores.push('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(','));
-        //         campoImagen.classList.remove('is-valid');
-        //         campoImagen.classList.add('is-invalid');
+        if (file) {
+            let fileExtension = path.extname(file.originalname)
+            if (!acceptedExtensions.includes(fileExtension)) {
+                errores.push('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(','));
+                campoImagen.classList.remove('is-valid');
+                campoImagen.classList.add('is-invalid');
 
-        //     }
-        //     else {
-        //         campoImagen.classList.remove('is-invalid');
-        //         campoImagen.classList.add('is-valid');
-        //     }
-        // }
+            }
+            else {
+                campoImagen.classList.remove('is-invalid');
+                campoImagen.classList.add('is-valid');
+            }
+        }
 
     });
 

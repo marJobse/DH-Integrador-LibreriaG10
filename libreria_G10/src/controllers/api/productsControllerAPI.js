@@ -47,8 +47,8 @@ const productsAPIController = {
                 },
                 data: {
                     count: products.length,
+                    booksByGenres: booksByGenres,
                     products: booksArray,
-                    booksByGenres: booksByGenres
                 }
             }
                 res.json(respuesta);

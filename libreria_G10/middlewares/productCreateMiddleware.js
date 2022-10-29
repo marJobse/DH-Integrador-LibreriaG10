@@ -10,6 +10,8 @@ const productCreateValidator = [
     check('imagen').custom((value, { req }) => {  //validación custom
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
+        
+        if(!req.params.id){
         if (!file) {
             throw new Error('Tienes que subir una imagen');
         }
@@ -18,7 +20,12 @@ const productCreateValidator = [
             if (!acceptedExtensions.includes(fileExtension)) {
                 throw new Error('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(','));
             }
-        }
+        }}
+        else if (file) {
+            let fileExtension = path.extname(file.originalname)
+            if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(','));
+            }}
         return true
     }),
     check('autor').notEmpty().withMessage("Debes seleccionar un autor").bail(),

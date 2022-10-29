@@ -30,6 +30,7 @@ const productsController = {
                 { association: 'autores' }]
         })
             .then(products => {
+                console.log(req.session.usuarioLogueado)
                 res.render('../views/products/productList.ejs', { products, user: req.session.usuarioLogueado })
             })
     },
@@ -58,8 +59,7 @@ const productsController = {
         })
         Promise.all([generos, idiomas, autores, editoriales, libro])
             .then(([generos, idiomas, autores, editoriales, libro]) => {
-                //console.log(autores)
-                //res.send(autores[2].nombre)
+
                 res.render('../views/products/productEdit.ejs', {
                     prodToEdit: libro,
                     generos: generos,
@@ -72,17 +72,13 @@ const productsController = {
     },
     update: (req, res) => {
         // back end validation results
-        console.log(validationResult(req))
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             // if no errors, check for duplicate isbn
-            let checkForDuplicate;
             db.Books.findAll({
                 where: { isbn: req.body.isbn }
             }).then(results => {
-                checkForDuplicate = results
-                console.log(checkForDuplicate[0])
-                if (checkForDuplicate.length == 1) {
+                if (results.length == 1) {
                     db.Books.update({
                         nombre: req.body.nombre,
                         resenia: req.body.resenia,
@@ -95,24 +91,29 @@ const productsController = {
                         isbn: req.body.isbn
                     }, { where: { id: req.params.id } })
                         .then(() => {
+                            let imgUpdate ;
+                            console.log(req.body.imagen)
                             if (req.body.imagen != '') {
-                                db.Books.update({ imagen: req.body.imagen }, { where: { id: req.params.id } })
-                            };
-                            db.Genres_Book.update(
+                                imgUpdate = db.Books.update({ imagen: req.body.imagen }, { where: { id: req.params.id } })
+                            } else (
+                                imgUpdate = db.Books.findOne({ where: { id: req.params.id } })
+                            );
+                            let genreUpdate = db.Genres_Book.update(
                                 { genero_id: req.body.clasificacion },
                                 { where: { libro_id: req.params.id } }
                             );
-                            db.Editorials_Book.update(
+                            let editorialUpdate = db.Editorials_Book.update(
                                 { editorial_id: req.body.editorial },
                                 { where: { libro_id: req.params.id } }
                             );
-                            db.Authors_Book.update(
+                            let authorUpdate = db.Authors_Book.update(
                                 { autor_id: req.body.autor },
                                 { where: { libro_id: req.params.id } }
                             )
-                        })
-                        .then(() => {
-                            res.redirect('/product/admin-list')
+                            Promise.all([imgUpdate, genreUpdate, editorialUpdate, authorUpdate])
+                            .then(() => {
+                                res.redirect('/product/admin-list')
+                            })
                         })
                     // if there is a duplicate, send error
                 } else {
@@ -168,6 +169,15 @@ const productsController = {
 
         }
     },
+imageUpdate: (req, res) => {
+    db.Books.findByPk(req.params.id)
+    .then(()=> {
+        
+        res.render('../views/products/productDelete.ejs', { productDelete: libro, user: req.session.usuarioLogueado
+    })
+
+})},
+
     deleteview: (req, res) => {
         db.Books.findByPk(req.params.id, {
             include: [

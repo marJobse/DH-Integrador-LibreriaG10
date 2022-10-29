@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/user-profile.css">
+</head>
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <div id="product-img-form">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="products-title">Editando imagen del libro: <%= libro.nombre %>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="user-name-section" id="user-img-div-flex">
+                    <div class="user-image-div" id="user-image-div-edit">
+                        <img class="user-image-avatar" src="/images/products/<%= libro.imagen %>" alt="Portada de <%= libro.nombre %>">
+                    </div>
+
+                    <form id="product-img-form" action="/users/updateImage/<%=user.id %>" method="POST"
+                        enctype="multipart/form-data">
+                        <div id="user-img-update">
+                            <label for="imagen" class="form-label">Imagen:</label>
+                            <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>"
+                                class="form-input">
+                            </div>
+                            <button type="submit" id="submit-user-img">Actualizar</button>
+                            <div class="col-12 col-md-6">
+
+
+                        </div>
+                        <!-- <div class="col-12 register-button-bar">
+
+
+                        </div> -->
+
+                    </form>
+                </div>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

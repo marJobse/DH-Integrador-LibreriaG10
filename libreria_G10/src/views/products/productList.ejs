@@ -43,11 +43,13 @@
 
                     </div>
                 </div>
+                <% if (locals.user && locals.user.tipo_id === 1) { %>
                 <div class="product-admin">
                     <a href="/product/admin-list">
                         <i class="fa-solid fa-pen"></i>
                     </a>
                 </div>
+                <% } %>
             </main>
             <%- include('../partials/footer.ejs') %>
             <script src="/js/listAddToCart.js"></script>
