@@ -7,22 +7,21 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 
-const userList = {
+const UsersAPI = {
 
     listaUsuarios: async (req, res) => {
 
-        db.Users.findAll().then(usuarios=>
-            usuarios.map((u)=>
-            {
-                return ({"id": u.id, "nombre": u.nombre, "email": u.email, "detail": "http://localhost:3030/api/users/"+u.id})
-            })) .then((usuarios) => {
+        db.Users.findAll().then(usuarios =>
+            usuarios.map((u) => {
+                return ({ "id": u.id, "nombre": u.nombre, "email": u.email, "detail": "http://localhost:3030/api/users/" + u.id })
+            })).then((usuarios) => {
                 let respuesta = {
                     meta: {
 
                         status: 200,
                         count: usuarios.length,
                         url: "api/users/list" //endpoint
-                    }, 
+                    },
                     data: usuarios
                 }
                 res.json(respuesta);
@@ -58,5 +57,5 @@ const userList = {
 
 }
 
-module.exports = userList;
+module.exports = UsersAPI;
 

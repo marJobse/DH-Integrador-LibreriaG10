@@ -25,50 +25,55 @@ const productsAPIController = {
                 { association: 'editoriales' },
                 { association: 'autores' },
                 { association: 'generos' }],
-            })
+        })
         let generos = db.Genres.findAll()
-        let booksByGenres = {}
+        let booksByGenres = []
+        // let booksByGenres = {}
         let booksArray = []
-        
+
         Promise.all([products, generos])
-        .then(([products, generos]) => {
-            products.map(product => {
-                booksArray.push({ "id":product.id, "name":product.nombre, "resenia":product.resenia, "autores":product.autores, "categories":product.generos, "detail": "http://localhost:3030/product/detail/"+product.id })
-            })
-            generos.forEach(genero => {
-                const filteredBooks = products.filter(product => product.generos[0].nombre == genero.nombre )
-                let currentGenero = genero.nombre
-                booksByGenres[currentGenero] = filteredBooks.length
-            })
-            let respuesta = {
-                meta: {
-                    status : 200,
-                    url: '/api/books/products'
-                },
-                data: {
-                    count: products.length,
-                    booksByGenres: booksByGenres,
-                    products: booksArray,
+            .then(([products, generos]) => {
+                products.map(product => {
+                    booksArray.push({ "id": product.id, "name": product.nombre, "resenia": product.resenia, "autores": product.autores, "categories": product.generos, "detail": "http://localhost:3030/product/detail/" + product.id })
+                })
+                generos.forEach(genero => {
+                    const filteredBooks = products.filter(product => product.generos[0].nombre == genero.nombre)
+                    // let currentGenero = genero.nombre
+                    //booksByGenres[currentGenero] = filteredBooks.length
+
+                    //  let nombre = genero.nombre;
+                    booksByGenres.push({ "nombre": genero.nombre, "cantLibros": filteredBooks.length });
+
+                })
+                let respuesta = {
+                    meta: {
+                        status: 200,
+                        url: '/api/books/products'
+                    },
+                    data: {
+                        count: products.length,
+                        booksByGenres: booksByGenres,
+                        products: booksArray,
+                    }
                 }
-            }
                 res.json(respuesta);
             })
     },
     'list': (req, res) => {
-               db.Books.findAll({
+        db.Books.findAll({
             include: [
                 { association: 'editoriales' },
                 { association: 'autores' }]
         })
-        .then(books => {
-            let respuesta = {
-                meta: {
-                    status : 200,
-                    total: books.length,
-                    url: 'api/books'
-                },
-                data: books
-            }
+            .then(books => {
+                let respuesta = {
+                    meta: {
+                        status: 200,
+                        total: books.length,
+                        url: 'api/books'
+                    },
+                    data: books
+                }
                 res.json(respuesta);
             })
     },
@@ -81,7 +86,7 @@ const productsAPIController = {
                 { association: 'generos' }]
         })
             .then(libro => {
-                libro.dataValues.imagenURL = "http://localhost:3030/images/products/"+libro.imagen
+                libro.dataValues.imagenURL = "http://localhost:3030/images/products/" + libro.imagen
                 let respuesta = {
                     meta: {
                         status: 200,
@@ -92,7 +97,7 @@ const productsAPIController = {
                 res.json(respuesta);
             });
     },
-    
+
 }
 
 module.exports = productsAPIController;
