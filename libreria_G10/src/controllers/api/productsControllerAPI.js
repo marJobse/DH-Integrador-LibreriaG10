@@ -27,8 +27,8 @@ const productsAPIController = {
                 { association: 'generos' }],
         })
         let generos = db.Genres.findAll()
-        let booksByGenres = []
-        // let booksByGenres = {}
+        //let booksByGenres = []
+        let booksByGenres = {}
         let booksArray = []
 
         Promise.all([products, generos])
@@ -38,11 +38,11 @@ const productsAPIController = {
                 })
                 generos.forEach(genero => {
                     const filteredBooks = products.filter(product => product.generos[0].nombre == genero.nombre)
-                    // let currentGenero = genero.nombre
-                    //booksByGenres[currentGenero] = filteredBooks.length
+                    let currentGenero = genero.nombre
+                    // booksByGenres[currentGenero] = filteredBooks.length
 
                     //  let nombre = genero.nombre;
-                    booksByGenres.push({ "nombre": genero.nombre, "cantLibros": filteredBooks.length });
+                    booksByGenres[currentGenero] = { "nombre": currentGenero, "cantLibros": filteredBooks.length };
 
                 })
                 let respuesta = {
