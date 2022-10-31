@@ -23,18 +23,15 @@
                     </h3>
                 </div>
                 <div id="user-form">
-                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST"
-                        enctype="multipart/form-data">
+                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST">
                         <!-- <div class="edit-form-container"> -->
                         <div class="edit-form-top">
                             <label class="product-edit-label" for="nombre">Título</label>
-                            <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>"
-                                accept=".jpg, .jpeg, .png">
+                            <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>">
                         </div>
                         <div class="edit-form-lower-left">
                             <img src="/images/products/<%= prodToEdit.imagen %>">
-                            <!-- <input type="file" id="imagen" name="imagen"> -->
-                            <a href="/products/imageupdate/<%= prodToEdit.id %>">Editar imagen</a>
+                            <a href="/product/imageupdate/<%= prodToEdit.id %>">Editar imagen</a>
                         </div>
                         <div class="edit-form-lower-right">
                             <!-- <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autores[0].nombre %> <%= prodToEdit.autores[0].apellido %>" placeholder="Autor"> -->
@@ -108,7 +105,7 @@
                 </div>
             </main>
         <%- include('../partials/footer.ejs') %>
-        <script src="/js/validation-create-front.js"></script>
+        <script src="/js/validation-edit-front.js"></script>
 
         </body>
 
