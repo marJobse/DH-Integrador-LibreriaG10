@@ -1,19 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CategoriesRow from './CategoriesRow';
 
-let tableRowsData = [
-    {
-        Categorie: 'Drama',
-        Books: ['Libro_1', 'Libro_2'],
-    },
-    {
-        Categorie: 'Comedia',
-        Books: ['Libro_1', 'Libro_2', 'Libro_3'],
-    },
-
-]
-// LA PRIMERA VEZ ANDA, CUANDO REFRESCA DE NUEVO, YA NO
-
 function CategoriesInDb() {
 
     const [genres, setGenres] = useState('');
@@ -34,8 +21,8 @@ function CategoriesInDb() {
                     <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                         <thead>
                             <tr>
-                                <th>Géneros</th>
-                                <th>Total de libros</th>
+                                <th><h5 className="m-0 font-weight-bold text-gray-800">Géneros</h5></th>
+                                <th><h5 className="m-0 font-weight-bold text-gray-800">Total de libros</h5></th>
                             </tr>
                         </thead>
                         <tbody>
