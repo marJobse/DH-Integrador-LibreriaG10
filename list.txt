@@ -1,0 +1,22 @@
+    listaUsuarios: async (req, res) => {
+
+        let usuariosModificados = db.Users.findAll();
+
+        Promise.all([usuariosModificados])
+            .then(([usuarios]) => {
+                let respuesta = {
+                    meta: {
+
+                        status: 200,
+                        count: usuarios.length,
+                        url: "api/users/list" //endpoint
+                    }, //id, name, email, detail url
+                    //  apellido, domicilio, imagen ,telefono, tipo_id,password
+                    // data: usuarios
+                    data: usuarios
+                }
+                res.json(respuesta);
+            });
+
+
+    },

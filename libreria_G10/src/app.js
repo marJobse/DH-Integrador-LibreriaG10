@@ -4,7 +4,7 @@ const app = express();
 const publicPath = path.join(__dirname, '../public');
 const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productRouter');
-const UsersRouterAPI = require('./routes/api/UsersRouterAPI');
+
 const usersRouter = require('./routes/usersRouter');
 const cartRouter = require('./routes/cartRouter');
 const genresRouter = require('./routes/genresRouter');
@@ -21,7 +21,13 @@ var methodOverride = require('method-override')
 const apiBooksRouter = require('./routes/api/booksRouter')
 const apiDiscountsRouter = require('./routes/api/discountsRouter')
 
+const UsersRouterAPI = require('./routes/api/UsersRouterAPI');
+
+
 const bcrypt = require('bcrypt');
+
+const cors = require('cors')
+app.use(cors())
 
 //Capturar la información--> post del login funciona con esto
 app.use(express.urlencoded({ extended: false }));
@@ -51,9 +57,9 @@ app.use(recordameMiddleware);
 app.use("/", mainRouter)
 app.use("/product", productsRouter)
 app.use("/users", usersRouter)
-app.use("/genres", genresRouter)
 app.use("/editorials", editorialsRouter)
 app.use("/api/users", UsersRouterAPI)
+
 
 
 app.use("/languages", languagesRouter)
@@ -68,8 +74,6 @@ app.use('/api/discounts', apiDiscountsRouter)
 
 
 app.use(methodOverride('_method'))
-
-
 
 
 app.listen(process.env.PORT || 3030, () => console.log('Servidor corriendo en el puerto 3030'));
