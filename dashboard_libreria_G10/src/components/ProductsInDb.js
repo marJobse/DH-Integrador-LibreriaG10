@@ -13,15 +13,12 @@ function ProductsInDb() {
       .catch(e => console.log(e))
   }, [])
 
-  console.log(productsList)
-
-
   return (
     <React.Fragment>
       <div className="col-lg-6 mb-4">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
-            <h6>Libros en la BD</h6>
+            <h5 className="m-0 font-weight-bold text-gray-800">Libros en la BD</h5>
           </div>
           <div className="card-body card2">
             <div className="row">
