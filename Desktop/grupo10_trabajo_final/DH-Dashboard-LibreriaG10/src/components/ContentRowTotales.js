@@ -38,7 +38,7 @@ function ContentRowTotales() {
         icon: 'fa-user-check'
     }, {
         title: "Total de Géneros",
-        count: genres.length,
+        count: Object.keys(genres).length,
         color: 'warning',
         icon: 'fa-star'
     }];

@@ -7,10 +7,6 @@ import CategoriesInDb from './CategoriesInDb';
 import LastUserInDb from './LastUserInDb';
 
 import NotFound from './404';
-import { UserPlus } from "react-icons/fa";
-
-
-
 
 function SideBar() {
     return (
