@@ -7,20 +7,21 @@ function LastUserInDb() {
     useEffect(() => {
         fetch('http://localhost:3030/API/users/list')
             .then(res => res.json())
-            .then(data => setUltimoId(data.meta.count))
+            .then(data => setUltimoId(data.data[data.data.length-1]))
             .catch(e => console.log(e))
     }, [])
 
     const [lastUser, setLastUsers] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:3030/API/users/' + ultimoId)
-            //  fetch('http://localhost:3030/API/users/4')
+       fetch('http://localhost:3030/API/users/' + ultimoId)
+     //   fetch('http://localhost:3030/API/users/4')
             .then(res => res.json())
             .then(data => setLastUsers({ 'id': data.data.id, 'nombre': data.data.nombre, 'apellido': data.data.apellido, 'domicilio': data.data.domicilio, 'telefono': data.data.telefono, 'email': data.data.email, 'imagen': data.data.imagen }))
             .catch(e => console.log(e))
     }, [])
     console.log(lastUser)
+
     return (
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
@@ -29,13 +30,11 @@ function LastUserInDb() {
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 14 + 'rem' }} src={lastUser.imagen} alt="imágen del usuario" />
-                        <p>ID: {lastUser.id}</p>
-                        <p>Nombre: {lastUser.nombre}</p>
-                        <p>Apellido: {lastUser.apellido}</p>
-                        <p>Domicilio: {lastUser.domicilio}</p>
-                        <p>Telefono: {lastUser.telefono}</p>
-                        <p>Email: {lastUser.email}</p>
+                        
+                        <p>ID: {ultimoId.id}</p>
+                        <p>Nombre: {ultimoId.nombre}</p>
+                        <p>Email: {ultimoId.email}</p>
+                        <p><a href={ultimoId.detail}> Detalle del usuario  </a></p>
                     </div>
 
                     {/*<!-- Content Row Movies-->  <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>*/}

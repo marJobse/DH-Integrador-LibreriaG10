@@ -12,6 +12,7 @@ function ProductsInDb() {
       .then(data => setProductList(data.data))
       .catch(e => console.log(e))
   }, [])
+  console.log(productsList)
 
   return (
     <React.Fragment>
@@ -23,6 +24,8 @@ function ProductsInDb() {
           <div className="card-body card2">
             <div className="row">
               {
+
+
                 Object.values(productsList).map((product, index) => {
                   return <Books  {...product} key={index} />
                 })
