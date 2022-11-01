@@ -13,6 +13,7 @@ function CategoriesInDb() {
             .catch(e => console.log(e))
     }, [])
 
+
     return (
         /* <!-- DataTales Example --> */
         <div className="card shadow mb-4">
