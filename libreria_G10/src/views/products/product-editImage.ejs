@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <link rel="stylesheet" href="/css/user-profile.css">
+    <link rel="stylesheet" href="/css/productEdit.css">
 </head>
 
 <%- include('../partials/head.ejs') %>
@@ -18,19 +18,19 @@
                     </div>
                 </div>
 
-                <div class="user-name-section" id="user-img-div-flex">
-                    <div class="user-image-div" id="user-image-div-edit">
-                        <img class="user-image-avatar" src="/images/products/<%= libro.imagen %>" alt="Portada de <%= libro.nombre %>">
+                <div class="product-name-section" id="product-img-div-flex">
+                    <div class="product-image-div" id="product-image-div-edit">
+                        <img class="product-image-avatar" src="/images/products/<%= libro.imagen %>" alt="Portada de <%= libro.nombre %>">
                     </div>
 
-                    <form id="product-img-form" action="/users/updateImage/<%=user.id %>" method="POST"
+                    <form id="product-img-form" action="/product/imageupdate/<%=libro.id %>" method="POST"
                         enctype="multipart/form-data">
-                        <div id="user-img-update">
+                        <div id="product-img-update">
                             <label for="imagen" class="form-label">Imagen:</label>
-                            <input type="file" id="imagen" name="imagen" value="<%= user.imagen %>"
+                            <input type="file" id="imagen" name="imagen" value="<%= libro.imagen %>"
                                 class="form-input">
                             </div>
-                            <button type="submit" id="submit-user-img">Actualizar</button>
+                            <button type="submit" id="submit-product-img">Actualizar</button>
                             <div class="col-12 col-md-6">
 
 

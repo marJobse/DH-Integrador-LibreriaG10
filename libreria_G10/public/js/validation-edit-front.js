@@ -1,6 +1,6 @@
 
 window.addEventListener('load', function () {
-    let formulario = document.querySelector("#product-create"); 
+    let formulario = document.querySelector("#product-edit-form"); 
 
     let campoNombre = document.querySelector("#nombre");
     let campoResenia = document.querySelector("#resenia");

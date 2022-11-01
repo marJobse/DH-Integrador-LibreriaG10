@@ -10,7 +10,6 @@ const productCreateValidator = [
     check('imagen').custom((value, { req }) => {  //validación custom
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        
         if(!req.params.id){
         if (!file) {
             throw new Error('Tienes que subir una imagen');

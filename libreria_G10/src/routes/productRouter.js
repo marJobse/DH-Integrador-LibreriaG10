@@ -11,6 +11,7 @@ const productCreateValidator = require('../../middlewares/productCreateMiddlewar
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const { check, body, validationResult } = require('express-validator');
+const productEditValidator = require("../../middlewares/productCreateMiddleware");
 
 // Todos los productos (public)
 
@@ -47,7 +48,12 @@ router.post('/', uploadFile.single('imagen'), productCreateValidator, productsCo
 
 // EDITAR PRODUCTO 
 router.get("/edit/:id", adminMiddleware , productsController.edit);
-router.post("/edit/:id", uploadFile.single('imagen'), productCreateValidator, productsController.update);
+router.post("/edit/:id", productEditValidator, productsController.update);
+router.get("/imageupdate/:id", productsController.imageUpdate);
+router.post("/imageupdate/:id", uploadFile.single('imagen'), productsController.imageUpdateAction);
+
+
+
 
 // Buscar producto
 router.post("/search", productsController.search)

@@ -91,13 +91,7 @@ const productsController = {
                         isbn: req.body.isbn
                     }, { where: { id: req.params.id } })
                         .then(() => {
-                            let imgUpdate ;
-                            console.log(req.body.imagen)
-                            if (req.body.imagen != '') {
-                                imgUpdate = db.Books.update({ imagen: req.body.imagen }, { where: { id: req.params.id } })
-                            } else (
-                                imgUpdate = db.Books.findOne({ where: { id: req.params.id } })
-                            );
+                        
                             let genreUpdate = db.Genres_Book.update(
                                 { genero_id: req.body.clasificacion },
                                 { where: { libro_id: req.params.id } }
@@ -110,7 +104,7 @@ const productsController = {
                                 { autor_id: req.body.autor },
                                 { where: { libro_id: req.params.id } }
                             )
-                            Promise.all([imgUpdate, genreUpdate, editorialUpdate, authorUpdate])
+                            Promise.all([genreUpdate, editorialUpdate, authorUpdate])
                             .then(() => {
                                 res.redirect('/product/admin-list')
                             })
@@ -169,14 +163,26 @@ const productsController = {
 
         }
     },
-imageUpdate: (req, res) => {
-    db.Books.findByPk(req.params.id)
-    .then(()=> {
-        
-        res.render('../views/products/productDelete.ejs', { productDelete: libro, user: req.session.usuarioLogueado
-    })
+    imageUpdate: (req, res) => {
+        db.Books.findByPk(req.params.id)
+        .then((libro)=> {
+            res.render('../views/products/product-editImage.ejs', { libro: libro, user: req.session.usuarioLogueado})
 
-})},
+    })},
+    imageUpdateAction: (req, res) => {
+        db.Books.findByPk(req.params.id)
+            .then((book) => {
+                if (req.file != 'undefined') {
+                    db.Books.update({ imagen: req.file.filename }, { where: { id: req.params.id } }).then(()=>{
+                       return res.redirect('/product/admin-list')       
+                    })
+                }
+                else{
+                    res.redirect('/product/admin-list')
+                }            
+             } )
+                
+    },
 
     deleteview: (req, res) => {
         db.Books.findByPk(req.params.id, {
