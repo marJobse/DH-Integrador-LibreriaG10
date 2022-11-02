@@ -10,37 +10,32 @@
     <body>
         <%- include('../partials/header.ejs') %>
 
+
             <div id="user-form">
                 <div class="row">
                     <div class="col-12">
                         <h3 class="products-title">Esta seguro de querer eliminar la imagen del usuario: <%= user.email
                                 %> ?
                         </h3>
-                        <h5>*Al eliminarla se cargará una imágen por defecto*</h5>
-
                     </div>
                 </div>
-
                 <div class="user-name-section">
 
-                    <form id="register-form" action="/users/processDeleteImage/<%=user.id %>" method="POST"
-                        enctype="multipart/form-data">
+                    <form id="register-form-delete-imagen" action="/users/processDeleteImage/<%=user.id %>"
+                        method="POST" enctype="multipart/form-data">
                         <div id="user-form">
                             <div class="col-12 col-md-6 " hidden>
-                                <input type="text" id="imagen" name="imagen" value="/images/users/avatar.png"
+                                <input type="text" id="imagen" name="imagen" value="/../public/images/sin_imagen.png"
                                     class="form-input">
                             </div>
                             <div class="user-image-div">
                                 <img class="user-image-avatar" src="/images/users/<%= user.imagen %>" alt="">
                             </div>
-                        </div>
-                        <div class="col-12 register-button-bar">
-                            <button type="submit" class="submit">Confirmar</button>
-
 
                         </div>
-
+                        <button type="submit" class="submit">Confirmar</button>
                     </form>
+
                 </div>
             </div>
             <%- include('../partials/footer.ejs') %>
