@@ -1,11 +1,6 @@
 <header class="header">
-    
-    <% if (locals.user) { %>
-        <div class="user-bienvenida">
-            <h5 class="bienvenido">Hola <%= locals.user.nombre + ' ' + locals.user.apellido %>! </h5>
-            <p id="user-id"><%= locals.user.id %></p>
-        </div>
-    <% } %>
+
+
     <div id="top-search">
         <form action="/product/search" method="post">
             <input id="busqueda" type="text" id="search" placeholder="Busqueda por título" name="busqueda">
@@ -24,6 +19,16 @@
                         alt="spanbronspanne"></a></span>
             <span class="menu-item"><a href="">CONTACTO</a></span>
             <span class="menu-item"><a href="">ENVIOS</a></span>
+            <% if (locals.user) { %>
+                <div class="user-bienvenida">
+                    <h5 class="bienvenido">Hola <%= locals.user.nombre + ' ' + locals.user.apellido %>! </h5>
+                    <p id="user-id">
+                        <%= locals.user.id %>
+                    </p>
+                </div>
+                <% } %>
         </div>
+
+    </div>
     </div>
 </header>

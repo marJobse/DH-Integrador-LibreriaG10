@@ -58,6 +58,7 @@ app.use("/", mainRouter)
 app.use("/product", productsRouter)
 app.use("/users", usersRouter)
 app.use("/editorials", editorialsRouter)
+app.use("/genres", genresRouter)
 app.use("/api/users", UsersRouterAPI)
 
 
