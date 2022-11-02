@@ -17,13 +17,13 @@ function CategoriesInDb() {
     return (
         /* <!-- DataTales Example --> */
         <div className="card shadow mb-4">
-            <div className="card-body">
-                <div className="table-responsive">
-                    <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
-                        <thead>
+            <div className="card-body-categories">
+                <div className="card-body-categories table-responsive">
+                    <table className="table table-bordered " id="dataTable" width="100%" cellSpacing="0">
+                        <thead className="titulos-categorias">
                             <tr>
-                                <th><h5 className="m-0 font-weight-bold text-gray-800">Géneros</h5></th>
-                                <th><h5 className="m-0 font-weight-bold text-gray-800">Total de libros</h5></th>
+                                <th><h5 className="m-0 font-weight-bold titulos-en-blanco">Géneros</h5></th>
+                                <th><h5 className="m-0 font-weight-bold titulos-en-blanco">Total de libros</h5></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +37,7 @@ function CategoriesInDb() {
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }

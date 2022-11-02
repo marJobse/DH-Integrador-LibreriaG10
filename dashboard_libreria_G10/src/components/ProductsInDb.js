@@ -16,20 +16,20 @@ function ProductsInDb() {
 
   return (
     <React.Fragment>
-      <div className="col-lg-6 mb-4">
-        <div className="card shadow mb-4">
-          <div className="card-header py-3">
-            <h5 className="m-0 font-weight-bold text-gray-800">Libros en la BD</h5>
-          </div>
-          <div className="card-body card2">
-            <div className="row">
-              {
-
-
-                Object.values(productsList).map((product, index) => {
-                  return <Books  {...product} key={index} />
-                })
-              }
+      <div className="libros-en-db">
+        <div className="libros-en-db col-lg-6 mb-4">
+          <div className="card shadow mb-4">
+            <div className="card-header py-3">
+              <h5 className="m-0 font-weight-bold titulos-en-blanco">Libros en la BD</h5>
+            </div>
+            <div className="card-body card2">
+              <div className="row">
+                {
+                  Object.values(productsList).map((product, index) => {
+                    return <Books  {...product} key={index} />
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>
