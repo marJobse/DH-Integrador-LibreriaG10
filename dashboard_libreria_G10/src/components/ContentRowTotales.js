@@ -26,17 +26,16 @@ function ContentRowTotales() {
             .catch(e => console.log(e))
     }, [])
 
-    console.log(genres)
 
     const resumen_totales = [{
         title: "Total de Libros",
         count: books,
-        color: 'primary',
+        color: 'warning',
         icon: "fa-book"
     }, {
         title: "Total de Usuarios",
         count: users,
-        color: 'success',
+        color: 'warning',
         icon: 'fa-user-check'
     }, {
         title: "Total de Géneros",

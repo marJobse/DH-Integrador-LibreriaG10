@@ -1,16 +1,18 @@
 import React from 'react';
-
-import ProductsList from './ProductsInDb';
 import LastUserInDb from './LastUserInDb';
+
+import LastBookInDb from './LastBookInDb';
 
 function ContentRowCenter() {
     return (
         <div className="row">
 
             {/*<!-- Ültimo usuario cargado en la BD -->*/}
-            <LastUserInDb />
+
             {/*<!-- Lista de productos -->*/}
-            <ProductsList />
+
+            <LastUserInDb />
+            <LastBookInDb />
 
         </div>
     )

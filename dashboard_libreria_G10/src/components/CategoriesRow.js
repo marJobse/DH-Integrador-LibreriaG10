@@ -6,9 +6,7 @@ function CategoriesRow(props) {
         <tr>
             <td>{props.nombre}</td>
             <td>
-                <ul>
-                    {props.cantLibros}
-                </ul>
+                {props.cantLibros}
             </td>
         </tr>
     )
