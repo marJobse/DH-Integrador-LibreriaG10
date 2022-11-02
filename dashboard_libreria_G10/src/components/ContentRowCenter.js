@@ -5,13 +5,11 @@ import LastBookInDb from './LastBookInDb';
 
 function ContentRowCenter() {
     return (
-        <div className="row">
+        <div className="  row">
 
             {/*<!-- Ültimo usuario cargado en la BD -->*/}
-
-            {/*<!-- Lista de productos -->*/}
-
             <LastUserInDb />
+            {/*<!-- Ültimo libro cargado en la BD -->*/}
             <LastBookInDb />
 
         </div>

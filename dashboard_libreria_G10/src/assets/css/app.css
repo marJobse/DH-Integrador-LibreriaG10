@@ -1296,7 +1296,7 @@ pre code {
 
     .col-lg-6 {
         flex: 0 0 50%;
-        max-width: 50%
+        max-width: 100%
     }
 
     .col-lg-7 {
@@ -4811,9 +4811,10 @@ input[type=submit].btn-block {
 
 .card-header-app-dashboard {
     padding: .75rem 1.25rem;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     background-color: #f8f9fc;
-    border-bottom: 1px solid #e3e6f0
+    border-bottom: 1px solid #e3e6f0;
+
 }
 
 .card-header {
@@ -4824,7 +4825,7 @@ input[type=submit].btn-block {
 }
 
 .card-header:first-child {
-    border-radius: calc(.35rem - 1px) calc(.35rem - 1px) 0 0
+    border-radius: calc(.35rem - 1px) calc(.35rem - 1px) 0 0;
 }
 
 .card-header+.list-group .list-group-item:first-child {
@@ -10432,6 +10433,7 @@ button.bg-dark:hover {
 
 .libros {
     width: fit-content;
+
 }
 
 .text-capitalize {

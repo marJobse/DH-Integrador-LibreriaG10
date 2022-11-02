@@ -16,7 +16,7 @@ function CategoriesInDb() {
 
     return (
         /* <!-- DataTales Example --> */
-        <div className="card shadow mb-4">
+        <div className="libros-en-db card shadow mb-4">
             <div className="card-body-categories">
                 <div className="card-body-categories table-responsive">
                     <table className="table table-bordered " id="dataTable" width="100%" cellSpacing="0">
