@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
             campoDomicilio.placeholder = 'El domiciio esta vacio';
             campoDomicilio.classList.remove('is-valid');
             campoDomicilio.classList.add('is-invalid');
-            errores.push('El domiciio esta vacio');
+            errores.push('El domicilio esta vacio');
         } else {
             if (!campoDomicilio.value.trim().length < 8) {
                 errores.push('El domiciio debe ser mas largo');

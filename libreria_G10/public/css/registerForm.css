@@ -11,6 +11,13 @@ select {
     height: 25px;
 }
 
+.seleccionar-imagen´ {
+    height: 60%;
+}
+
+#user-form form input {
+    height: 60%;
+}
 
 .is-valid {
     color: #198754;

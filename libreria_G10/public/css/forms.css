@@ -3,9 +3,11 @@
     width: 60%;
     margin: auto;
 }
+
 #imageDelete {
     width: 100%;
 }
+
 #imageDeleteBtn {
     width: fit-content;
 }
@@ -20,6 +22,7 @@ form,
     align-items: center;
     margin-bottom: 2rem;
 }
+
 
 #user-form form label,
 #user-form form input,
@@ -40,6 +43,18 @@ form,
     line-height: 2;
     color: #005099;
     padding: .5rem;
+
+}
+
+#user-create select {
+    border: solid 1px #005099;
+    margin: .5rem;
+    background-color: white;
+    line-height: 2;
+    color: #005099;
+    padding: .5rem;
+    height: 60%;
+
 }
 
 

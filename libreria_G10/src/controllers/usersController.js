@@ -108,7 +108,7 @@ const usersController = {
                 req.session.usuarioLogueado = usuarioALoguearse;
 
                 if (req.body.recordame != undefined) {
-                    res.cookie('recordame', usuarioALoguearse.email, { maxAge: 600000 })
+                    res.cookie('recordame', usuarioALoguearse.email, { maxAge: 60000000 })
                 }
             }).then(function () {
                 res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
@@ -173,8 +173,8 @@ const usersController = {
             .then((user) => {
                 if (req.file != 'undefined') {
                     console.log(req.file)
-                    db.Users.update({ imagen: avatar }, { where: { id: req.params.id } }).then((usuarioEditado) => {
-                        user.dataValues.imagen = avatar;
+                    db.Users.update({ imagen: '/public/images/sin_imagen.png' }, { where: { id: req.params.id } }).then((usuarioEditado) => {
+                        user.dataValues.imagen = '/public/images/sin_imagen.png';
                         req.session.usuarioLogueado = user;
                         return res.redirect('/users/profile')
                     })
