@@ -115,6 +115,11 @@ span.menu-item:hover {
     display: none;
 }
 
+#user-id {
+    display: none;
+}
+
+
 /* span.menu-item:hover:after {
     background-color: #91dfb9;
     bottom: 10;

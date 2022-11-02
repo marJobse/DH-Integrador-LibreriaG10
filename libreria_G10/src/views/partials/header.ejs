@@ -3,6 +3,7 @@
     <% if (locals.user) { %>
         <div class="user-bienvenida">
             <h5 class="bienvenido">Hola <%= locals.user.nombre + ' ' + locals.user.apellido %>! </h5>
+            <p id="user-id"><%= locals.user.id %></p>
         </div>
     <% } %>
     <div id="top-search">

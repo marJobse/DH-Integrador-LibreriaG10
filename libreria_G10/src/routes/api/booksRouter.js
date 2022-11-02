@@ -9,8 +9,12 @@ router.get('/', productsControllerAPI.list);
 // router.get('/count', productsControllerAPI.count);
 router.get('/products', productsControllerAPI.products)
 
+//cargar compra de carrito
+router.post('/compra', productsControllerAPI.comprar)
+
 // detalle de libro
 router.get('/:id', productsControllerAPI.detail);
+
 
 
 module.exports = router;
