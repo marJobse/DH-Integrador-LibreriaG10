@@ -122,17 +122,20 @@ window.addEventListener('load', function () {
                 localStorage.setItem("g10libros-descuento", JSON.stringify({ codigo: resultado.data.codigo, descuento: resultado.data.descuento }))
             })
     })
-    botonComprar.addEventListener('click',(e)=>{
+    botonComprar.addEventListener('click', (e) => {
         e.preventDefault
         let usuario;
         let direccion;
         let totalCompra = subtotalMonto - descuentosMonto
 
-        if(userID != null){
+
+        if (userID != null) {
             usuario = Number(userID.textContent)
             direccion = prompt('Ingresá la dirección de envío')
-        } else { 
-        this.alert('Debes iniciar sesión para comprar')}
+        } else {
+            this.alert('Debes iniciar sesión para comprar');
+
+        }
         console.log(usuario)
         console.log(direccion)
 
@@ -144,20 +147,26 @@ window.addEventListener('load', function () {
             total: totalCompra,
             usuario_id: usuario,
         }
-        fetch('http://localhost:3030/api/books/compra', {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(dataPost), // data can be `string` or {object}!
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }).then(res => res.json())
-          .catch(error => console.error('Error:', error))
-          .then(response => {
-              console.log('Success:', response)
-              alert(`Tu compra ${response.data.id} fue exitosa. Total: ${response.data.total}. El pedido fue enviado a: ${response.data.direccion}`)
-              localStorage.clear();
-              window.location.href = "http://localhost:3030/";
-            });
+        if (userID != null && cantAviso == 0) {
+            fetch('http://localhost:3030/api/books/compra', {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(dataPost), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then(response => {
+                    console.log('Success:', response)
+                    alert(`Tu compra ${response.data.id} fue exitosa. Total: ${response.data.total}. El pedido fue enviado a: ${response.data.direccion}`)
+                    localStorage.clear();
+                    window.location.href = "http://localhost:3030/";
+                });
+        }
+        else {
+            this.alert('Debes iniciar sesión para comprar')
+        }
+
 
     })
 })
