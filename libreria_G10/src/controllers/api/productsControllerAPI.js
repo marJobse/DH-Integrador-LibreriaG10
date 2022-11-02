@@ -1,6 +1,7 @@
 const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { body } = require('express-validator');
 
 
 
@@ -96,6 +97,43 @@ const productsAPIController = {
                 }
                 res.json(respuesta);
             });
+    },
+    'comprar': (req, res) => {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        
+        db.Cart.create({
+            direccion: req.body.direccion,
+            total: req.body.total,
+            fecha: today,
+            usuario_id: req.body.usuario_id,
+            carrito_id: req.body.usuario_id+req.body.total
+        })
+        .then((ordenConfirmada)=>{
+            let respuesta;
+            if(ordenConfirmada){
+                respuesta ={
+                    meta: {
+                        status: 200,
+                        url: 'api/books/compra'
+                    },
+                    data: ordenConfirmada
+                }
+            }else{
+                respuesta ={
+                    meta: {
+                        status: 200,
+                        url: 'api/books/compra'
+                    },
+                    data: ordenConfirmada
+                }
+            }
+            res.json(respuesta);
+            console.log(ordenConfirmada)
+        })
     },
 
 }

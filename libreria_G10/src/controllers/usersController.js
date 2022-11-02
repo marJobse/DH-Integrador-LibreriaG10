@@ -65,6 +65,13 @@ const usersController = {
             })
         } else {
             return res.render('../views/users/register.ejs', { errors: errors.errors });
+            // return res.render('../views/users/register.ejs',
+            //   {
+            //       errors: errors.mapped(),
+            //      oldData: req.body
+            // }
+            //   );
+            // return res.send(errors.mapped());
         }
     },
     login: (req, res) => {
@@ -142,18 +149,18 @@ const usersController = {
         db.Users.findByPk(req.params.id)
             .then((user) => {
                 if (req.file != 'undefined') {
-                    db.Users.update({ imagen: req.file.filename }, { where: { id: req.params.id } }).then((usuarioEditado) => {
-                        user.dataValues.imagen = req.file.filename;
+                    db.Users.update({ imagen: req.file.filename }, { where: { id: req.params.id } }).then((usuarioEditado)=>{
+                        user.dataValues.imagen= req.file.filename;
                         req.session.usuarioLogueado = user;
-                        return res.redirect('/users/profile')
+                       return res.redirect('/users/profile')       
                     })
                 }
-                else {
+                else{
                     req.session.usuarioLogueado = user;
                     res.redirect('/users/profile')
-                }
-            })
-
+                }            
+             } )
+                
     },
     deleteImage: (req, res) => {
         db.Users.findByPk(req.params.id).then(function (user) {
@@ -166,18 +173,12 @@ const usersController = {
             .then((user) => {
                 if (req.file != 'undefined') {
                     console.log(req.file)
-                    db.Users.update({ imagen: 'img-1664762335619-avatar-lectura.jpg' }, { where: { id: req.params.id } }).then((usuarioEditado) => {
-                        user.dataValues.imagen = 'img-1664762335619-avatar-lectura.jpg';
-                        req.session.usuarioLogueado = user;
-                        return res.redirect('/users/profile')
-                    })
+                    db.Users.update({ imagen: 'img-1664762335619-avatar-lectura.jpg' }, { where: { id: req.params.id } })
                 }
-                else {
-                    req.session.usuarioLogueado = user;
-                    res.redirect('/users/profile')
-                }
-            })
+                req.session.usuarioLogueado = user;
+                res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
 
+            })
     },
     profile: (req, res) => {
         res.render('../views/users/profile.ejs', { user: req.session.usuarioLogueado })
@@ -188,7 +189,7 @@ const usersController = {
         res.render('../views/users/login.ejs')
     },
 
-
+  
 }
 
 module.exports = usersController

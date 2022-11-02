@@ -3,6 +3,12 @@
     width: 60%;
     margin: auto;
 }
+#imageDelete {
+    width: 100%;
+}
+#imageDeleteBtn {
+    width: fit-content;
+}
 
 form,
 .product-create-div {
