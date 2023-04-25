@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+    <link href="/css/productCart.css" rel="stylesheet" />
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div class="main-carrito">
+                    <div class="tabla-carrito">
+                        <h3>Tu carrito de compras</h3>
+                        <div class="tabla encabezado">
+                            <div class="encabezado foto">Portada</div>
+                            <div class="encabezado titulo">Título</div>
+                            <div class="encabezado precio">Precio</div>
+                            <div class="encabezado cantidad">#</div>
+                            <div class="encabezado subtotal">Subtotal</div>
+                            <div class="encabezado borrar"><i class="fa-solid fa-circle-minus"></i></div>
+                        </div>
+                        <!-- <div class="tabla fila">
+                            <div class="producto foto"><img
+                                    src="/images/products/img-covey_los_7_habitos_de_la_gente_altamente_efectiva.jpg"></div>
+                            <div class="producto titulo">Los 7 hábitos de la gente altamente efectiva</div>
+                            <div class="producto precio">$4,622</div>
+                            <div class="producto cantidad">
+                                <div class="carrito-remove">-</div>
+                                <div class="carrito-cantidad">1</div>
+                                <div class="carrito-add">+</div>
+                            </div>
+                            <div class="producto subtotal">$4,622</div>
+                            <div class="producto borrar"><button id="delete"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
+                        <div class="tabla fila">
+                            <div class="producto foto"><img src="/images/products/img-sutherland_scrum_manual_de_campo.jpg">
+                            </div>
+                            <div class="producto titulo">Scrum, manual de campo</div>
+                            <div class="producto precio">$2430</div>
+                            <div class="producto cantidad">
+                                <div class="carrito-remove">-</div>
+                                <div class="carrito-cantidad">1</div>
+                                <div class="carrito-add">+</div>
+                            </div>
+                            <div class="producto subtotal">$2430</div>
+                            <div class="producto borrar"><button id="delete"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
+                        <div class="tabla fila">
+                            <div class="producto foto"><img src="/images/products/img-sacheri_los_dias_de_la_revolucion.jpg">
+                            </div>
+                            <div class="producto titulo">Los días de la revolución</div>
+                            <div class="producto precio">$2,499</div>
+                            <div class="producto cantidad">
+                                <div class="carrito-remove">-</div>
+                                <div class="carrito-cantidad">1</div>
+                                <div class="carrito-add">+</div>
+                            </div>
+                            <div class="producto subtotal">$2,499</div>
+                            <div class="producto borrar"><button id="delete"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="total-carrito">
+                        <h3 class="total-titulo">Tu resumen</h3>
+                        <!-- <div class="total-titulo">Resumen de compra</div> -->
+                        <div class="total-subtitulo">Cupón de descuento</div>
+                        <div id="cupon-descuento">
+                            <input type="text" id="cupon" name="cupon" placeholder="Cupón de descuento">
+                            <input type="button" id="cupon-aplicar" name="cupon-aplicar" value="Aplicar">
+                        </div>
+                        <div class="total-etiqueta">Subtotal</div>
+                        <div class="total-monto monto-parcial">0</div>
+                        <div class="total-etiqueta">Descuentos</div>
+                        <div class="total-monto monto-descontado">0</div>
+                        <div class="total-etiqueta">Total</div>
+                        <div class="total-monto monto-final">0</div>
+                        <input type="button" id="comprar" name="comprar" value="Comprá">
+                    </div>
+                </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+            <script src="/js/cartBehavior.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <div class="section-container">
+
+            <h3>Estas seguro de querer borrar este género : <%= genre.nombre %>
+            </h3>
+            <section class="formulario">
+                <form action="/genres/delete/<%= genre.id %>" method="POST">
+                <br>
+                <button class="botonBorrar" type="submit">Borrar Género</button>
+                <p> 
+                    <a class="botonVolver" href="/genres/list">Listado de Géneros</a>
+                </p>
+
+            </form>
+            </section>
+
+
+        </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>

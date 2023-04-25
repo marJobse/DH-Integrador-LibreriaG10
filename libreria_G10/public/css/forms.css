@@ -1,0 +1,211 @@
+#user-form,
+#product-create {
+    width: 60%;
+    margin: auto;
+}
+
+#imageDelete {
+    width: 100%;
+}
+
+#imageDeleteBtn {
+    width: fit-content;
+}
+
+form,
+.product-create-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+#user-form form label,
+#user-form form input,
+.product-edit,
+#product-create input,
+#product-create select,
+#busqueda {
+    width: 100%;
+}
+
+#user-form form input,
+.product-edit,
+#product-create input,
+#product-create select {
+    border: solid 1px #005099;
+    margin: .5rem;
+    background-color: white;
+    line-height: 2;
+    color: #005099;
+    padding: .5rem;
+
+}
+
+#user-create select {
+    border: solid 1px #005099;
+    margin: .5rem;
+    background-color: white;
+    line-height: 2;
+    color: #005099;
+    padding: .5rem;
+    height: 60%;
+
+}
+
+
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #005099;
+    opacity: 1;
+    /* Firefox */
+}
+
+#user-form button {
+    width: 45%;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: .5rem;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1rem .5rem 1rem .5rem;
+}
+
+
+#user-form button,
+.product-create-button,
+.btn-relaciones {
+    width: 45%;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: .5rem;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 2rem auto 2rem auto;
+}
+
+#user-form a {
+    width: 100%;
+    line-height: .8;
+    font-size: .8rem;
+    font-weight: 600;
+    margin: .3rem auto auto .625rem;
+    color: #005099;
+    text-decoration: underline #91dfb9;
+    transition: all .5s;
+}
+
+#user-form a:hover {
+    color: #91dfb9;
+    text-decoration: underline #005099;
+
+}
+
+button[type="submit"],
+button[type="reset"]:hover,
+#comprar,
+#cupon-aplicar,
+.boton-comprar,
+#busqueda {
+    background-color: #005099;
+    border: solid 1px #005099;
+    color: white;
+    transition: all .5s;
+}
+
+button[type="reset"],
+button[type="submit"]:hover,
+#comprar:hover,
+#cupon-aplicar:hover,
+.boton-comprar:hover {
+    background-color: white;
+    border: solid 1px #005099;
+    color: #005099;
+    transition: all .5s;
+}
+
+.boton-comprar-agregado {
+    background-color: #91dfb9;
+    border: solid 1px #91dfb9;
+    color: #005099;
+    transition: all .5s;
+}
+
+.boton-comprar-agregado:hover {
+    background-color: white;
+    border: solid 1px #91dfb9;
+    color: #005099;
+    transition: all .5s;
+}
+
+#user-form button:hover {
+    border: solid 1px #005099;
+}
+
+
+
+h3 {
+    color: #005099;
+}
+
+#crear-cuenta,
+.buy-now-button {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#recuperar-password {
+    text-align: center;
+}
+
+.register-button-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+h3.subtitle {
+    position: relative;
+    left: 15%;
+}
+
+.product-edit-label,
+.product-create-label {
+    text-align: right;
+    color: #005099;
+    font-weight: 700;
+}
+
+.product-create-field {
+    width: 100%;
+}
+
+.user-recordar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#login-form #user-recordar-label,
+#login-form #recordarme {
+    width: auto;
+    align-self: center;
+    line-height: .8;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #005099;
+}

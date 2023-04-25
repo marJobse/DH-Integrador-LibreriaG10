@@ -1,0 +1,186 @@
+[
+ {
+  "id": 1,
+  "nombre": "Usuario",
+  "apellido": "UsuarioApellido",
+  "email": "usuario@gmail.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "12345678",
+  "tipo": "user"
+ },
+ {
+  "id": 4,
+  "nombre": "Eran",
+  "apellido": "Bruffell",
+  "email": "ebruffell3@dailymail.co.uk",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "w9q87c22",
+  "tipo": "user"
+ },
+ {
+  "id": 5,
+  "nombre": "Coriss",
+  "apellido": "Belding",
+  "email": "cbelding4@harvard.edu",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "1SX3HLablImE",
+  "tipo": "user"
+ },
+ {
+  "id": 6,
+  "nombre": "Orbadiah",
+  "apellido": "Serle",
+  "email": "oserle5@live.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "gzb8BzQ",
+  "tipo": "user"
+ },
+ {
+  "id": 7,
+  "nombre": "Ajay",
+  "apellido": "Probbin",
+  "email": "aprobbin6@tuttocitta.it",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "kpkKIKSvY",
+  "tipo": "user"
+ },
+ {
+  "id": 8,
+  "nombre": "Rees",
+  "apellido": "Franzini",
+  "email": "rfranzini7@yelp.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "jTqLik",
+  "tipo": "user"
+ },
+ {
+  "id": 9,
+  "nombre": "Luigi",
+  "apellido": "Eastmead",
+  "email": "leastmead8@java.com",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "WCHWX3mvx",
+  "tipo": "user"
+ },
+ {
+  "id": 10,
+  "nombre": "Wynn",
+  "apellido": "MacCurlye",
+  "email": "wmaccurlye9@uiuc.edu",
+  "domicilio": "Calle falsa 123, Tilcara, Argentina",
+  "password": "PGn9oIjj5",
+  "tipo": "user"
+ },
+ {
+  "id": 11,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "435345",
+  "tipo": "user"
+ },
+ {
+  "id": 12,
+  "nombre": "Archibald",
+  "apellido": "Smithers",
+  "email": "idnsdinf@dfg.com",
+  "domicilio": "32423424 Ave Lo",
+  "password": "efwegfwe",
+  "tipo": "user"
+ },
+ {
+  "id": 13,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "dfgsfgfgs",
+  "tipo": "user"
+ },
+ {
+  "id": 11,
+  "nombre": "Mariana",
+  "apellido": "Jobse",
+  "email": "mari_r@gmail.com",
+  "domicilio": "un dom",
+  "password": "1111",
+  "tipo": "user"
+ },
+ {
+  "id": 13,
+  "nombre": "Ignacio",
+  "apellido": "Mateu",
+  "email": "ignaciomateu@gmail.com",
+  "domicilio": "123 calle falsa",
+  "password": "cadfgsfgsdfg",
+  "tipo": "user"
+ },
+ {
+  "id": 14,
+  "tipo": "user"
+ },
+ {
+  "id": 15,
+  "nombre": "q",
+  "apellido": "p",
+  "email": "marr@gmail.com",
+  "domicilio": "4",
+  "password": "$2a$10$qivYhSTPvG.22xFRRgPvpOnZbEFzcDBsksP9qTuuxqzHOhBNlKgYm",
+  "tipo": "user"
+ },
+ {
+  "id": 16,
+  "nombre": "a",
+  "apellido": "a",
+  "email": "a@gmail.com",
+  "domicilio": "a",
+  "password": "$2a$10$sEewXWzZ6uA779UcFiaRCO6i84ZOsVg6YgbYay1BI0ttRLAz.9jeu",
+  "tipo": "user"
+ },
+ {
+  "id": 17,
+  "nombre": "Juan",
+  "apellido": "Peres",
+  "email": "i@lgnaciomateuive.com",
+  "domicilio": "123 calle falsa",
+  "password": "$2a$10$7cIghwyvWzaFTBh8/hFyruUAAgIN4mCQ9vXtnkVGOX5kclxk3dGIu",
+  "tipo": "user"
+ },
+ {
+  "id": 18,
+  "nombre": "David",
+  "apellido": "Bowie",
+  "email": "db_libronline@fake.com",
+  "domicilio": "678 Baker St, Londres, Catamarca, Argentina. CP. 8999",
+  "password": "$2a$10$gEcPu4iq8.mwlehbpTjG2OE7.GS0xqDktiRz6tL/v.nIuETmcWsdi",
+  "tipo": "user"
+ },
+ {
+  "id": 19,
+  "nombre": "Roger",
+  "apellido": "Waters",
+  "email": "roger.waters@rioceballos.net",
+  "domicilio": "Zorzal 2339, Río Ceballos, Córdoba, Argentina. CP 5009",
+  "password": "$2a$10$RRVxLyMpKzAkEANG.Y2HNuLF9PZ/Xv3FU9iijg73WhVv17fxP5Z0.",
+  "tipo": "user"
+ },
+ {
+  "id": 20,
+  "nombre": "Roger",
+  "apellido": "Waters",
+  "email": "roger.waters@rioceballos.net",
+  "domicilio": "Zorzal 2339, Río Ceballos, Córdoba, Argentina. CP 5009",
+  "password": "$2a$10$JCVFz7ZZGJT4a5uG/KrLM./CJ4lm00GBZw3kNuRsdqv4oVoPUO8y2",
+  "tipo": "user"
+ },
+ {
+  "id": 21,
+  "nombre": "Ernesto",
+  "apellido": "Montiel",
+  "email": "ernestomontiel@calle.com",
+  "domicilio": "123 otra calle. 234 Córdoba Capital",
+  "password": "$2a$10$K98ydkTguhAjZHGbtfGcuuD4hREoTHp3/PqoiEMeQB2K7jPFQMt1K",
+  "tipo": "user"
+ }
+]

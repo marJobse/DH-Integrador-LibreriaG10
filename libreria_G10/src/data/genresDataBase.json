@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "nombre": "Suspenso"
+ },
+ {
+  "id": 2,
+  "nombre": "Terror"
+ },
+ {
+  "id": 3,
+  "nombre": "Juvenil"
+ },
+ {
+  "id": 4,
+  "nombre": "Amor"
+ }
+]

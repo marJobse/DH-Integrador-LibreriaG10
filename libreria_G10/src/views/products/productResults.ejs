@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div id="product-list">
+                    <h3>Resultado de la búsqueda</h3>
+                    <div id="search-bar">
+                        <form id="search-form" action="/product/search" method="post">
+                            <input id="filtro" type="text" placeholder="Búsqueda por título"
+                                name="busqueda">
+                                <button class="search-button" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div id="tabla-editar-productos"> 
+                        <div class="tabla-editar-productos encabezado">
+                            <div class="titulo">Título</div>
+
+                            <div class="editar">Acción</div>
+                        </div>
+                        <% for(let i=0; i < products.length; i++){ %>
+                            <div class="tabla-editar-productos fila">
+                                <div class="col-1">
+                                    <div class="portada"><img src='/images/products/<%= products[i].imagen %>'></div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="titulo"><a href="/product/detail/<%= products[i].id %>"><%= products[i].nombre %></a></div>
+                                    <% for(let j=0; j < products[i].autores.length; j++){ %>
+                                        <div class="autor"><%= products[i].autores[j].nombre %> <%= products[i].autores[j].apellido %></div>
+                                    <% } %>
+                                    <% for(let k=0; k < products[i].autores.length; k++){ %>
+                                    <div class="info">Ed. <%= products[i].editoriales[k].nombre %>. Stock: <%= products[i].stock %> u. $<%= products[i].precio %></div>
+                                    <% } %>
+                                </div>
+                                <div class="col-3 editar">
+                                    <a href="/carrito"><i class="fa-solid fa-bag-shopping"></i></i></a>
+                                </div>
+                            </div>
+                        <% } %>
+
+                    </div>
+                </div>
+                <div class="product-admin">
+                    <a href="/product/admin-list">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

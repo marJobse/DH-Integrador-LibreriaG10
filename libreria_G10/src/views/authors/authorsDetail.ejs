@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <h3>
+                Detalle del autor: <%= author.nombre %> <%= author.apellido %>
+            </h3>
+
+            <section>
+                <div>
+                    <a class="botonVolver" href='/authors/edit/<%= author.id %>'>Editar</a>
+                    <a class="botonVolver" href='/authors/delete/<%= author.id %>'>Borrar</a>
+                </div>
+                <p>
+                    <a class="botonVolver" href="/authors/list">Listado de Autores</a>
+
+                </p>
+            </section>
+
+    </body>
+
+</html>

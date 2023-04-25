@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+    <!-- test -->
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <% if (typeof errors !='undefined' ) { %>
+                    <div class="errores">
+                        <ul>
+                            <% for (let i=0; i< errors.length;i++){%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <%} %>
+                        </ul>
+                    </div>
+                <% } %>
+                <div class="title">
+                    <h3 class="subtitle">Editando <%= prodToEdit.nombre %>
+                    </h3>
+                </div>
+                <div id="user-form">
+                    <form id="product-edit-form" action="/product/edit/<%= prodToEdit.id %>" method="POST">
+                        <!-- <div class="edit-form-container"> -->
+                        <div class="edit-form-top">
+                            <label class="product-edit-label" for="nombre">Título</label>
+                            <input type="text" name="nombre" id="nombre" value="<%= prodToEdit.nombre %>">
+                        </div>
+                        <div class="edit-form-lower-left">
+                            <img src="/images/products/<%= prodToEdit.imagen %>">
+                            <a href="/product/imageupdate/<%= prodToEdit.id %>">Editar imagen</a>
+                        </div>
+                        <div class="edit-form-lower-right">
+                            <!-- <input class="edit-area" type="text" name="autor" id="autor" value="<%= prodToEdit.autores[0].nombre %> <%= prodToEdit.autores[0].apellido %>" placeholder="Autor"> -->
+
+                            <label class="product-edit-label" for="autor">Autor</label>
+                            <select class="product-edit" name="autor" id="autor" required>
+                                <option value="">- elegir autor - </option>
+                                <% autores.forEach(autor=> { %>
+                                    <option value="<%= autor.id %>" <% if(autor.id==prodToEdit.autores[0].id){ %>
+                                        selected
+                                        <%}%>
+                                            ><%= autor.nombre +' '+ autor.apellido %></option>
+                                    <% }); %>
+                                </select>
+                                <!-- <input class="edit-area half" type="text" name="categoria" id="categoria" value="<%= prodToEdit.generos[0].nombre %>" placeholder="Categoría"> -->
+                                
+                                <label class="product-edit-label" for="categoria">Género</label>
+                                <select class="product-edit" name="clasificacion" id="clasificacion" required>
+                                    <option value="" selected>- elegir género - </option>
+                                    <% generos.forEach(genero => { %>
+                                    <option value="<%= genero.id %>" <% if(genero.id == prodToEdit.generos[0].id){ %> 
+                                            selected 
+                                        <%}%>><%= genero.nombre %></option>
+                                    <% }); %>
+                                </select>
+                                <label class="product-edit-label" for="anioEdicion">Año de edición</label>
+                                <input class="edit-area half" type="text" id="anioEdicion" name="anioEdicion" value="<%= prodToEdit.anio_edicion %>" placeholder="Año">
+                                <label class="product-edit-label" for="precio">Precio</label>
+                                <input class="edit-area half" type="text" id="precio" name="precio" value="<%= prodToEdit.precio %>" placeholder="Precio">
+                                <label class="product-edit-label" for="stock">Stock</label>
+                                <input class="edit-area half" type="text" id="stock" name="stock" value="<%= prodToEdit.stock %>" placeholder="Stock">
+                                <label class="product-edit-label" for="resenia">Reseña</label>
+                                <textarea name="resenia" id="resenia" cols="30" rows="3"><%= prodToEdit.resenia %></textarea>
+                                <div class="detalles-libro">
+                                    <!-- <input type="text" name="editorial" id="editorial" value="<%= prodToEdit.editoriales[0].nombre %>" placeholder="Editorial"> -->
+                                    <label class="product-edit-label" for="editorial">Editorial</label>
+                                    <select class="product-edit" name="editorial" id="editorial" required>
+                                        <option value="" selected>- elegir editorial - </option>
+                                        <% editoriales.forEach(editorial => { %>
+                                        <option value="<%= editorial.id %>" 
+                                            <% if(editorial.id == prodToEdit.editoriales[0].id){ %> 
+                                                selected 
+                                            <%}%>><%= editorial.nombre %></option>
+                                        <% }); %>
+                                    </select>
+                                    <label class="product-edit-label" for="isbn">I.S.B.N.</label>
+                                    <input type="text" id="isbn" name="isbn" value="<%= prodToEdit.isbn %>">
+                                    <label class="product-edit-label" for="nroPaginas">Páginas</label>
+                                    <input type="text" id="nroPaginas" name="nroPaginas" value="<%= prodToEdit.nro_paginas %>">
+                                    <!-- <input type="text" id="idioma" name="idioma" value="<%= prodToEdit.idiomas.nombre %>"> -->
+                                    <label class="product-edit-label" for="idioma">Idioma</label>
+                                    <select  class="product-edit" name="idioma" id="idioma" required>
+                                        <option value="<%= prodToEdit.idiomas.nombre %>" selected>- elegir idioma - </option>
+                                        <% idiomas.forEach(idioma => { %>
+                                        <option value="<%= idioma.id %>" 
+                                            <% if(idioma.id == prodToEdit.idioma_id){ %> 
+                                                selected 
+                                            <%}%>><%= idioma.nombre %></option>
+                                        <% }); %>
+                                    </select>
+                                    <!-- <label class="product-edit-label" for="clasificacion">Clasificación</label>
+                                    <input type="text" id="clasificacion" name="clasificacion" value="<%= prodToEdit.generos[0].id %>" placeholder="Clasificación"> -->
+                                    <label class="product-edit-label" for="fechaPublicacion">Fecha de publicación</label>
+                                    <input type="text" id="fechaPublicacion" name="fechaPublicacion" value="<%= prodToEdit.fecha_publicacion %>">
+                                </div>
+                                <button type="submit" class="submit">Enviar</button>
+                                <button type="reset" class="reset">Borrar</button>
+                            </div>
+                        <!-- </div>                    -->
+                    </form>
+                </div>
+            </main>
+        <%- include('../partials/footer.ejs') %>
+        <script src="/js/validation-edit-front.js"></script>
+
+        </body>
+
+</html>

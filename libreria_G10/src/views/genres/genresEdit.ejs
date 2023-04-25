@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <div class="section-container">
+
+            <h3 class="titulo">Género Editado: <%= Genre.title %>
+            </h3>
+            <section class="formulario">
+                <form action="/genres/update/<%= Genre.id %>" method="POST">
+                    <label for="nombre">Nombre </label>
+                    <input type="text" name="nombre" id="" value="<%= Genre.nombre %>" required>
+                    
+                    <button class="botonAgregar" type="submit">Actualizar</button>
+                    <p> 
+                        <a class="botonVolver" href="/genres/list">Listado de Géneros</a>
+                    </p>
+                </form>
+            </section>
+        </div>
+    </body>
+
+</html>

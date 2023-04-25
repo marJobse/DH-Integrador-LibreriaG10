@@ -1,0 +1,34 @@
+<header class="header">
+
+
+    <div id="top-search">
+        <form action="/product/search" method="post">
+            <input id="busqueda" type="text" id="search" placeholder="Busqueda por título" name="busqueda">
+            <button id="busqueda-icono" type="submit"><i id="buscar" class="fa-solid fa-magnifying-glass"></i></button>
+
+            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/users/login"><i class="fa-solid fa-user-large"></i></a>
+        </form>
+
+    </div>
+    <div id="main-nav">
+        <div id="main-nav-menu">
+            <span class="menu-item"><a href="/">NOSOTROS</a></span>
+            <span class="menu-item"><a href="/product/list">PRODUCTOS</a></span>
+            <span class="menu-item-logo"><a href="/"><img id="logo" src="/images/logo.png"
+                        alt="spanbronspanne"></a></span>
+            <span class="menu-item"><a href="">CONTACTO</a></span>
+            <span class="menu-item"><a href="">ENVIOS</a></span>
+            <% if (locals.user) { %>
+                <div class="user-bienvenida">
+                    <h5 class="bienvenido">Hola <%= locals.user.nombre + ' ' + locals.user.apellido %>! </h5>
+                    <p id="user-id">
+                        <%= locals.user.id %>
+                    </p>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+    </div>
+</header>

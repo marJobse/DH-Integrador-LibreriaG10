@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/user-profile.css">
+</head>
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+
+            <div id="user-form">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="products-title">Esta seguro de querer eliminar la imagen del usuario: <%= user.email
+                                %> ?
+                        </h3>
+                    </div>
+                </div>
+                <div class="user-name-section">
+
+                    <form id="register-form-delete-imagen" action="/users/processDeleteImage/<%=user.id %>"
+                        method="POST" enctype="multipart/form-data">
+                        <div id="user-form">
+                            <div class="col-12 col-md-6 " hidden>
+                                <input type="text" id="imagen" name="imagen" value="/../public/images/sin_imagen.png"
+                                    class="form-input">
+                            </div>
+                            <div class="user-image-div">
+                                <img class="user-image-avatar" src="/images/users/<%= user.imagen %>" alt="">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit">Confirmar</button>
+                    </form>
+
+                </div>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

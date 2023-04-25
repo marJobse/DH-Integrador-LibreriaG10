@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <div class="section-container">
+            <h3>Estas seguro de querer borrar esta editorial : <%= editorial.nombre %>
+            </h3>
+            <section class="formulario">
+
+            <form action="/editorials/delete/<%= editorial.id %>" method="POST">
+                <br>
+                <button class="botonBorrar" type="submit">Borrar Editorial</button>
+                <p>
+                    <a class="botonVolver" href="/editorials/list">Listado de Editoriales</a>
+                </p>
+
+            </form>
+            </p>
+        </section>
+            </main>
+        </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>

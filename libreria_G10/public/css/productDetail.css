@@ -1,0 +1,192 @@
+.contenedor-libro-seleccionado {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    margin: auto;
+}
+
+.contenedor-detalles-libro-seleccionado {
+    width: 80%;
+}
+
+.contenedor-imagen-libro-seleccionado {
+    width: 100%;
+    max-width: 400px;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 1.5rem
+}
+
+/* .imagen-libro {
+    width: 100%
+} */
+
+.contenedor-cant-button {
+    display: flex;
+    width: 100%
+}
+
+.contenedor-cant-button span {
+    font-weight: bold;
+}
+
+.contenedor-cantidad {
+    width: 50%;
+    float: left;
+    text-align: left;
+    color: #FF0035;
+    align-self: center;
+}
+
+.contenedor-cantidad label {
+    float: left;
+    line-height: 28px;
+    margin: 0 10px 0 0;
+    font-weight: bold;
+}
+
+.contador input {
+    color: #FF0035;
+}
+
+.contador {
+    width: auto;
+    float: left;
+}
+
+.contador #modificador {
+    float: left;
+    width: 13px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+}
+
+.contador #qty {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0;
+    margin: 0 2px;
+    width: 28px !important;
+    box-shadow: 0 0 3px #DDDDDD inset;
+}
+
+.btn-cart {
+    width: 75%;
+    padding: .5rem;
+    font-weight: bold;
+    border-radius: 0;
+    text-align: center;
+}
+
+.agregar-carrito {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.resenia {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.overflow-ellipsis {
+    display: -webkit-box;
+    max-height: 150px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-style: italic;
+}
+
+.contentedor-otros-libros {
+    padding: 20px;
+}
+
+.contentedor-otros-libros-vistos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+}
+
+.contenedor-libros {
+    width: 40%;
+}
+
+.imagen-otros-libros {
+    height: 100%;
+    max-width: 79px;
+    max-height: 115px;
+}
+
+.precios {
+    font-size: 16px;
+    font-weight: bold;
+    color: #005099;
+}
+
+.autor-libro-seleccionado {
+    font-weight: bold;
+}
+
+.autor {
+    font-size: 14px;
+    color: #59546C;
+    font-weight: bold;
+}
+
+.titulo {
+    font-size: 14px;
+    color: #59546C;
+}
+
+.nombre-libro {
+    font-size: 2rem;
+    color: #005099;
+    margin-bottom: 0;
+}
+
+.precio-libro-seleccionado {
+    font-size: 22px;
+    font-weight: bold;
+    color: #005099;
+}
+
+
+
+h4.titulares {
+    padding: 10px;
+    color: #59546C;
+}
+
+@media (min-width: 769px) {
+    .contenedor-libro-seleccionado {
+        flex-direction: row;
+    }
+    .contenedor-detalles-libro-seleccionado {
+        width: 50%;
+    }
+
+    .imagen-libro {
+        width: 375px;
+    }
+
+    .contenedor-libros {
+        width: 20%;
+    }
+
+    .contentedor-otros-libros-vistos {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding: 10px;
+    }
+}

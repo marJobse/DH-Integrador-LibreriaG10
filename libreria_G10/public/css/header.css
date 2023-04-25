@@ -1,0 +1,171 @@
+.header {
+    background-color: #0e131f;
+    margin: 0px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#top-search {
+    width: 70%;
+    margin: 0px;
+    left: 30%;
+    align-self: center;
+    position: absolute;
+    z-index: 10;
+}
+
+#top-search form {
+    justify-content: flex-end;
+    margin: 0px;
+}
+
+#top-search i {
+    width: 1rem;
+    font-size: 1rem;
+    margin: .5rem;
+    color: white;
+    z-index: 10;
+    transition: color, .5s;
+}
+
+#busqueda-icono {
+    background-color: #0e131f;
+    border: none;
+
+}
+
+#top-search i:hover {
+    color: #91dfb9;
+}
+
+
+
+#busqueda {
+    width: 60%;
+    background-color: white;
+    color: #005099;
+    padding: .4rem;
+    border: solid 1px #0e131f;
+    transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
+}
+
+
+#main-nav {
+    width: 100%;
+    z-index: 0;
+}
+
+#main-nav-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0%;
+    position: relative;
+    z-index: 0;
+}
+
+.menu-item {
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    display: none;
+
+}
+
+.menu-item a {
+    color: white;
+    font-weight: 900;
+    top: .4rem;
+    text-decoration: none;
+}
+
+.menu-item a:hover {
+    color: #91dfb9;
+    font-weight: 900;
+    top: .4rem;
+    /* text-decoration: underline 2px white; */
+    border-bottom: solid 2px white;
+}
+
+.menu-item-logo {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#logo {
+    width: 100%;
+    margin: .2rem;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+span.menu-item:hover {
+    color: #91dfb9;
+}
+
+.user-bienvenida {
+    display: none;
+}
+
+#user-id {
+    display: none;
+}
+
+
+/* span.menu-item:hover:after {
+    background-color: #91dfb9;
+    bottom: 10;
+    content: '';
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: 50px;
+} */
+
+@media (min-width:600px) {
+    .menu-item {
+        display: block;
+    }
+
+    #top-search {
+        width: 50%;
+        margin: 0px;
+        padding: .5rem;
+        left: 50%;
+        align-self: flex-start;
+        position: absolute;
+        z-index: 10;
+    }
+
+    #busqueda {
+        opacity: 0%;
+        transition: background-color, 0.5s, border, 0.5s, opacity, 0.5s;
+    }
+
+    form:hover #busqueda {
+        opacity: 100%;
+    }
+
+    #busqueda:hover {
+        opacity: 100%;
+    }
+    .user-bienvenida {
+        display: block;
+        position: absolute;
+        margin: 0;
+    }
+    .bienvenido {
+        color: #91dfb9;
+        margin: 1rem;
+    }
+}

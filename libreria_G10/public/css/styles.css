@@ -1,0 +1,238 @@
+/* Estilos generales */
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2 {
+    font-weight: 900;
+    font-size: 3rem
+}
+
+h4 {
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+body {
+    margin: 0px;
+}
+
+input {
+    outline: none;
+}
+
+/* Home */
+
+.oferta img {
+    width: 100%;
+}
+
+main h2 {
+    margin-left: 5%;
+}
+
+.mas-vendidos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.mas-vendidos div {
+    margin-bottom: 50px;
+}
+
+.mas-vendidos button {
+    display: flex;
+    margin: auto;
+}
+
+
+.agregar-genero {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+
+}
+
+.botones_editar_borrar {
+    display: flex;
+}
+
+.boton_editar {
+    display: flex;
+    align-items: flex-start;
+}
+
+.boton_borrar {
+    display: flex;
+    align-items: flex-start;
+}
+
+.products-title {
+    margin: 5%;
+}
+
+/* Estilos de CRUD Relaciones */
+
+li.list-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-name {
+    width: fit-content;
+    padding: .1rem;
+}
+
+.relations-chart {
+    width: 80%;
+    margin: auto;
+
+}
+
+.table-header {
+    background-color: #005099;
+    padding: .3rem;
+
+}
+
+.list-name,
+.list-option {
+    color: white;
+    font-weight: 600;
+}
+
+.list-option a,
+.list-option-separator {
+    color: black;
+    text-decoration: none;
+
+}
+
+
+.list-option a:hover {
+    color: #005099;
+    text-decoration: underline 2px #91dfb9;
+    ;
+
+}
+
+.item-add a,
+.section-container p a,
+.regresar-a-creacion a {
+    width: 100%;
+    text-align: right;
+    color: #005099;
+    text-decoration: none;
+    font-weight: 500;
+    padding: .2rem;
+
+}
+
+.item-add a:hover,
+.section-container p a:hover,
+.regresar-a-creacion a:hover {
+    color: #005099;
+    text-decoration: underline 2px #91dfb9;
+    ;
+}
+
+.tabla-agregar {
+    width: 80%;
+    margin: auto;
+}
+
+.tabla-agregar section,
+.tabla-agregar section form p,
+.tabla-agregar section form input {
+    width: 100%;
+}
+
+.tabla-agregar section form label,
+.section-container .formulario label {
+    font-weight: 600;
+}
+
+
+.tabla-agregar section form input {
+    border: solid 1px #005099;
+    padding: .5rem
+}
+
+.section-container {
+    width: 80%;
+    margin: auto;
+}
+
+.section-container .formulario input {
+    border: solid 1px #005099;
+    padding: .5rem;
+    width: 100%;
+
+}
+
+.section-container .formulario button {
+    width: 50%;
+    padding: .5rem;
+    margin: 1rem auto;
+    background-color: #005099;
+    border: solid 1px #005099;
+    color: white;
+    transition: all .5s;
+    font-weight: 900;
+}
+
+.section-container .formulario p {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.text-danger {
+    color: red;
+    font-size: 12px
+}
+
+.regresar-a-creacion {
+    text-align: center;
+    margin: 1rem;
+}
+
+.errores {
+    margin: 0 auto 10px auto;
+    background-color: #ff0035;
+    color: white;
+    padding: 0.5rem;
+}
+
+.errores ul {
+    text-align: center;
+}
+
+.errores ul li {
+    list-style-type: none;
+}
+
+.is-invalid::placeholder {
+    color:#ff0035
+}
+
+#editorial.is-invalid, #autor.is-invalid, #clasificacion.is-invalid, #idioma_id.is-invalid {
+    color:#ff0035
+}

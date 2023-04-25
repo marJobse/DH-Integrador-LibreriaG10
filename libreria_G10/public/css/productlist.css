@@ -1,0 +1,265 @@
+#product-list {
+    width: 80%;
+    margin: auto;
+}
+
+#product-list-table { 
+    border-collapse: separate;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+#product-list-table th {
+    background-color: #005099;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    line-height: 2rem;
+
+}
+
+.content {
+    border: solid 1px #59546c;
+    font-weight: 400;
+    line-height: 1rem;
+    font-size: .8rem;
+}
+
+th.portada {
+    width: 100px;
+}
+img.portada {
+    width: 100%;
+}
+
+.stock, .precio {
+    width: 10%;
+    text-align: center;
+}
+
+.autor {
+    width: 15%;
+}
+
+.content:hover {
+    background-color: #3aaed822;
+}
+
+th.editar {
+    display: none;
+}
+
+td.editar {
+    display: none; 
+}
+
+.editar i {
+    color: #005099;
+    margin: auto .2rem;
+    font-size: 1.2rem;
+}
+
+.editar i:hover {
+    color: #3AAED8;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 80%;
+    margin: auto;
+    position: relative;
+
+}
+
+#filtro  {
+    line-height: 2rem;
+    width: 100%;
+    background-color: white;
+    border: solid 2px #005099;
+    color: #005099;
+}
+
+#search-form #buscar {
+    position: absolute;
+    justify-self: flex-start;
+    right: 1rem;
+    color: #005099;
+}
+
+.search-button {
+    position: absolute;
+    justify-self: flex-start;
+    right: 0;
+    padding: .5rem;
+}
+
+.tabla-editar-productos.encabezado{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 90%;
+    margin: 1rem auto;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.tabla-editar-productos.fila{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 1rem 0;
+    border: solid 1px #3AAED8;
+    padding: .5rem;
+}
+
+.fila .col-1 img {
+    width: 50px;
+    align-self: center;
+    margin: auto 0;
+}
+
+.fila .col-1 .portada {
+    display: flex;    
+    margin: auto 0;
+    height: 100%;
+    align-items: center;
+}
+
+
+.fila .col-3 {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.fila .col-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: .5rem;
+}
+
+.col-2 .titulo {
+    width: 100%;
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.col-2 .autor {
+    width: 100%;
+    font-weight: 400;
+    font-size: .8rem;
+}
+
+.col-2 .info {
+    width: 100%;
+    font-weight: 400;
+    font-size: .7rem;
+}
+
+.encabezado .titulo, .encabezado .editar, .titulo a, .list-name a {
+    font-weight: 700;
+    color: #005099;
+    text-decoration: none;
+}
+
+.titulo a:hover, .list-name a:hover {
+    text-decoration: underline #91dfb9 2px;
+}
+
+main {
+    position: relative;
+}
+
+.product-create, .product-admin {
+    inset: auto 60px 50% auto;
+    position: fixed;
+}
+
+.fa-circle-plus, .fa-pen {
+    color: #91dfb9;
+    width: 35px;
+    font-size: 3rem;
+}
+
+@media (min-width: 950px) {
+    #product-list-table th {
+        font-weight: 700;
+        line-height: 3rem;
+    
+    }
+    .content {
+        font-weight: 500;
+        line-height: 3rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    th.editar {
+        display: table-cell;
+        width: 10%;
+        text-align: center;
+    }
+    
+    td.editar {
+        display: block; 
+        text-align: center;
+        
+    } 
+}
+
+
+/* Estilos de nuevo product edit */
+
+#product-edit-form {
+    align-items: flex-start;
+}
+
+.edit-form-top {
+    width: 100%;
+}
+
+.edit-form-lower-left, .edit-form-lower-right {
+    width: 45%;
+    text-align: center;
+}
+
+
+.edit-form-lower-left img {
+    width: 95%;
+}
+
+.edit-form-lower-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.edit-area.half {
+    width: 45%;
+}
+
+#resenia {
+    border: solid 1px #005099;
+    margin: .5rem;
+    background-color: white;
+    line-height: 2;
+    color: #005099;
+    padding: .5rem;
+    width: 100%;
+}
+
+.detalles-libro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

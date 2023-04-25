@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+
+            <main class="tabla-agregar">
+                <h3 class="titulo">Agregar Autor</h3>
+                <div>
+                    <section class="formulario">
+                        <form action="/authors/add" method="POST">
+                            <label for="nombre">Nombre </label>
+                            <p><input type="nombre" name="nombre" id="" required></p>
+                            <label for="apellido">Apellido </label>
+                            <p><input type="apellido" name="apellido" id="" required></p>
+                            <button type="submit" class="btn-relaciones">Agregar</button>
+                        </form>
+                    </section>
+                </div>
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

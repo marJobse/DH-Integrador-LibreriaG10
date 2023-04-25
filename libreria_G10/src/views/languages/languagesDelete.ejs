@@ -1,0 +1,23 @@
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <div class="section-container">
+            <h3>Estas seguro de querer borrar este idioma : <%= language.nombre %>
+            </h3>
+            <section class="formulario">
+
+            <form action="/languages/delete/<%= language.id %>" method="POST">
+                <br>
+                <button class="botonBorrar" type="submit">Borrar Idioma</button>
+                <p>
+                    <a class="botonVolver" href="/languages/list">Listado de Idiomas</a>
+                </p>
+
+            </form>
+        </section>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>

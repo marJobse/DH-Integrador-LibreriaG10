@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <div class="relations-chart">
+                <h3>Listado de Idiomas</h3>
+                <ul>
+                    <div>
+                        <li class="list-item item-add">
+                            <a href="/languages/add">Agregar idioma (+)</a>
+                        </li>
+                        <li class="list-item table-header">
+                            <div class="list-name">
+                                Idioma
+                            </div>
+                            <div class="list-option">
+                                Opciones
+                            </div>
+                        </li>
+                    </div>
+                    <% for( let i=0; i < languages.length; i++ ) { %>
+                        <div class="botones_editar_borrar">
+                            <li class="list-item">
+                                <div class="list-name">
+                                    <a>
+                                        <%= languages[i].nombre %>
+                                    </a>
+                                </div>
+                                <div class="list-option">
+                                    <a href="/languages/edit/<%= languages[i].id %>">Editar</a>
+                                    <span class="list-option-separator"> | </span>
+                                    <a href="/languages/delete/<%= languages[i].id %>">Borrar</a>
+                                </div>
+                            </li>
+
+                        </div>
+                        <% } %>
+
+
+                </ul>
+                <div class="regresar-a-creacion">
+                    <a href="/product/create">Ir a Crear Libro (+)</a>
+                </div>
+            </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>

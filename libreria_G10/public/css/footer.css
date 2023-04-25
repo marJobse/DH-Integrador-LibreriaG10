@@ -1,0 +1,169 @@
+* {
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 400;
+}
+
+footer {
+    background-color: #0e131f;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.small-footer {
+    width: 40%;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.small-footer ul li, .small-footer a {
+    list-style-type: none;
+    font-weight: 600;
+    line-height: 2;
+    color: white;
+    text-decoration: none;
+    border-bottom: solid 2px #0e131f;
+
+}
+
+.small-footer ul li:hover, .small-footer a:hover {
+    color: #91dfb9;
+    border-bottom: solid 2px white;
+}
+
+
+.small-footer-spacer {
+    width: 10%;
+}
+
+.big-footer {
+    width: 100%;
+    justify-self: flex-end;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+@media (min-width: 950px){
+    .small-footer {
+        width: 25%;
+    }
+    .big-footer {
+        width: 40%;
+    }
+}
+
+
+#suscribite {
+    width: 80%;
+    display: flex;
+}
+
+#suscribite input {
+    /* align-items: flex-start; */
+    margin-top: 1rem;
+    background-color: white;
+    border: solid 2px #91dfb9;
+    transition: border, .5s, color, 0.5s;
+    line-height: 2.5;
+
+
+}
+
+#suscribite input[type="email"]{
+    width: 100%;
+    padding-left: 10px;
+}
+
+#suscribite input[type="button"]{
+    width: 30%;
+    background-color: #91dfb9;
+    color: white;
+    transition: background-color, .5s, color, 0.5s;
+}
+
+#suscribite input[type="button"]:hover {
+    background-color: white;
+    color: #91dfb9;
+}
+
+#suscribite input[type="button"]:active {
+    background-color: #91dfb9;
+    color: white;
+}
+
+#footer-social-label {
+    font-size: 1.5rem;
+    text-align: left;
+    margin: .5rem 0rem;
+    color: white;
+}
+h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: .5rem;
+    margin-top: 0rem;
+
+}
+
+
+.copyright {
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: .5rem;
+    position: relative;
+    margin-left: .5rem;
+}
+
+/* #copyright {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+*/
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+.footer-social a {
+    color: #0e131f;
+    transition: color, .5s;
+}
+
+/* Style all font awesome icons */
+.fa-brands {
+    padding: .5rem;
+    font-size: 1rem;
+    width: 2rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: .5rem;
+    transition: background-color, .5s;
+  }
+
+  /* Add a hover effect if you want */
+  .fa-brands:hover {
+    background-color: #91dfb9;
+    color: white;
+  }
+  /* Set a specific color for each brand */

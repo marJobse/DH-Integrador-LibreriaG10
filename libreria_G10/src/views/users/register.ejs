@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/registerForm.css">
+</head>
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <% if (typeof errors !='undefined' ) { %>
+                <div class="errores">
+                    <ul>
+                        <% for (let i=0; i< errors.length;i++){%>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+                            <%} %>
+                    </ul>
+                </div>
+                <% } %>
+                    <div id="user-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="products-title">Crea tu cuenta</h3>
+                            </div>
+                        </div>
+
+                        <form class="form-register" id="register-form" action="/users/" method="POST"
+                            enctype="multipart/form-data">
+                            <div id="user-form">
+                                <div class="col-12 col-md-6">
+                                    <label for="nombre">Nombre:</label>
+                                    <input autofocus type="text" id="nombre" name="nombre" class="form-input-nombre">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="apellido">Apellido:</label>
+                                    <input type="text" id="apellido" name="apellido" class="form-input-apellido">
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="domicilio">Domicilio:</label>
+                                    <input type="text" id="domicilio" name="domicilio" class="form-input-domicilio">
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="telefono">Telefono:</label>
+                                    <input type="text" id="telefono" name="telefono" class="form-input-telefono">
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" class="form-input-email">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="seleccionar-imagen" for="imagen">Imagen:</label>
+                                    <input class="seleccionar-imagen" type="file" id="imagen" name="imagen">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="password">Contraseña:</label>
+                                    <input type="password" id="password" name="password" placeholder="Contraseña"
+                                        class="form-input-password">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="password2">Confirmar contraseña:</label>
+                                    <input type="password" id="password2" name="password2" placeholder="Contraseña"
+                                        class="form-input-confirmar-password">
+                                </div>
+
+
+                                <div class="col-12 register-button-bar">
+                                    <button type="submit" class="submit">Registrarse</button>
+                                    <button type="reset" class="reset">Borrar</button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <% - include('../partials/footer.ejs') %>
+                        <script src="/js/validation-register-front.js">
+                        </script>
+
+    </body>
+
+</html>
